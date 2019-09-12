@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jrc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jrcpl.us
+  * I am jrc (https://keybase.io/jrc) on keybase.
+  * I have a public key ASBhw51SskasXa_HXW2dSV_QhBxEbjMz-wB2gMjUcbB6vQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101ba12d722bcac1c4111d08935ad4737f9c8005a7c60cb4365f143d37b827b6df90a",
+      "host": "keybase.io",
+      "kid": "012061c39d52b246ac5dafc75d6d9d495fd0841c446e3333fb007680c8d471b07abd0a",
+      "uid": "aa84fe730885fe3e11081d4faae52e19",
+      "username": "jrc"
+    },
+    "merkle_root": {
+      "ctime": 1568286472,
+      "hash": "c0c9041d2d3cdb82b2485022cf4a8c1f3a5f8a5107fa47ab1f8f7cabfaf7c7903f2e2b755b5e7058f10c525a9a00ef04f155333da62cce4337b15a901997be72",
+      "hash_meta": "bc709994388e5ce25c582f09d6c59fabc12b03e31cf9cbed45a28dc6a73296be",
+      "seqno": 6952553
+    },
+    "service": {
+      "entropy": "KIvvVLSxMq8HE5N9KAvrE+dT",
+      "hostname": "jrcpl.us",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.4.1"
+  },
+  "ctime": 1568286475,
+  "expire_in": 504576000,
+  "prev": "5af62d05a20fce75ea3481121626bc776a82c25df1f20ae4896af083c7b2d49a",
+  "seqno": 47,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgYcOdUrJGrF2vx11tnUlf0IQcRG4zM/sAdoDI1HGwer0Kp3BheWxvYWTESpcCL8QgWvYtBaIPznXqNIESFia8d2qCwl3x8grkiWrwg8ey1JrEIBYgF4oEuQ0hCCltSyV8FZRHfCcStxy1cpV5sRLJHkZFAgHCo3NpZ8RAq1f9wNs9DmX78+usB4Dh5Wao0DELVYmrO+5shtpoY/dc3fUmwC6BF+XyriBbDC2RXZNLEJT2oc+9+YxHFq9CCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMPWQf3UksGwdIbh9dWd6Wt1xn8/qbyFlQSR4oKNLbelo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jrc
+
+==================================================================
