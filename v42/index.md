@@ -58,14 +58,14 @@ Use the apps
 
 ### Cafés ☕️
 
-* **Pastelaria Versailles** (historic café) 280 m [[map]](https://goo.gl/maps/cwzKTkP8zyT9Nn5G9)
+* **Pastelaria Belinha** (café & snack bar) 20 m [[map]](https://goo.gl/maps/UwotrkQATLttBP536)
+* **Pastelaria Versailles** (grand historic pastry shop) 280 m [[map]](https://goo.gl/maps/cwzKTkP8zyT9Nn5G9)
 * **Bubble Lab** (Taiwanese bubble tea) 280 m [[map]](https://goo.gl/maps/Ju7eCriKTFK9EvvB6)
 * **Simpli** (coffee roastery and bakery) 350 m [[map]](https://goo.gl/maps/v5nrvfsxSCpAVRWw8)
 * **Pão com Calma** (German bakery) 500 m [[map]](https://goo.gl/maps/z4TCxrsXg57qdgLM7)
-* **Milkees** (two-guy shop with coffee from Olisipo roastery) 900 m [[map]](https://goo.gl/maps/Ti2SDfZUrXPtujVM9)
+* **Milkees** (two-guy shop with specialty coffee) 900 m [[map]](https://goo.gl/maps/Ti2SDfZUrXPtujVM9)
 * **Manifest** (hipster brunch & cocktails) 1.1 km [[map]](https://g.page/manifestlisbon?share)
 * **Garden of the Calouste Gulbenkian Foundation** (urban garden with café and restaurant) 1.2 km [[map]](https://goo.gl/maps/TzdXcZvzLxkbx6588)
-* **Linha d'Água** (café with view of the city) 1.3 km [[map]](https://g.page/linhadagua?share)
 
 
 ### Restaurants 🍽
@@ -75,11 +75,11 @@ Use the apps
 * **Mãe Restaurante** (modern Portuguese) [[map]](https://goo.gl/maps/Hx3i8ccZo6gTbsBj8)
 * **Paladar Zen** (vegan buffet) [[map]](https://goo.gl/maps/96JHYrDEQHYb71cD6)
 * **Hare Krishna** (vegan buffet) [[map]](https://goo.gl/maps/LYzVNQm12AeMHQh8A)
-* **Italy** (top pasta) [[map]](https://goo.gl/maps/U7tVzWWbJGruG6yDA)
+* **Italy** (good pasta) [[map]](https://goo.gl/maps/U7tVzWWbJGruG6yDA)
 * **Madpizza** (healthy pizza) [[map]](https://goo.gl/maps/TQVw9Q3UwTn7fGEv7)
 * **Kuwazi** (Chinese, popular with Chinese students) [[map]](https://goo.gl/maps/2bmJ4yyAvawNEa6S9)
 
-Alternatively, eat at home using the meal delivery apps **Uber Eats** (share code [`eats-uberjrcplus`](http://ubr.to/EatsGiveGet)) and **Glovo** (share code [`WJSWG1Q`](https://link.glovoapp.com/promo?c=WJSWG1Q&link_type=mgm_promo)).
+Alternatively: eat at home using the meal delivery apps **Uber Eats** (share code [`eats-uberjrcplus`](http://ubr.to/EatsGiveGet)) and **Glovo** (share code [`WJSWG1Q`](https://link.glovoapp.com/promo?c=WJSWG1Q&link_type=mgm_promo)).
 
 
 ### Groceries 🛒
