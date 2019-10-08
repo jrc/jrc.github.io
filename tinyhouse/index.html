@@ -27,19 +27,19 @@
     <![endif]-->
     <style TYPE="text/css">
         <!-- input[type='range'] {
-            -webkit-appearance: none;
-            height: 44px;
-            padding: 3px;
-            border: 1px solid;
+        -webkit-appearance: none;
+        height: 44px;
+        border: 1px solid;
+        border-radius: 5px;
         }
 
         input[type='range']::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border: 1px solid;
+            border-radius: 5px;
         }
-
         -->
     </style>
 </head>
@@ -67,7 +67,9 @@
             <div class="panel-body">
                 <form method="POST" action="https://api.particle.io/v1/devices/54ff6e066678574936530467/setTgtTemp">
                     <p><input type="hidden" id="setTgtTempFormAccessToken" name="access_token" value="">
-                        <input id="targetTempSlider" type="range" name="params" min="0" max="25" step="0.5" value="0" oninput="document.getElementById('targetTemp').innerText = document.getElementById('targetTempSlider').value"> <span id="targetTempSliderLabel"><span id="targetTemp">--</span>&#x2009;&#x2103;</span>
+                        <input id="targetTempSlider" type="range" name="params" min="0" max="25" step="1" value="0"
+                            oninput="document.getElementById('targetTemp').innerText = document.getElementById('targetTempSlider').value">
+                        <span id="targetTempSliderLabel"><span id="targetTemp">--</span>&#x2009;&#x2103;</span>
                     </p>
                     <p><input type="submit" value="Set Temperature" class="btn btn-lg btn-default"></p>
                 </form>
@@ -118,7 +120,7 @@
                 var xmlHttp = new XMLHttpRequest();
                 var url = "https://api.particle.io/v1/devices/54ff6e066678574936530467/state?access_token=" + getQueryVariable("access_token")
                 xmlHttp.open("GET", url, true);
-                xmlHttp.onreadystatechange = function() {
+                xmlHttp.onreadystatechange = function () {
                     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                         var response = JSON.parse(xmlHttp.responseText);
                         var result = JSON.parse(response.result);
