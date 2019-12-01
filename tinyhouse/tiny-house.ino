@@ -5,7 +5,7 @@
 int s_current_mode = -1; // 0=OFF, 1=ON, -1=UNKNOWN
 int s_target_mode = -1; // 0=OFF, 1=ON, -1=AUTO
 double s_current_temp = 0.0;
-double s_target_temp = 18.0;
+double s_target_temp = 16;
 double s_last_temp = -999.0;
 double s_last_switch_millis = 0;
 
@@ -19,16 +19,11 @@ char s_state[255] = "";
 
 // This routine runs only once upon reset
 void setup() {
-    // take control of the RGB LED
-    RGB.control(true);
-    // Scale the RGB LED brightness to 25%
-    RGB.brightness(0);
-    
     // Currently the application supports the creation of up to 4 different Particle functions; The length of the funcKey is limited to a max of 12 characters
     // curl -G https://api.particle.io/v1/devices/54ff6e066678574936530467/switch -d access_token=ACCESS_TOKEN -d params=ON
     Particle.function("switch", doSwitchFunction);
-    Particle.function("setTgtTemp", setTargetTempFunction);
-    Particle.function("setTgtMode", setTargetModeFunction);
+    Particle.function("setTgtTemp", setTgtTempFunction);
+    Particle.function("setTgtMode", setTgtModeFunction);
 
     // Currently, up to 10 Particle variables may be defined and each variable name is limited to a max of 12 characters
     // curl https://api.particle.io/v1/devices/54ff6e066678574936530467/currentTemp?access_token=ACCESS_TOKEN
@@ -38,7 +33,6 @@ void setup() {
     Particle.variable("targetTemp", s_target_temp);
     Particle.variable("state", s_state);
 
-
     // Connect the temperature sensor to A7 and configure it to be an input
     pinMode(A7, INPUT);
 
@@ -47,6 +41,11 @@ void setup() {
 
     digitalWrite(NEXA_PUSH_ON, LOW);
     digitalWrite(NEXA_PUSH_OFF, LOW);
+
+    // take control of the RGB LED
+    RGB.control(true);
+    // Scale the RGB LED brightness to 25%
+    RGB.brightness(0);    
 }
 
 
@@ -73,25 +72,28 @@ int doSwitchFunction(String command)
 }
 
 
-int setTargetTempFunction(String command)
+int setTgtTempFunction(String value)
 {
-    Particle.publish("setTargetTempFunction", command, 60, PRIVATE);
+    Particle.publish("setTgtTemp", value, PRIVATE);
 
-    double x = command.toFloat();
+    double x = value.toFloat();
+    if (x < 5) {
+        x = 5;
+    }
     s_target_temp = x;
 
     return 1;
 }
 
-int setTargetModeFunction(String command)
+int setTgtModeFunction(String value)
 {
-    Particle.publish("setTargetModeFunction", command, 60, PRIVATE);
+    Particle.publish("setTgtMode", value, PRIVATE);
 
-    if (! (command == "0" || command == "1" || command == "-1")) {
+    if (! (value == "0" || value == "1" || value == "-1")) {
         return 0;
     }
     
-    int x = command.toInt();
+    int x = value.toInt();
     s_target_mode = x;
 
     return 1;
