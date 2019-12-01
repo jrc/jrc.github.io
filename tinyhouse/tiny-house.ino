@@ -77,9 +77,6 @@ int setTgtTempFunction(String value)
     Particle.publish("setTgtTemp", value, PRIVATE);
 
     double x = value.toFloat();
-    if (x < 5) {
-        x = 5;
-    }
     s_target_temp = x;
 
     return 1;

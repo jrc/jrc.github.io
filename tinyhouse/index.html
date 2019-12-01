@@ -67,7 +67,7 @@
             <div class="panel-body">
                 <form method="POST" action="https://api.particle.io/v1/devices/54ff6e066678574936530467/setTgtTemp">
                     <p><input type="hidden" id="setTgtTempFormAccessToken" name="access_token" value="">
-                        <input id="targetTempSlider" type="range" name="params" min="0" max="25" step="1" value="0"
+                        <input id="targetTempSlider" type="range" name="params" min="5" max="25" step="1" value="0"
                             oninput="document.getElementById('targetTemp').innerText = document.getElementById('targetTempSlider').value">
                         <span id="targetTempSliderLabel"><span id="targetTemp">--</span>&#x2009;&#x2103;</span>
                     </p>
