@@ -77,6 +77,9 @@ int setTgtTempFunction(String value)
     Particle.publish("setTgtTemp", value, PRIVATE);
 
     double x = value.toFloat();
+    if (x < 5) {
+        x = 5;
+    }
     s_target_temp = x;
 
     return 1;
@@ -110,6 +113,21 @@ double readTemperature()
 }
 
 
+#define PUBLISH_DELAY 60*1000
+
+unsigned long s_last_published_millis = 0;
+
+void publishTemperature()
+{
+    unsigned long now = millis();
+    if ((now - s_last_published_millis) < PUBLISH_DELAY) {
+        // it hasn't been 60 seconds yet...
+        return;
+    }
+    Spark.publish("temperature", String(s_current_temp), PRIVATE);
+    s_last_published_millis = now;
+}
+
 // This routine gets called repeatedly, like once every 5-15 milliseconds.
 // Particle firmware interleaves background CPU activity associated with WiFi + Cloud activity with your code. 
 // Make sure none of your code delays or blocks for too long (like more than 5 seconds), or weird things can happen.
@@ -130,7 +148,7 @@ void loop() {
 
     s_last_temp = s_current_temp;
 
-    // publishTemperature();
+    publishTemperature();
 
     if (s_target_mode == -1) {
         if (s_current_temp >= (s_target_temp+TEMP_MARGIN)) { // too hot
