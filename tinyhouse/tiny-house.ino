@@ -5,7 +5,7 @@
 int s_current_mode = -1; // 0=OFF, 1=ON, -1=UNKNOWN
 int s_target_mode = -1; // 0=OFF, 1=ON, -1=AUTO
 double s_current_temp = 0.0;
-double s_target_temp = 16;
+double s_target_temp = 7;
 double s_last_temp = -999.0;
 double s_last_switch_millis = 0;
 
