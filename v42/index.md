@@ -77,6 +77,7 @@ Use the apps
 * **Hare Krishna** (vegan buffet) [[map]](https://goo.gl/maps/LYzVNQm12AeMHQh8A)
 * **Italy** (good pasta) [[map]](https://goo.gl/maps/U7tVzWWbJGruG6yDA)
 * **Madpizza** (healthy pizza) [[map]](https://goo.gl/maps/TQVw9Q3UwTn7fGEv7)
+* **Arigato** (sushi buffet) [[map]](https://g.page/arigato-sushi-campo-pequeno?share)
 * **Kuwazi** (Chinese, popular with Chinese students) [[map]](https://goo.gl/maps/2bmJ4yyAvawNEa6S9)
 
 Alternatively: eat at home using the meal delivery apps **Uber Eats** (share code [`eats-uberjrcplus`](http://ubr.to/EatsGiveGet)) and **Glovo** (share code [`WJSWG1Q`](https://link.glovoapp.com/promo?c=WJSWG1Q&link_type=mgm_promo)).
@@ -117,9 +118,8 @@ Alternatively: eat at home using the meal delivery apps **Uber Eats** (share cod
 * **Pastéis de Belém** (Portuguese egg tarts) [[map]](https://goo.gl/maps/fn5AMbk28GmBEJzKA) - also good: **Manteigaria** [[map]](https://goo.gl/maps/RXkjSpcgxQ7QnCR5A)
 * **Cervejaria Ramiro** (shellfish)
 * **Frangasqueira Nacional** (Portuguese grilled chicken) [[map]](https://goo.gl/maps/tJxPLTyBPbdme3ox5)
-* **Arigato** (sushi buffet) [[map]](https://g.page/arigato-sushi-parque-das-nacoes?share)
-* **Quanjude** (Peking duck) [[map]](https://goo.gl/maps/wdNmLRMYu63JqicA7)
 * **PARK Bar** (cocktail lounge on top of a parking garage) [[map]](https://goo.gl/maps/zkGv1B45RYxRZiVZ9)
+* **Quanjude** (Peking duck) [[map]](https://goo.gl/maps/wdNmLRMYu63JqicA7)
 
 
 ### Beaches 🏖
