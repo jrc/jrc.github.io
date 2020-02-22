@@ -108,8 +108,9 @@ Alternatively: eat at home using the meal delivery apps **Uber Eats** (share cod
 ### General guides and recommendations ⭐️
 
 * [**Atlas Lisboa**](https://www.atlaslisboa.com/) - including [Lisbon Culture on the Cheap: Museums](https://www.atlaslisboa.com/museum-discounts/) and [Eight Great Playground Escapes in Lisbon](https://www.atlaslisboa.com/playgrounds/)
-* [**Foursquare**](https://foursquare.com/explore?mode=url&near=Lisbon%2C%20Portugal) - including ["Best Places"](https://foursquare.com/top-places/lisbon/) lists
 * [**Portugalist**](https://www.portugalist.com/) - including [Food & Drink](https://www.portugalist.com/food-drink/) guides
+* [**Foursquare**](https://foursquare.com/explore?mode=url&near=Lisbon%2C%20Portugal) - including ["Best Places"](https://foursquare.com/top-places/lisbon/) lists
+* [**TimeOut**](https://www.timeout.com/coolest-neighbourhoods-in-the-world) - "the multicultural Lisbon parish of Arroios is the world’s coolest neighbourhood right now"
 
 
 ### Don't miss 🍴
@@ -119,7 +120,6 @@ Alternatively: eat at home using the meal delivery apps **Uber Eats** (share cod
 * **Cervejaria Ramiro** (shellfish)
 * **Frangasqueira Nacional** (Portuguese grilled chicken) [[map]](https://goo.gl/maps/tJxPLTyBPbdme3ox5)
 * **PARK Bar** (cocktail lounge on top of a parking garage) [[map]](https://goo.gl/maps/zkGv1B45RYxRZiVZ9)
-* **Quanjude** (Peking duck) [[map]](https://goo.gl/maps/wdNmLRMYu63JqicA7)
 
 
 ### Beaches 🏖
