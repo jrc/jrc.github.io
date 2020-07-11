@@ -124,7 +124,7 @@ void publishTemperature()
         // it hasn't been 60 seconds yet...
         return;
     }
-    Spark.publish("temperature", String(s_current_temp), PRIVATE);
+    Particle.publish("temperature", String(s_current_temp), PRIVATE);
     s_last_published_millis = now;
 }
 
