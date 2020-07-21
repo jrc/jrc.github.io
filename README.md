@@ -9,16 +9,17 @@
 
 ## Issues I Care About
 
-* [Right to repair](https://repair.eu/)
-* Public transit, including [international train travel](https://back-on-track.eu/)
-* Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
-* [Democractic systems](https://simonandschusterpublishing.com/why-were-polarized/), particularly US and EU
 * [Climate change](https://350.org/), particularly [adaptation](https://www.collapselabs.org/)
+* Food system resilience
+* [Democractic systems](https://simonandschusterpublishing.com/why-were-polarized/), particularly US and EU
+* Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
+* Public transit, including [international train travel](https://back-on-track.eu/)
+* [Right to repair](https://repair.eu/)
 
 ## Ideas I Like
 
-* Natural Language Processing (NLP) applied to cooking recipes and legal texts
-* Authoring tools (aka low-code), including HyperCard
+* Gardening/horticulture, low-tech (peramculture) and high-tech (hydroponics, controlled-environment agriculture, vertical farming)
+* Natural Language Processing (NLP) applied to cooking recipes
+* Intelligence augmentation
+* Authoring tools like HyperCard
 * Community currencies
-* Gardening/horticulture, including hydroponics and urban farming
-* Cooking/eating
