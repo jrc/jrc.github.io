@@ -29,4 +29,4 @@
 
 ### Why the "plus"?
 
-When I was an undergraduate student at [CMU](https://www.cmu.edu/), the email systems supported fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html), so even though my Andrew username was `jrc`, you could email e.g. `john@andrew.cmu.edu` and it would try to deliver that (and fail if it were ambigious). If you appended a plus sign (`+`), the system would do an exact match instead of a fuzzy match, so in practice my email address was `jrc+@andrew.cmu.edu`. (Note: that is no longer my email address.)
+When I was an undergraduate student at [CMU](https://www.cmu.edu/), the email systems supported fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html), so even though my Andrew username was `jrc`, you could email e.g. `john@andrew.cmu.edu` and it would try to deliver that (if unambigious). If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match, so in practice my email address was `jrc+@andrew.cmu.edu`. (Note: that is no longer my email address.)
