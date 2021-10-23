@@ -11,16 +11,15 @@
 
 * [Climate change](https://350.org/), particularly [adaptation](https://www.collapselabs.org/)
 * Food system resilience
-* [Democractic systems](https://simonandschusterpublishing.com/why-were-polarized/), particularly US and EU
-* Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
 * Public transit, including [international train travel](https://back-on-track.eu/)
 * [Right to repair](https://repair.eu/)
+* Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
 
 ## Ideas I Like
 
-* Gardening/horticulture, low-tech (peramculture) and high-tech (hydroponics, controlled-environment agriculture, vertical farming)
+* Gardening/horticulture, low-tech (permaculture) and high-tech (hydroponics, controlled-environment agriculture, vertical farming)
 * Natural Language Processing (NLP) applied to cooking recipes
-* Intelligence augmentation
+* [Intelligence augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart)
 * Authoring tools like HyperCard
 * Community currencies
 
@@ -29,4 +28,4 @@
 
 ### Why the "plus"?
 
-When I was an undergraduate student at [CMU](https://www.cmu.edu/), the email systems supported fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html), so even though my Andrew username was `jrc`, you could email e.g. `john@andrew.cmu.edu` and it would try to deliver that (if unambigious). If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match, so in practice my email address was `jrc+@andrew.cmu.edu`. (Note: that is no longer my email address.)
+When I was at [CMU](https://www.cmu.edu/), the email systems supported fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html), so you could email e.g. `bovik@andrew.cmu.edu` and it would try to deliver that (if unambigious). If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match, so in practice your email address was actually `bovik+@andrew.cmu.edu`.
