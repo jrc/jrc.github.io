@@ -17,15 +17,14 @@
 
 ## Ideas I Like
 
-* Gardening/horticulture, low-tech (permaculture) and high-tech (hydroponics, controlled-environment agriculture, vertical farming)
+* Gardening/horticulture, both low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
 * Natural Language Processing (NLP) applied to cooking recipes
 * [Intelligence augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart)
-* Authoring tools like HyperCard
-* Community currencies
+* End-user programming, "authoring tools" e.g. HyperCard
 
 
 ## FAQ
 
 ### Why the "plus"?
 
-When I was at [CMU](https://www.cmu.edu/), the email systems supported fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html), so you could email e.g. `harry.bovik@andrew.cmu.edu` and it would try to deliver that (if unambigious). If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match, so in practice your email address was always `username+@andrew.cmu.edu`.
+When I was at [CMU](https://www.cmu.edu/), the email system did fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html) by default, so you could write a full name e.g. `harry.bovik@andrew.cmu.edu` and it would try to deliver it to the right mailbox. If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match. In practice your email address was `username+@andrew.cmu.edu`.
