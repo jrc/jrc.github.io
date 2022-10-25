@@ -74,7 +74,6 @@ Use the apps
 * **Galeto** (1960s-style Portuguese) [[map]](https://goo.gl/maps/MNfN2bP11wedcLKz5)
 * **Mãe Restaurante** (modern Portuguese) [[map]](https://goo.gl/maps/Hx3i8ccZo6gTbsBj8)
 * **Paladar Zen** (vegan buffet) [[map]](https://goo.gl/maps/96JHYrDEQHYb71cD6)
-* **Hare Krishna** (vegan buffet) [[map]](https://goo.gl/maps/LYzVNQm12AeMHQh8A)
 * **Italy** (good pasta) [[map]](https://goo.gl/maps/U7tVzWWbJGruG6yDA)
 * **Madpizza** (healthy pizza) [[map]](https://goo.gl/maps/TQVw9Q3UwTn7fGEv7)
 * **Arigato** (sushi buffet) [[map]](https://g.page/arigato-sushi-campo-pequeno?share)
@@ -99,6 +98,7 @@ Alternatively: eat at home using the meal delivery apps **Uber Eats** (share cod
 
 ### Gyms
 
+* **1Fight** [[map]](https://g.page/1FightPT?share)
 * **Fitness Park** [[map]](https://goo.gl/maps/NTNPQgk3T3VEUncn8)
 * **Holmes Place** [[map]](https://g.page/holmes-place-defensores-chaves?share)
 
