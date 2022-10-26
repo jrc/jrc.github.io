@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cost</title>
+    <style>
+        .elapsedCost {
+            font-size: 10vw;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            data() {
+                return {
+                    intervalID: null,
+                    startDate: null,
+                    employeeCount: 5,
+                    employeeSalary: 50000,
+                    currencyCode: "SEK",
+                    elapsedCost: 0
+                }
+            },
+            methods: {
+                resetTimer() {
+                    this.startDate = Date.now();
+                    this.elapsedCost = 0;
+                },
+                toggleTimer() {
+                    if (this.intervalID) {
+                        clearTimeout(this.intervalID);
+
+                        this.startDate = null;
+                        this.intervalID = null;
+                    }
+                    else {
+                        this.resetTimer();
+
+                        this.intervalID = setInterval(() => {
+                            const elapsed = Date.now() - this.startDate;
+                            const costPerSecond = this.employeeCount * this.employeeSalary / (365 / 12 * 24 * 60 * 60);
+                            this.elapsedCost = (elapsed / 1000) * costPerSecond;
+                        }, 1000);
+                    }
+                },
+                stopTimer() {
+                },
+                getElapsedCostString() {
+                    try {
+                        const currencyFormat = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: this.currencyCode });
+                        return currencyFormat.format(this.elapsedCost);
+                    }
+                    catch (err) {
+                        if (!err.name) {
+                            console.error(err);
+                        }
+                        return "";
+                    }
+                }
+            },
+            created() {
+                this.resetTimer();
+            },
+            unmounted() {
+
+            }
+        }).mount('#app')
+    </script>
+
+    <div id="app">
+        <label for="quantity">Number of employees:</label>
+        <input type="number" v-model="employeeCount">
+
+        <br>
+        <!-- https://developers.teleport.org/api/reference/#!/urban_areas/getUrbanAreaSalaries -->
+        <label for="quantity">Average monthly salary per employee:</label>
+        <input type="number" v-model="employeeSalary">
+        <br>
+        <label for="quantity">Currency code:</label>
+        <input v-model="currencyCode" list="currencyCodes">
+        <datalist id="currencyCodes">
+            <option value="USD">
+            <option value="EUR">
+            <option value="GBP">
+            <option value="SEK">
+        </datalist>
+
+        <div id="elapsedCost" class="elapsedCost">{{ getElapsedCostString() }}</div>
+
+        <button @click="toggleTimer()">{{ intervalID ? "Stop" : "Start"}}</button>
+        <button @click="resetTimer()">Reset</button>
+
+    </div>
+</body>
+
+</html>
