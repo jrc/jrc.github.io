@@ -22,9 +22,9 @@
                 return {
                     intervalID: null,
                     startDate: null,
+                    currencyCode: "EUR",
                     employeeCount: 5,
-                    employeeSalary: 50000,
-                    currencyCode: "SEK",
+                    employeeSalary: 6000,
                     elapsedCost: 0
                 }
             },
@@ -45,7 +45,7 @@
 
                         this.intervalID = setInterval(() => {
                             const elapsed = Date.now() - this.startDate;
-                            const costPerSecond = this.employeeCount * this.employeeSalary / (365 / 12 * 24 * 60 * 60);
+                            const costPerSecond = this.employeeCount * this.employeeSalary / (365 / 12 * 24 * 60 * 60) * 2;
                             this.elapsedCost = (elapsed / 1000) * costPerSecond;
                         }, 1000);
                     }
@@ -63,9 +63,35 @@
                         }
                         return "";
                     }
+                },
+                loadConfig() {
+                    const params = new URLSearchParams(window.location.search);
+
+                    let currencyCode = params.get('currencyCode');
+                    if (currencyCode) {
+                        this.currencyCode = currencyCode;
+                    }
+
+                    let employeeCount = params.get('employeeCount');
+                    if (employeeCount) {
+                        this.employeeCount = employeeCount;
+                    }
+
+                    let employeeSalary = params.get('employeeSalary');
+                    if (employeeSalary) {
+                        this.employeeSalary = employeeSalary;
+                    }
+                },
+                saveConfig() {
+                    const params = new URLSearchParams(window.location.search);
+                    params.set('currencyCode', this.currencyCode);
+                    params.set('employeeCount', this.employeeCount);
+                    params.set('employeeSalary', this.employeeSalary);
+                    window.location.search = params;
                 }
             },
             created() {
+                this.loadConfig();
                 this.resetTimer();
             },
             unmounted() {
@@ -81,10 +107,10 @@
         <br>
         <!-- https://developers.teleport.org/api/reference/#!/urban_areas/getUrbanAreaSalaries -->
         <label for="quantity">Average monthly salary per employee:</label>
-        <input type="number" v-model="employeeSalary">
+        <input type="number" v-model="employeeSalary" @change="saveConfig">
         <br>
         <label for="quantity">Currency code:</label>
-        <input v-model="currencyCode" list="currencyCodes">
+        <input v-model="currencyCode" @change="saveConfig" list="currencyCodes">
         <datalist id="currencyCodes">
             <option value="USD">
             <option value="EUR">
