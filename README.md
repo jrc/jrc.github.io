@@ -6,22 +6,20 @@
 * [GitHub](https://github.com/jrc)
 * [Keybase](https://keybase.io/jrc)
 
+## Ideas I Like
+
+* [Intelligence augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart), "tools for thought", especially [End-user programming](https://en.wikipedia.org/wiki/End-user_development) and "authoring tools" (e.g. HyperCard)
+* Natural Language Processing (NLP) applied to cooking recipes
+* Interactive Fiction (IF), e.g. Infocom text adventure games
+* Gardening/horticulture, both low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
 
 ## Issues I Care About
 
-* [Climate change](https://350.org/), particularly [adaptation](https://www.collapselabs.org/)
-* Food system resilience
-* Public transit, including [international train travel](https://back-on-track.eu/)
+* Public transit, [international train travel](https://back-on-track.eu/)
 * [Right to repair](https://repair.eu/)
+* Food system resilience
+* [Climate change](https://350.org/), particularly [adaptation](https://www.collapselabs.org/)
 * Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
-
-## Ideas I Like
-
-* Gardening/horticulture, both low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
-* Natural Language Processing (NLP) applied to cooking recipes
-* [Intelligence augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart)
-* End-user programming, "authoring tools" e.g. HyperCard
-
 
 ## FAQ
 
