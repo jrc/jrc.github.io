@@ -46,5 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(updateTime, secondsRemaining * 1000);
     }
 
+    document.getElementById('top-section').classList.add('top-section-fade');
+
     updateTime(); // Initial call to start the clock
 });
