@@ -1,0 +1,96 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#clock {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.clock-light {
+    /* light background, dark text */
+    background-color: #f4f4f4;
+    color: #0a0a0a;
+}
+
+.clock-dark {
+    /* dark background, red text */
+    background-color: black;
+    color: rgba(255, 0, 0, 0.4);
+}
+
+.top-section {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-section-morning {
+    background-color: #FFFFCC;
+    transition: background-color 60s;
+}
+
+.top-section-afternoon {
+    background-color: #87CEFA;
+    transition: background-color 60s;
+}
+
+.top-section-evening {
+    background-color: #D8BFD8;
+    transition: background-color 60s;
+}
+
+.top-section-night {
+    background-color: black;
+    transition: background-color 60s;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.bottom-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.today-is {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    filter: opacity(0.5);
+}
+
+.weekday {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 6rem;
+}
+
+.time-is {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    filter: opacity(0.5);
+}
+
+.time {
+    font-size: 6rem;
+    font-weight: bold;
+}
