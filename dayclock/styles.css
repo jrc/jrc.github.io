@@ -28,13 +28,13 @@ html {
 .content {
     display: flex;
     width: 100%;
-    /* border: 1px solid red; */
 }
 
 .date-is,
 .time-is {
-    flex-grow: 1;
+    flex: 1;
     text-align: center;
+    /* border: 1px solid red; */
 }
 
 
