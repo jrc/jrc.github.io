@@ -1,38 +1,40 @@
-html,
-body {
+body,
+html {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-#clock {
+#container {
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
-.top-section {
-    flex: 15%;
+.top {
+    height: 15%;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.bottom {
+    height: 85%;
+    display: flex;
     align-items: center;
 }
 
-.bottom-section {
-    flex: 85%;
+.content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    /* border: 1px solid red; */
 }
 
 .date-is,
 .time-is {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-grow: 1;
+    text-align: center;
 }
 
 
@@ -48,24 +50,24 @@ body {
     color: rgba(255, 0, 0, 0.4);
 }
 
-.top-section-morning {
+.top-morning {
     background-color: #FFFFCC;
 }
 
-.top-section-afternoon {
+.top-afternoon {
     background-color: #87CEFA;
 }
 
-.top-section-evening {
+.top-evening {
     background-color: #D8BFD8;
 }
 
-.top-section-night {
+.top-night {
     background-color: black;
     border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
-.top-section-fade {
+.top-fade {
     transition: background-color 60s;
 }
 
@@ -80,12 +82,6 @@ body {
     font-weight: bold;
 }
 
-
-/* Default style for tablets etc. */
-.date-is {
-    margin-bottom: 6rem;
-}
-
 .text-medium {
     font-size: 3rem;
 }
@@ -94,27 +90,22 @@ body {
     font-size: 6rem;
 }
 
-/* Styles for phones in portrait mode */
-@media screen and (max-width: 480px) and (orientation: portrait) {
+
+/* Responsive phone support */
+
+@media (orientation: portrait) {
+    .content {
+        flex-direction: column;
+    }
+
     .date-is {
-        margin-bottom: 4rem;
-    }
-
-    .text-medium {
-        font-size: 2rem;
-    }
-
-    .text-large {
-        font-size: 4rem;
+        margin-bottom: 20%;
     }
 }
 
-/* Styles for phones in landscape mode */
-@media screen and (max-height: 480px) and (orientation: landscape) {
-    .date-is {
-        margin-bottom: 2rem;
-    }
-
+/* Styles for phones */
+@media screen and (max-width: 480px) and (orientation: portrait),
+screen and (max-height: 480px) and (orientation: landscape) {
     .text-medium {
         font-size: 2rem;
     }

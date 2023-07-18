@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day Clock</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"></script>
 </head>
 
 <body>
-    <div id="clock">
-        <div id="top-section" class="top-section">
-            <div class="text-medium text-bold" id="greeting"></div>
+    <div id="container">
+        <div id="top" class="top">
+            <div class="text-medium" id="greeting"></div>
         </div>
-
-        <div class="bottom-section">
-            <div class="date-is">
-                <div class="text-medium text-dim">Today is</div>
-                <div class="text-large text-bold" id="weekday"></div>
-                <div class="text-medium date" id="date"></div>
-            </div>
-            <div class="time-is">
-                <div class="text-medium text-dim">The time is</div>
-                <div class="text-large text-bold" id="time"></div>
+        <div class="bottom">
+            <div class="content">
+                <div class="date-is">
+                    <div class="text-medium text-dim">Today is</div>
+                    <div class="text-large text-bold" id="weekday"></div>
+                    <div class="text-medium date" id="date"></div>
+                </div>
+                <div class="time-is">
+                    <div class="text-medium text-dim">The time is</div>
+                    <div class="text-large text-bold" id="time"></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"></script>
     <script src="script.js"></script>
 </body>
 
