@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const hour = now.getHours();
         // const hour = 22;
-        let greeting = "";
-        let themeClassName = "clock-light";
-        let topClassName = "";
+        var greeting = "";
+        var themeClassName = "clock-light";
+        var topClassName = "";
         if (hour >= 6 && hour < 12) {
             // Morning: yellow background, white text
             topClassName = 'top-morning';
