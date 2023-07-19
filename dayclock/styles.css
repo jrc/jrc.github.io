@@ -13,14 +13,14 @@ html {
 }
 
 .top {
-    height: 15%;
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .bottom {
-    height: 85%;
+    height: 80%;
     display: flex;
     align-items: center;
 }
@@ -83,11 +83,11 @@ html {
 }
 
 .text-medium {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .text-large {
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 
