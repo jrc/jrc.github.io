@@ -1,3 +1,9 @@
+/*
+    For compatibility with Safari 9:
+    i.e. iOS 9 (9/2015) / OS X El Capitan (9/2015)
+    Use var instead of let <https://caniuse.com/let>
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
     function updateTime() {
         const now = new Date();
