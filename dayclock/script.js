@@ -5,29 +5,32 @@
     * Use var instead of let
     <https://caniuse.com/let>
 
-    * Use Moment.js instead of Date() and toLocaleTimeString/toLocaleDateString
+    * Use Moment.js instead of toLocaleTimeString()
     <https://caniuse.com/?search=toLocaleTimeString%3Aoptions>    
 */
 
 document.addEventListener("DOMContentLoaded", function () {
     function updateTime() {
-        // Safari 9 doesn't show the right time zone with the following code.
-        // const now = new Date();
-        // const locale = navigator.language || navigator.userLanguage;
+        const now = new Date();
 
-        // const time = now.toLocaleTimeString(locale, { hour: 'numeric', minute: '2-digit' });
-        // const weekday = now.toLocaleDateString(locale, { weekday: 'long' });
-        // const date = now.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
-        // const hour = now.getHours();
+        // Known issue: This uses the browser locale, not the host's time/date format
+        // so e.g. with language='en-US', region=SE, it returns 12 not 24 hour time
+        var time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+        const weekday = now.toLocaleDateString([], { weekday: 'long' });
+        const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
 
-        const now = moment();
+        if (!Intl) {
+            console.log('Using Moment.js');
 
-        const time = now.format('LT');
-        const weekday = now.format('dddd');
-        const date = now.format('LL');
-        const hour = now.format('H');
+            // Safari 9 doesn't show the right time zone with toLocaleTimeString()
+            // Use Moment.js instead.
+            const now = moment();
+            time = now.format('LT');
+        }
 
+        const hour = now.getHours();
         // const hour = 22; // debugging
+
         var greeting = "";
         var themeClassName = "clock-light";
         var topClassName = "";
@@ -63,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('time').innerHTML = time.toUpperCase();
 
         // Calculate the time remaining until the next full minute
-        // const secondsRemaining = 60 - now.getSeconds();
-        const secondsRemaining = 60 - now.seconds();
+        const secondsRemaining = 60 - now.getSeconds();
 
         // Schedule the next update at the next full minute
         setTimeout(updateTime, secondsRemaining * 1000);
