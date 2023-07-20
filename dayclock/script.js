@@ -16,12 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // Known issue: This uses the browser locale, not the host's time/date format
         // so e.g. with language='en-US', region=SE, it returns 12 not 24 hour time
         var time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-        const weekday = now.toLocaleDateString([], { weekday: 'long' });
-        const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+        var weekday = now.toLocaleDateString([], { weekday: 'long' });
+        var date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
 
+        // Workaround for Safari 9
         if (window.Intl === undefined) {
-            // Workaround for toLocaleTimeString() showing time in UTC on Safari 9
-            time = moment().format('LT');
+            // toLocaleDate/TimeString(locale, ...) is not implemented
+            // and polyfill.io returns the time in UTC timezone
+            // so use Moment.js.
+            const currentDate = moment();
+            time = currentDate.format('LT');
+            weekday = currentDate.format('dddd');
+            date = currentDate.format('LL');
         }
 
         const hour = now.getHours();
