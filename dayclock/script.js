@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const weekday = now.toLocaleDateString([], { weekday: 'long' });
         const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
 
-        if (!Intl) {
+        if (window.Intl === undefined) {
             console.log('Using Moment.js');
 
             // Safari 9 doesn't show the right time zone with toLocaleTimeString()
