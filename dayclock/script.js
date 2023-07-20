@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
 
         if (window.Intl === undefined) {
-            // Safari 9 doesn't show the right time zone with toLocaleTimeString()
-            // Use Moment.js instead.
+            // Workaround for toLocaleTimeString() showing time in UTC on Safari 9
             time = moment().format('LT');
         }
 
