@@ -20,12 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
 
         if (window.Intl === undefined) {
-            console.log('Using Moment.js');
-
             // Safari 9 doesn't show the right time zone with toLocaleTimeString()
             // Use Moment.js instead.
-            const now = moment();
-            time = now.format('LT');
+            time = moment().format('LT');
         }
 
         const hour = now.getHours();
