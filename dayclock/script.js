@@ -30,10 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
             date = currentDate.format('LL');
         }
 
-        // weekday = 'Wednesday';
+        var hour = now.getHours();
 
-        const hour = now.getHours();
-        // const hour = 22; // debugging
+        // For debugging:
+        // weekday = 'Wednesday';
+        // date = 'September 30, 2023';
+        // hour = 22;
 
         var greeting = "";
         var themeClassName = "clock-light";
@@ -64,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("top").className = 'top';
         document.getElementById("top").classList.add(topClassName);
 
-        document.getElementById('greeting').innerHTML = greeting.toUpperCase();
+        document.getElementById('greeting').innerHTML = greeting;
         document.getElementById('weekday').innerHTML = weekday.toUpperCase();
-        document.getElementById('date').innerHTML = date;
+        document.getElementById('date').innerHTML = date.toUpperCase();
         document.getElementById('time').innerHTML = time.toUpperCase();
 
         // Calculate the time remaining until the next full minute
