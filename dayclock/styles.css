@@ -83,15 +83,15 @@ html {
 }
 
 .text-medium {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
 }
 
 .text-large {
-    font-size: 5rem;
+    font-size: 3.5rem;
 }
 
 
-/* Responsive phone support */
+/* Portrait support */
 
 @media (orientation: portrait) {
     .content {
@@ -103,14 +103,24 @@ html {
     }
 }
 
-/* Styles for phones */
-@media screen and (max-width: 480px) and (orientation: portrait),
-screen and (max-height: 480px) and (orientation: landscape) {
+/* Styles for tablets */
+
+@media screen and (min-width: 480px) and (orientation: portrait) {
     .text-medium {
-        font-size: 1.75rem;
+        font-size: 3.5rem;
     }
 
     .text-large {
-        font-size: 3.5rem;
+        font-size: 7rem;
+    }
+}
+
+@media screen and (min-height: 480px) and (orientation: landscape) {
+    .text-medium {
+        font-size: 2.5rem;
+    }
+
+    .text-large {
+        font-size: 5rem;
     }
 }

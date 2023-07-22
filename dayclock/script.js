@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
             date = currentDate.format('LL');
         }
 
+        // weekday = 'Wednesday';
+
         const hour = now.getHours();
         // const hour = 22; // debugging
 
