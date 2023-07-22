@@ -94,8 +94,9 @@ html {
         height: 80%;
     }
 
-    .date-is {
-        margin-bottom: 15%;
+    .date-is,
+    .time-is {
+        margin-bottom: 12%;
     }
 }
 
@@ -108,7 +109,8 @@ html {
         height: 88%;
     }
 
-    .date-is {
+    .date-is,
+    .time-is {
         margin-bottom: 6%;
     }
 }
