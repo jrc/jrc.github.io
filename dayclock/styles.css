@@ -13,14 +13,12 @@ html {
 }
 
 .top {
-    height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .bottom {
-    height: 80%;
     display: flex;
     align-items: center;
 }
@@ -28,11 +26,13 @@ html {
 .content {
     display: flex;
     width: 100%;
+    flex-direction: column;
 }
 
 .date-is,
 .time-is {
-    flex: 1;
+    /* flex: 1; */
+    flex-grow: 1;
     text-align: center;
     /* border: 1px solid red; */
 }
@@ -82,45 +82,58 @@ html {
     font-weight: bold;
 }
 
-.text-medium {
-    font-size: 1.75rem;
-}
 
-.text-large {
-    font-size: 3.5rem;
-}
-
-
-/* Portrait support */
+/* Styles for portrait vs. landscape orientations */
 
 @media (orientation: portrait) {
-    .content {
-        flex-direction: column;
+    .top {
+        height: 20%;
+    }
+
+    .bottom {
+        height: 80%;
     }
 
     .date-is {
-        margin-bottom: 20%;
+        margin-bottom: 15%;
     }
 }
 
-/* Styles for tablets */
+@media (orientation: landscape) {
+    .top {
+        height: 12%;
+    }
 
-@media screen and (min-width: 480px) and (orientation: portrait) {
+    .bottom {
+        height: 88%;
+    }
+
+    .date-is {
+        margin-bottom: 6%;
+    }
+}
+
+
+/* Styles for phone vs. tablet sizes */
+
+@media screen and (max-width: 480px) and (orientation: portrait),
+screen and (max-height: 480px) and (orientation: landscape) {
+    .text-medium {
+        font-size: 1.8rem;
+    }
+
+    .text-large {
+        font-size: 3.6rem;
+    }
+}
+
+@media screen and (min-width: 480px) and (orientation: portrait),
+screen and (min-height: 480px) and (orientation: landscape) {
     .text-medium {
         font-size: 3.5rem;
     }
 
     .text-large {
         font-size: 7rem;
-    }
-}
-
-@media screen and (min-height: 480px) and (orientation: landscape) {
-    .text-medium {
-        font-size: 2.5rem;
-    }
-
-    .text-large {
-        font-size: 5rem;
     }
 }
