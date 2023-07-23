@@ -82,6 +82,9 @@ html {
     font-weight: bold;
 }
 
+.hidden-phone-landscape {
+    display: block;
+}
 
 /* Styles for portrait vs. landscape orientations */
 
@@ -102,11 +105,11 @@ html {
 
 @media (orientation: landscape) {
     .top {
-        height: 12%;
+        height: 15%;
     }
 
     .bottom {
-        height: 88%;
+        height: 85%;
     }
 
     .date-is,
@@ -116,10 +119,9 @@ html {
 }
 
 
-/* Styles for phone vs. tablet sizes */
+/* Styles for phone size */
 
-@media screen and (max-width: 480px) and (orientation: portrait),
-screen and (max-height: 480px) and (orientation: landscape) {
+@media screen and (max-width: 480px) and (orientation: portrait) {
     .text-medium {
         font-size: 1.8rem;
     }
@@ -128,6 +130,22 @@ screen and (max-height: 480px) and (orientation: landscape) {
         font-size: 3.6rem;
     }
 }
+
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .text-medium {
+        font-size: 2rem;
+    }
+
+    .text-large {
+        font-size: 4rem;
+    }
+
+    .hidden-phone-landscape {
+        display: none;
+    }
+}
+
+/* Styles for tablet size */
 
 @media screen and (min-width: 480px) and (orientation: portrait),
 screen and (min-height: 480px) and (orientation: landscape) {

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById('greeting').innerHTML = greeting;
         document.getElementById('weekday').innerHTML = weekday.toUpperCase();
-        document.getElementById('date').innerHTML = date.toUpperCase();
+        document.getElementById('date').innerHTML = date;
         document.getElementById('time').innerHTML = time.toUpperCase();
 
         // Calculate the time remaining until the next full minute
