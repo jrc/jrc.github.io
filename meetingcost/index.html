@@ -32,7 +32,7 @@
                     config: {
                         currencyCode: "EUR",
                         employeeCount: 5,
-                        employeeSalary: 5000
+                        employeeMonthSalary: 5000
                     },
                 }
             },
@@ -53,7 +53,9 @@
 
                         this.intervalID = setInterval(() => {
                             const elapsed = Date.now() - this.startDate;
-                            const costPerSecond = this.config.employeeCount * this.config.employeeSalary / (365 / 12 * 24 * 60 * 60) * 2;
+                            // 8 hours/day * 22 days/month * 60 minutes/hour * 60 seconds/minute
+                            const workingSecondsPerMonth = 8 * 22 * 60 * 60;
+                            const costPerSecond = this.config.employeeCount * (this.config.employeeMonthSalary * 2) / workingSecondsPerMonth;
                             this.elapsedCost = (elapsed / 1000) * costPerSecond;
                         }, 1000);
                     }
@@ -156,8 +158,8 @@
                     <option value="SEK">SEK</option>
                 </datalist>
                 <br>
-                <label for="employeeSalary">Monthly salary per employee:</label>
-                <input type="number" v-model="config.employeeSalary" @change="saveConfig">
+                <label for="employeeMonthSalary">Monthly salary per employee:</label>
+                <input type="number" v-model="config.employeeMonthSalary" @change="saveConfig">
                 <br>
                 (This is doubled to reflect the company's true employee cost.)
             </p>
