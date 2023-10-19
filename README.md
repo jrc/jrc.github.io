@@ -10,20 +10,22 @@ Hello, world :)
 * [GitHub](https://github.com/jrc)
 * [Keybase](https://keybase.io/jrc)
 
-## Ideas I Like
+## Areas of Interest
 
-* [Intelligence augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart), "tools for thought", especially [End-user programming](https://en.wikipedia.org/wiki/End-user_development) and "authoring tools" (e.g. HyperCard)
-* Natural Language Processing (NLP) applied to cooking recipes
-* Interactive Fiction (IF), e.g. Infocom text adventure games
-* Gardening/horticulture, both low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
-
-## Issues I Care About
-
-* Public transit, [international train travel](https://back-on-track.eu/)
-* Food system resilience
-* [Right to repair](https://repair.eu/)
-* [Climate change](https://350.org/), particularly [adaptation](https://www.collapselabs.org/)
-* Social justice, including [wealth equality](https://medium.com/@AnandWrites/the-thriving-world-the-wilting-world-and-you-209ffc24ab90) and diversity & inclusion
+* Food Tech
+  * interactive, visual recipes
+  * API for supermarkets
+  * foodie passport
+  * gardening/horticulture, low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
+* [Software as a Medium](https://en.wikipedia.org/wiki/Alan_Kay) / [Intelligence Augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart)
+  * "tools for thought" (hypermedia), "malleable software", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. HyperCard)
+  * Interactive Fiction (IF), Infocom, text adventure games, Alternate Reality Games (ARGs)
+* Elderly/Dementia Tech
+  * day clock, med reminder, GPS tracker, financial dashboard
+* Impact (social justice, wealth equality, deep ecology, climate change)
+  * [Right to repair](https://repair.eu/), Repurposing old hardware
+  * Public transit, [international train travel](https://back-on-track.eu/)
+  * Food system resilience
 
 ## FAQ
 
