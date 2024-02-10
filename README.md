@@ -4,7 +4,7 @@ Hello, world :)
 
 ## Me on the Web
 
-* [Twitter](https://twitter.com/jrcplus)
+* Twitter [@jrcplus](https://twitter.com/jrcplus), Mastodon [@jrcplus@mastodon.social](https://mastodon.social/@jrcplus), Bluesky [@jrcpl.us](https://bsky.app/profile/jrcpl.us)
 * [LinkedIn](https://www.linkedin.com/in/johnrchang)
 * [Stack Overflow](http://stackoverflow.com/users/594211/jrc)
 * [GitHub](https://github.com/jrc)
