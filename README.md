@@ -18,10 +18,8 @@ Hello, world :)
   * foodie passport
   * gardening/horticulture, low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)
 * [Software as a Medium](https://en.wikipedia.org/wiki/Alan_Kay) / [Intelligence Augmentation](https://en.wikipedia.org/wiki/Douglas_Engelbart)
-  * "tools for thought" (hypermedia), "malleable software", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. HyperCard)
+  * "tools for thought" (hypermedia), "malleable software", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. HyperCard), "[small computing](https://hackernoon.com/big-and-small-computing-73dc49901b9a)"
   * Interactive Fiction (IF), Infocom, text adventure games, Alternate Reality Games (ARGs)
-* Elderly/Dementia Tech
-  * day clock, med reminder, GPS tracker, financial dashboard
 * Impact (social justice, wealth equality, deep ecology, climate change)
   * [Right to repair](https://repair.eu/), Repurposing old hardware
   * Public transit, [international train travel](https://back-on-track.eu/)
