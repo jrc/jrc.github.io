@@ -100,16 +100,12 @@ html {
     background-color: #FFDAB9;
 }
 
-.topNight {
+.topSleep {
     background-color: #000000;
 }
 
-.middleNight {
+.middleSleep {
     background-color: #000000;
-}
-
-.partofdayIcon {
-    font-family: 'AppleColorEmoji'; /* For compatibility with Safari 9 */
 }
 
 

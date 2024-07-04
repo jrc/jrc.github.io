@@ -10,16 +10,19 @@
 */
 
 const TEST_MODE = false;
-const USE_MOMENT = (window.Intl === undefined);  // Workaround for Safari 9
+const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for iOS 9
 
 const testTransitionSecs = 0.25;
 var testHoursAndMinutes = 0;
+
+
+console.log('Hello, world!');
 
 document.addEventListener("DOMContentLoaded", function () {
     function describeDaysUntil(dateString) {
         var deltaDays;
         
-        if (USE_MOMENT) {
+        if (IS_OLD_BROWSER) {
             const today = moment();
             const targetDate = moment(dateString);
 
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = xhr.responseText;
-                data = "John is back {{describeDaysUntil('2024-07-07')}}.";
+                // data = "<b>John</b> is back {{describeDaysUntil('2024-07-07')}}.";
 
                 const regex = /{{([^}]+)}}/g;
 
@@ -61,13 +64,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     return eval(expression); // Assuming no sensitive data!
                 });
 
-                document.getElementById('message').textContent = data;
+                document.getElementById('message').innerHTML = data;
             }
         };
-        xhr.open("GET", 'https://jrcpl.us/dayclock/announcement.txt', true);
+        const url = 'https://jrcpl.us/dayclock/announcement.txt';
+        console.log('Fetching ' + url);
+        xhr.open("GET", url, true);
         xhr.send();
 
-        setTimeout(fetchAnnouncement, 1000 * 60 * 60); // 1 hour
+        setTimeout(fetchAnnouncement, 1000 * 60 * 60 * 6); // 6 hours
     }
 
     function updateUI() {
@@ -77,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var weekday;
         var date;
 
-        if (USE_MOMENT) {
+        if (IS_OLD_BROWSER) {
             // toLocaleDate/TimeString(locale, ...) is not implemented
             // and polyfill.io returns the time in UTC timezone
             // so use Moment.js.
@@ -109,23 +114,28 @@ document.addEventListener("DOMContentLoaded", function () {
         // hourAndMinutes = 23;
 
         var themeClassName = 'theme-light';
-        var partofdayIcon = '';
-        var partofday = '';
+        var partofdayIcon;
+        var partofdayIconName = null;
+        var partofday;
+        var partofday;
 
         if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
             partofdayIcon = '🥣';
+            partofdayIconName = 'openmoji-72x72-color/1F963.png';
             partofday = 'Breakfast';
         }
         else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
             partofdayIcon = '🍚';
+            partofdayIconName = 'openmoji-72x72-color/1F35A.png';
             partofday = 'Lunch';
         }
         else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
             partofdayIcon = '🍜';
+            partofdayIconName = 'openmoji-72x72-color/1F35C.png';
             partofday = 'Dinner';
         }
         else if (hourAndMinutes >= 6.5 && hourAndMinutes < 12) {
-            partofdayIcon = '🌅';
+            partofdayIcon = '';
             partofday = 'Morning';
         }
         else if (hourAndMinutes >= 12 && hourAndMinutes < 18) {
@@ -133,13 +143,14 @@ document.addEventListener("DOMContentLoaded", function () {
             partofday = 'Afternoon';
         }
         else if (hourAndMinutes >= 18 && hourAndMinutes < 22) {
-            partofdayIcon = '🌇';
+            partofdayIcon = '';
             partofday = 'Evening';
         }
         else {
             themeClassName = 'theme-dark';
             partofdayIcon = '🛌';
-            partofday = 'Night';
+            partofdayIconName = 'openmoji-72x72-color/1F6CC.png';
+            partofday = 'Sleep';
         }
 
         document.getElementById("container").classList = "container";
@@ -151,7 +162,19 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("middle").className = "box middle";
         document.getElementById("middle").classList.add('middle' + partofday);
 
-        document.getElementById('partofdayIcon').innerHTML = partofdayIcon;
+        if (IS_OLD_BROWSER) {
+            const partofdayIconDiv = document.getElementById('partofdayIcon');
+            partofdayIconDiv.innerHTML = '';
+            if (partofdayIconName) {
+                const img = document.createElement('img');
+                img.src = partofdayIconName;
+                partofdayIconDiv.appendChild(img); 
+            }
+        }
+        else {
+            document.getElementById('partofdayIcon').innerHTML = partofdayIcon;
+        }
+
         document.getElementById('partofday').innerHTML = partofday.toUpperCase();
         document.getElementById('weekday').innerHTML = weekday;
         document.getElementById('date').innerHTML = date;
