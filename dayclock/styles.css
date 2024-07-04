@@ -32,6 +32,7 @@ html {
     transition: background-color 60s;
 }
 
+
 /* Styles for theme and text */
 
 .theme-light {
@@ -107,6 +108,9 @@ html {
     background-color: #000000;
 }
 
+.partofdayIcon {
+    font-family: 'AppleColorEmoji'; /* For compatibility with Safari 9 */
+}
 
 
 /* Styles for phone size */
@@ -156,6 +160,6 @@ screen and (min-height: 480px) and (orientation: landscape) {
     }
 
     .text-xlarge {
-        font-size: 8.5rem;
+        font-size: 7rem;
     }
 }
