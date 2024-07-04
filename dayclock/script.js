@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize
     fetchAnnouncement();
-    updateUI();
-    
-    // Reload everything periodically
-    setTimeout(function() { location.reload(); }, 1000 * 60 * 60 * 24); // 24 hours
+    updateUI();    
 });
+
+// Reload everything periodically
+setTimeout(function() { location.reload(); }, 1000 * 60 * 60 * 24); // 24 hours
