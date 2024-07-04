@@ -23,7 +23,7 @@ html {
 }
 
 .middle {
-    flex: 2;
+    flex: 3;
     transition: background-color 60s;
 }
 
