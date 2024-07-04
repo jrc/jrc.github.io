@@ -10,7 +10,20 @@
 */
 
 document.addEventListener("DOMContentLoaded", function () {
-    function updateTime() {
+    function fetchAnnouncement() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('message').textContent = xhr.responseText;
+            }
+        };
+        xhr.open("GET", 'https://jrcpl.us/dayclock/announcement.txt', true);
+        xhr.send();
+
+        setTimeout(fetchAnnouncement, 1000 * 60 * 60); // 1 hour
+    }
+
+    function updateUI() {
         const now = new Date();
 
         // Known issue: This uses the browser locale, not the host's time/date format
@@ -90,13 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const secondsRemaining = 60 - now.getSeconds();
 
         // Schedule the next update at the next full minute
-        setTimeout(updateTime, secondsRemaining * 1000);
+        setTimeout(updateUI, secondsRemaining * 1000);
     }
 
-    updateTime(); // Initial call to start the clock
-
-    // Reload periodically
-    document.addEventListener('DOMContentLoaded', () => setTimeout(
-        () => location.reload(), 60 * 60 * 1000 // 1 hour
-    ));
+    // Initialize
+    fetchAnnouncement();
+    updateUI();
+    
+    // Reload everything periodically
+    setTimeout(() => location.reload(), 1000 * 60 * 60 * 24); // 24 hour
 });
