@@ -30,44 +30,59 @@ document.addEventListener("DOMContentLoaded", function () {
             date = currentDate.format('LL');
         }
 
-        var hour = now.getHours();
+        var hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
 
         // For debugging:
         // weekday = 'Wednesday';
         // date = 'September 30, 2023';
-        // hour = 22;
+        // hourAndMinutes = 23;
 
-        var greeting = "";
-        var themeClassName = "clock-light";
-        var topClassName = "";
-        if (hour >= 6 && hour < 12) {
-            // Morning: yellow background, white text
-            topClassName = 'top-morning';
-            greeting = 'Good morning';
-        } else if (hour >= 12 && hour < 18) {
-            // Afternoon: blue background, white text
-            topClassName = 'top-afternoon';
-            greeting = 'Good afternoon';
-        } else if (hour >= 18 && hour < 22) {
-            // Evening: purple background, white text
-            topClassName = 'top-evening';
-            greeting = 'Good evening';
-        } else {
-            // Evening: black background, dark red text
-            themeClassName = "clock-dark";
-            topClassName = 'top-night';
-            greeting = 'Good night';
+        var partofday = '';
+        var themeClassName = 'theme-light';
+
+        if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
+            partofdayIcon = '🥣';
+            partofday = 'Breakfast';
+        }
+        else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
+            partofdayIcon = '🍚';
+            partofday = 'Lunch';
+        }
+        else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
+            partofdayIcon = '🍜';
+            partofday = 'Dinner';
+        }
+        else if (hourAndMinutes >= 6.5 && hourAndMinutes < 12) {
+            partofdayIcon = '🌅';
+            partofday = 'Morning';
+        }
+        else if (hourAndMinutes >= 12 && hourAndMinutes < 18) {
+            partofdayIcon = '';
+            partofday = 'Afternoon';
+        }
+        else if (hourAndMinutes >= 18 && hourAndMinutes < 22) {
+            partofdayIcon = '🌇';
+            partofday = 'Evening';
+        }
+        else {
+            themeClassName = 'theme-dark';
+            partofdayIcon = '🛌';
+            partofday = 'Night';
         }
 
-        document.getElementById("container").classList.remove("clock-light");
-        document.getElementById("container").classList.remove("clock-dark");
+        document.getElementById("container").classList = "container";
         document.getElementById("container").classList.add(themeClassName);
 
-        document.getElementById("top").className = 'top';
-        document.getElementById("top").classList.add(topClassName);
+        document.getElementById("top").className = "box top";
+        document.getElementById("top").classList.add('top' + partofday);
+        document.getElementById('top').classList.add('top-fade');
 
-        document.getElementById('greeting').innerHTML = greeting;
-        document.getElementById('weekday').innerHTML = weekday.toUpperCase();
+        document.getElementById("middle").className = "box middle";
+        document.getElementById("middle").classList.add('middle' + partofday);
+
+        document.getElementById('partofdayIcon').innerHTML = partofdayIcon;
+        document.getElementById('partofday').innerHTML = partofday.toUpperCase();
+        document.getElementById('weekday').innerHTML = weekday;
         document.getElementById('date').innerHTML = date;
         document.getElementById('time').innerHTML = time.toUpperCase();
 
@@ -77,8 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Schedule the next update at the next full minute
         setTimeout(updateTime, secondsRemaining * 1000);
     }
-
-    document.getElementById('top').classList.add('top-fade');
 
     updateTime(); // Initial call to start the clock
 

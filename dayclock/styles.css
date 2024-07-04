@@ -1,122 +1,112 @@
 body,
 html {
-    height: 100%;
     margin: 0;
-    padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-#container {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.container {
+    display: flex;
+    flex-direction: column; /* Vertical */
+    height: 100vh;
 }
 
-.top {
+.box {
+    text-align: center;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.bottom {
-    display: flex;
-    align-items: center;
-}
-
-.content {
-    display: flex;
-    width: 100%;
     flex-direction: column;
 }
 
-.date-is,
-.time-is {
-    /* flex: 1; */
-    flex-grow: 1;
-    text-align: center;
-    /* border: 1px solid red; */
+.top {
+    flex: 1;
+    transition: background-color 60s;
 }
 
+.middle {
+    flex: 2;
+    transition: background-color 60s;
+}
 
-/* Dynamically applied colors */
+.bottom {
+    flex: 1;
+    transition: background-color 60s;
+}
 
-.clock-light {
+/* Styles for theme and text */
+
+.theme-light {
     background-color: #f4f4f4;
     color: #0a0a0a;
 }
 
-.clock-dark {
+.theme-dark {
     background-color: black;
     color: rgba(255, 0, 0, 0.4);
-}
-
-.top-morning {
-    background-color: #FFFFCC;
-}
-
-.top-afternoon {
-    background-color: #87CEFA;
-}
-
-.top-evening {
-    background-color: #D8BFD8;
-}
-
-.top-night {
-    background-color: black;
-    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
-}
-
-.top-fade {
-    transition: background-color 60s;
-}
-
-
-/* Additional styles for text elements */
-
-.text-dim {
-    opacity: 0.5;
 }
 
 .text-bold {
     font-weight: bold;
 }
 
-.hidden-phone-landscape {
-    display: block;
+
+/* Styles for part of day */
+
+.topBreakfast {
+    background-color: #FFFFE0;
 }
 
-/* Styles for portrait vs. landscape orientations */
-
-@media (orientation: portrait) {
-    .top {
-        height: 20%;
-    }
-
-    .bottom {
-        height: 80%;
-    }
-
-    .date-is,
-    .time-is {
-        margin-bottom: 12%;
-    }
+.middleBreakfast {
+    background-color: #FFCC00;
 }
 
-@media (orientation: landscape) {
-    .top {
-        height: 15%;
-    }
-
-    .bottom {
-        height: 85%;
-    }
-
-    .date-is,
-    .time-is {
-        margin-bottom: 4%;
-    }
+.topMorning {
+    background-color: #FFFFE0;
 }
+
+.middleMorning {
+    background-color: #FFFFE0;
+}
+
+.topLunch {
+    background-color: #87CEFA;
+}
+
+.middleLunch {
+    background-color: #007FFF;
+}
+
+.topAfternoon {
+    background-color: #87CEFA;
+}
+
+.middleAfternoon {
+    background-color: #87CEFA;
+}
+
+.topDinner {
+    background-color: #FFDAB9;
+}
+
+.middleDinner {
+    background-color: #FF4500;
+}
+
+.topEvening {
+    background-color: #FFDAB9;
+}
+
+.middleEvening {
+    background-color: #FFDAB9;
+}
+
+.topNight {
+    background-color: #000000;
+}
+
+.middleNight {
+    background-color: #000000;
+}
+
 
 
 /* Styles for phone size */
@@ -129,14 +119,22 @@ html {
     .text-large {
         font-size: 3.6rem;
     }
+
+    .text-xlarge {
+        font-size: 5rem;
+    }
 }
 
 @media screen and (max-height: 480px) and (orientation: landscape) {
     .text-medium {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .text-large {
+        font-size: 2.5rem;
+    }
+
+    .text-xlarge {
         font-size: 4rem;
     }
 
@@ -150,10 +148,14 @@ html {
 @media screen and (min-width: 480px) and (orientation: portrait),
 screen and (min-height: 480px) and (orientation: landscape) {
     .text-medium {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .text-large {
-        font-size: 7rem;
+        font-size: 5rem;
+    }
+
+    .text-xlarge {
+        font-size: 8.5rem;
     }
 }

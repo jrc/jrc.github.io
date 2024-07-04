@@ -13,25 +13,21 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="top" class="top">
-            <div class="text-medium" id="greeting"></div>
+    <div class="container" id="container">
+        <div class="box top" id="top">
+            <div class="text-large weekday" id="weekday"></div>
+            <div class="text-medium date" id="date"></div>
         </div>
-        <div class="bottom">
-            <div class="content">
-                <div class="date-is">
-                    <div class="text-medium text-dim hidden-phone-landscape">Today is</div>
-                    <div class="text-large text-bold" id="weekday"></div>
-                    <div class="text-medium date" id="date"></div>
-                </div>
-                <div class="time-is">
-                    <div class="text-medium text-dim hidden-phone-landscape">The time is</div>
-                    <div class="text-large text-bold" id="time"></div>
-                </div>
-            </div>
+        <div class="box middle" id="middle">
+            <div class="text-xlarge partofdayIcon" id="partofdayIcon"></div>
+            <div class="text-xlarge text-bold partofday" id="partofday"></div>
+            <div class="text-large" id="time"></div>
+        </div>
+        <div class="box bottom" id="bottom">
+            <div class="text-medium" id="message"></div>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 
