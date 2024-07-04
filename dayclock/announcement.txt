@@ -1,1 +1,1 @@
-Alan & Åsa return on Sunday.
+Alan & Åsa return {{describeDaysUntil('2024-07-07')}}.

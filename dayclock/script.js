@@ -9,19 +9,59 @@
     <https://caniuse.com/?search=toLocaleTimeString%3Aoptions>    
 */
 
-const testMode = false;
+const TEST_MODE = false;
+const USE_MOMENT = (window.Intl === undefined);  // Workaround for Safari 9
 
 const testTransitionSecs = 0.25;
 var testHoursAndMinutes = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
+    function describeDaysUntil(dateString) {
+        var deltaDays;
+        
+        if (USE_MOMENT) {
+            const today = moment();
+            const targetDate = moment(dateString);
+
+            deltaDays = targetDate.diff(today, 'days');
+        }
+        else {
+            const today = new Date();
+            const targetDate = new Date(dateString);
+
+            // Normalize to midnight to avoid time component issues
+            today.setHours(0, 0, 0, 0);
+            targetDate.setHours(0, 0, 0, 0);
+
+            const diffTime = Math.abs(targetDate - today);
+            deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        }
+      
+        if (deltaDays === 0) {
+            return "today";
+        } else if (deltaDays === 1) {
+            return "tomorrow"; // Corrected from "in 1 day" for Moment.js
+        } else {
+            return "in " + deltaDays + " days";
+        }
+    }
+
     function fetchAnnouncement() {
         document.getElementById('message').textContent = ''; // Clear
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('message').textContent = xhr.responseText;
+                var data = xhr.responseText;
+                data = "John is back {{describeDaysUntil('2024-07-07')}}.";
+
+                const regex = /{{([^}]+)}}/g;
+
+                data = data.replace(regex, function(match, expression) {
+                    return eval(expression); // Assuming no sensitive data!
+                });
+
+                document.getElementById('message').textContent = data;
             }
         };
         xhr.open("GET", 'https://jrcpl.us/dayclock/announcement.txt', true);
@@ -33,14 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateUI() {
         const now = new Date();
 
-        // Known issue: This uses the browser locale, not the host's time/date format
-        // so e.g. with language='en-US', region=SE, it returns 12 not 24 hour time
-        var time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-        var weekday = now.toLocaleDateString([], { weekday: 'long' });
-        var date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+        var time;
+        var weekday;
+        var date;
 
-        // Workaround for Safari 9
-        if (window.Intl === undefined) {
+        if (USE_MOMENT) {
             // toLocaleDate/TimeString(locale, ...) is not implemented
             // and polyfill.io returns the time in UTC timezone
             // so use Moment.js.
@@ -49,9 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
             weekday = currentDate.format('dddd');
             date = currentDate.format('LL');
         }
+        else {
+            // Known issue: This uses the browser locale, not the host's time/date format
+            // so e.g. with language='en-US', region=SE, it returns 12 not 24 hour time
+            time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+            weekday = now.toLocaleDateString([], { weekday: 'long' });
+            date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
+        }
 
         var hourAndMinutes;
-        if (testMode) {
+        if (TEST_MODE) {
             hourAndMinutes = testHoursAndMinutes;
             time = hourAndMinutes + ':00 XX';
         }
@@ -113,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('date').innerHTML = date;
         document.getElementById('time').innerHTML = time.toUpperCase();
 
-        if (testMode) {
+        if (TEST_MODE) {
             setTimeout(updateUI, 1000 * testTransitionSecs);
 
             testHoursAndMinutes = ++testHoursAndMinutes % 24;
@@ -127,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    if (testMode) {
+    if (TEST_MODE) {
         const styleSheet = document.createElement('style');      
         const newStyles = ".top, .middle, .bottom { transition: background-color " + testTransitionSecs + "s !important; }";
         styleSheet.appendChild(document.createTextNode(newStyles));
