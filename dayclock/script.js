@@ -81,4 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('top').classList.add('top-fade');
 
     updateTime(); // Initial call to start the clock
+
+    // Reload periodically
+    document.addEventListener('DOMContentLoaded', () => setTimeout(
+        () => location.reload(), 60 * 60 * 1000 // 1 hour
+    ));
 });
