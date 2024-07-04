@@ -111,5 +111,5 @@ document.addEventListener("DOMContentLoaded", function () {
     updateUI();
     
     // Reload everything periodically
-    setTimeout(() => location.reload(), 1000 * 60 * 60 * 24); // 24 hour
+    setTimeout(function() { location.reload(); }, 1000 * 60 * 60 * 24); // 24 hours
 });
