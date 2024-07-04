@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("top").className = "box top";
         document.getElementById("top").classList.add('top' + partofday);
-        document.getElementById('top').classList.add('top-fade');
 
         document.getElementById("middle").className = "box middle";
         document.getElementById("middle").classList.add('middle' + partofday);
