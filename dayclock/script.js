@@ -9,8 +9,15 @@
     <https://caniuse.com/?search=toLocaleTimeString%3Aoptions>    
 */
 
+const testMode = false;
+
+const testTransitionSecs = 0.25;
+var testHoursAndMinutes = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
     function fetchAnnouncement() {
+        document.getElementById('message').textContent = ''; // Clear
+
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -43,15 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
             date = currentDate.format('LL');
         }
 
-        var hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
+        var hourAndMinutes;
+        if (testMode) {
+            hourAndMinutes = testHoursAndMinutes;
+            time = hourAndMinutes + ':00 XX';
+        }
+        else {
+            hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
+        }
 
         // For debugging:
         // weekday = 'Wednesday';
         // date = 'September 30, 2023';
         // hourAndMinutes = 23;
 
-        var partofday = '';
         var themeClassName = 'theme-light';
+        var partofdayIcon = '';
+        var partofday = '';
 
         if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
             partofdayIcon = '🥣';
@@ -98,13 +113,27 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('date').innerHTML = date;
         document.getElementById('time').innerHTML = time.toUpperCase();
 
-        // Calculate the time remaining until the next full minute
-        const secondsRemaining = 60 - now.getSeconds();
+        if (testMode) {
+            setTimeout(updateUI, 1000 * testTransitionSecs);
 
-        // Schedule the next update at the next full minute
-        setTimeout(updateUI, secondsRemaining * 1000);
+            testHoursAndMinutes = ++testHoursAndMinutes % 24;
+        }
+        else {
+            // Calculate the time remaining until the next full minute
+            const secondsRemaining = 60 - now.getSeconds();
+
+            // Schedule the next update at the next full minute
+            setTimeout(updateUI, 1000 * secondsRemaining);
+        }
     }
 
+    if (testMode) {
+        const styleSheet = document.createElement('style');      
+        const newStyles = ".top, .middle, .bottom { transition: background-color " + testTransitionSecs + "s !important; }";
+        styleSheet.appendChild(document.createTextNode(newStyles));
+        document.head.appendChild(styleSheet);
+    }
+    
     // Initialize
     fetchAnnouncement();
     updateUI();    
