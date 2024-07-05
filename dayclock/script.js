@@ -18,39 +18,39 @@ var testHoursAndMinutes = 0;
 
 console.log('Hello, world!');
 
-document.addEventListener("DOMContentLoaded", function () {
-    function describeDaysUntil(dateString) {
-        var deltaDays;
-        
-        if (IS_OLD_BROWSER) {
-            const today = moment();
-            const targetDate = moment(dateString);
+function describeDaysUntil(dateString) {
+    var deltaDays;
+    
+    if (IS_OLD_BROWSER) {
+        const today = moment();
+        const targetDate = moment(dateString);
 
-            deltaDays = targetDate.diff(today, 'days');
-        }
-        else {
-            const today = new Date();
-            const targetDate = new Date(dateString);
-
-            // Normalize to midnight to avoid time component issues
-            today.setHours(0, 0, 0, 0);
-            targetDate.setHours(0, 0, 0, 0);
-
-            const diffTime = Math.abs(targetDate - today);
-            deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-        }
-      
-        if (deltaDays === 0) {
-            return "today";
-        } else if (deltaDays === 1) {
-            return "tomorrow"; // Corrected from "in 1 day" for Moment.js
-        } else {
-            return "in " + deltaDays + " days";
-        }
+        deltaDays = targetDate.diff(today, 'days');
     }
+    else {
+        const today = new Date();
+        const targetDate = new Date(dateString);
 
+        // Normalize to midnight to avoid time component issues
+        today.setHours(0, 0, 0, 0);
+        targetDate.setHours(0, 0, 0, 0);
+
+        const diffTime = Math.abs(targetDate - today);
+        deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    }
+  
+    if (deltaDays === 0) {
+        return "today";
+    } else if (deltaDays === 1) {
+        return "tomorrow"; // Corrected from "in 1 day" for Moment.js
+    } else {
+        return "in " + deltaDays + " days";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     function fetchAnnouncement() {
-        document.getElementById('message').textContent = ''; // Clear
+        document.getElementById('announcement').textContent = ''; // Clear
 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     return eval(expression); // Assuming no sensitive data!
                 });
 
-                document.getElementById('message').innerHTML = data;
+                document.getElementById('announcement').innerHTML = data;
             }
         };
         const url = 'https://jrcpl.us/dayclock/announcement.txt';
@@ -86,10 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // toLocaleDate/TimeString(locale, ...) is not implemented
             // and polyfill.io returns the time in UTC timezone
             // so use Moment.js.
-            const currentDate = moment();
-            time = currentDate.format('LT');
-            weekday = currentDate.format('dddd');
-            date = currentDate.format('LL');
+            const now = moment();
+            time = now.format('LT');
+            weekday = now.format('dddd');
+            date = now.format('LL');
         }
         else {
             // Known issue: This uses the browser locale, not the host's time/date format
@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
         var themeClassName = 'theme-light';
         var partofdayIcon;
         var partofdayIconName = null;
-        var partofday;
         var partofday;
 
         if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
