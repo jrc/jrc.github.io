@@ -55,7 +55,7 @@ var FETCH_ANNOUNCEMENT_SECS = TEST_MODE ? 30 : 60 * 60 * 6; // 6 hours
 var testHoursAndMinutes = 0;
 
 
-const IS_OLD_BROWSER = true;// (window.Intl === undefined);  // Workaround for Safari 9
+const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for Safari 9
 
 
 /* Safari 9's Date constructor doesn't reliably parse ISO 8601 date strings
