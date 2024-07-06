@@ -20,7 +20,7 @@ var RELOAD_PAGE_SECS = 60 * 60 * 24; // 24 hours
 
 
 // URLSearchParams was introduced in Safari 10
-function getQueryParam(name, url = window.location.href) {
+function getQueryParam(name, url) {  
     name = name.replace(/[\[\]]/g, '\\$&'); // Escape special characters
     const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
     const results = regex.exec(url);
@@ -29,8 +29,12 @@ function getQueryParam(name, url = window.location.href) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+  
+function getQueryParamAsBoolean(name, url) {
+    if (!url) {
+        url = window.location.href; // Use current URL if not provided
+    }
 
-function getQueryParamAsBoolean(name, url = window.location.href) {
     const value = getQueryParam(name, url); // Use the original getQueryParam function
     return value ? value.toLowerCase() === 'true' : false;
 }
