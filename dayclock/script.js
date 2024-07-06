@@ -55,29 +55,29 @@ var FETCH_ANNOUNCEMENT_SECS = TEST_MODE ? 30 : 60 * 60 * 6; // 6 hours
 var testHoursAndMinutes = 0;
 
 
-const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for Safari 9
+const IS_OLD_BROWSER = true;// (window.Intl === undefined);  // Workaround for Safari 9
 
+
+/* Safari 9's Date constructor doesn't reliably parse ISO 8601 date strings
+   without time/timezone info, often treating them as UTC midnight,
+   leading to potential timezone issues. */
+function parseISODate(dateString) {
+    const parts = dateString.split('-');
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Months are 0-indexed
+    const day = parseInt(parts[2], 10);
+  
+    return new Date(year, month, day);
+}  
 
 function describeDaysUntil(dateString) {
     var deltaDays;
     
-    if (IS_OLD_BROWSER) {
-        const today = moment();
-        const targetDate = moment(dateString);
+    const today = new Date();
+    const targetDate = new parseISODate(dateString);
 
-        deltaDays = targetDate.diff(today, 'days');
-    }
-    else {
-        const today = new Date();
-        const targetDate = new Date(dateString);
-
-        // Normalize to midnight to avoid time component issues
-        today.setHours(0, 0, 0, 0);
-        targetDate.setHours(0, 0, 0, 0);
-
-        const diffTime = Math.abs(targetDate - today);
-        deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-    }
+    const diffTime = Math.abs(targetDate - today);
+    deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
   
     if (deltaDays === 0) {
         return "today";
