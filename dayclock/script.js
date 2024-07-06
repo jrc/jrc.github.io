@@ -3,17 +3,49 @@
     i.e. iOS 9 (9/2015) / OS X El Capitan (9/2015)
 
     * Use var instead of let
-    <https://caniuse.com/let>
+    https://caniuse.com/let
 
     * Use Moment.js instead of toLocaleTimeString()
-    <https://caniuse.com/?search=toLocaleTimeString%3Aoptions>    
+    https://caniuse.com/?search=toLocaleTimeString%3Aoptions
+    
+    * Use XMLHttpRequest() instead of fetch()
+    https://caniuse.com/?search=fetch
+
+    * Use getQueryParam() instead of URLSearchParams
+    https://caniuse.com/?search=URLSearchParams
 */
 
-const TEST_MODE = false;
-const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for iOS 9
+var FETCH_ANNOUNCEMENT_SECS = 60 * 60 * 6; // 6 hours
+var RELOAD_PAGE_SECS = 60 * 60 * 24; // 24 hours
 
-const testTransitionSecs = 0.25;
+
+// URLSearchParams was introduced in Safari 10
+function getQueryParam(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&'); // Escape special characters
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+  
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function getQueryParamAsBoolean(name, url = window.location.href) {
+    const value = getQueryParam(name, url); // Use the original getQueryParam function
+    return value ? value.toLowerCase() === 'true' : false;
+}
+
+const TEST_MODE = getQueryParamAsBoolean('testMode');
+const TEST_TRANSITION_SECS = 0.25;
+
+if (TEST_MODE) {
+    FETCH_ANNOUNCEMENT_SECS = 10;
+    RELOAD_PAGE_SECS = 60;
+}
 var testHoursAndMinutes = 0;
+
+
+const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for Safari 9
 
 
 console.log('Hello, world!');
@@ -48,6 +80,7 @@ function describeDaysUntil(dateString) {
     }
 }
 
+  
 document.addEventListener("DOMContentLoaded", function () {
     function fetchAnnouncement() {
         document.getElementById('announcement').textContent = ''; // Clear
@@ -72,11 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.open("GET", url, true);
         xhr.send();
 
-        setTimeout(fetchAnnouncement, 1000 * 60 * 60 * 6); // 6 hours
+        setTimeout(fetchAnnouncement, 1000 * FETCH_ANNOUNCEMENT_SECS);
     }
 
     function updateUI() {
         const now = new Date();
+        var hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
 
         var time;
         var weekday;
@@ -99,13 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
             date = now.toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        var hourAndMinutes;
         if (TEST_MODE) {
             hourAndMinutes = testHoursAndMinutes;
             time = hourAndMinutes + ':00 XX';
-        }
-        else {
-            hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
         }
 
         // For debugging:
@@ -152,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
             partofday = 'Sleep';
         }
 
-        document.getElementById("container").classList = "container";
+        document.getElementById("container").className = "container";
         document.getElementById("container").classList.add(themeClassName);
 
         document.getElementById("top").className = "box top";
@@ -180,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('time').innerHTML = time.toUpperCase();
 
         if (TEST_MODE) {
-            setTimeout(updateUI, 1000 * testTransitionSecs);
+            setTimeout(updateUI, 1000 * TEST_TRANSITION_SECS);
 
             testHoursAndMinutes = ++testHoursAndMinutes % 24;
         }
@@ -195,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (TEST_MODE) {
         const styleSheet = document.createElement('style');      
-        const newStyles = ".top, .middle, .bottom { transition: background-color " + testTransitionSecs + "s !important; }";
+        const newStyles = ".top, .middle, .bottom { transition: background-color " + TEST_TRANSITION_SECS + "s !important; }";
         styleSheet.appendChild(document.createTextNode(newStyles));
         document.head.appendChild(styleSheet);
     }
@@ -206,4 +236,4 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Reload everything periodically
-setTimeout(function() { location.reload(); }, 1000 * 60 * 60 * 24); // 24 hours
+setTimeout(function() { location.reload(); }, 1000 * RELOAD_PAGE_SECS);
