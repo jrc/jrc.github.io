@@ -5,18 +5,17 @@
     * Use var instead of let
     https://caniuse.com/let
 
+    * Use getQueryParam() instead of URLSearchParams
+    https://caniuse.com/?search=URLSearchParams
+    
     * Use Moment.js instead of toLocaleTimeString()
     https://caniuse.com/?search=toLocaleTimeString%3Aoptions
     
     * Use XMLHttpRequest() instead of fetch()
     https://caniuse.com/?search=fetch
-
-    * Use getQueryParam() instead of URLSearchParams
-    https://caniuse.com/?search=URLSearchParams
 */
 
-var FETCH_ANNOUNCEMENT_SECS = 60 * 60 * 6; // 6 hours
-var RELOAD_PAGE_SECS = 60 * 60 * 24; // 24 hours
+console.log('Hello, world!');
 
 
 // URLSearchParams was introduced in Safari 10
@@ -40,19 +39,24 @@ function getQueryParamAsBoolean(name, url) {
 }
 
 const TEST_MODE = getQueryParamAsBoolean('testMode');
+
+var RELOAD_PAGE_SECS = TEST_MODE ? 60 : 60 * 60 * 24; // 24 hours
+
+// Reload everything nightly (poor man's software update)
+setTimeout(function() { window.location.reload(true); }, 1000 * RELOAD_PAGE_SECS);
+
+
+// -----
+
 const TEST_TRANSITION_SECS = 0.25;
 
-if (TEST_MODE) {
-    FETCH_ANNOUNCEMENT_SECS = 10;
-    RELOAD_PAGE_SECS = 60;
-}
+var FETCH_ANNOUNCEMENT_SECS = TEST_MODE ? 30 : 60 * 60 * 6; // 6 hours
+
 var testHoursAndMinutes = 0;
 
 
 const IS_OLD_BROWSER = (window.Intl === undefined);  // Workaround for Safari 9
 
-
-console.log('Hello, world!');
 
 function describeDaysUntil(dateString) {
     var deltaDays;
@@ -214,9 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('time').innerHTML = time.toUpperCase();
 
         if (TEST_MODE) {
-            setTimeout(updateUI, 1000 * TEST_TRANSITION_SECS);
-
             testHoursAndMinutes = ++testHoursAndMinutes % 24;
+            
+            setTimeout(updateUI, 1000 * TEST_TRANSITION_SECS);
         }
         else {
             // Calculate the time remaining until the next full minute
@@ -238,6 +242,3 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchAnnouncement();
     updateUI();    
 });
-
-// Reload everything periodically
-setTimeout(function() { location.reload(); }, 1000 * RELOAD_PAGE_SECS);
