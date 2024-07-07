@@ -74,6 +74,10 @@ function describeDaysUntil(dateString) {
     const today = new Date();
     const targetDate = new parseISODate(dateString);
 
+    // Normalize to midnight to avoid time component issues
+    today.setHours(0, 0, 0, 0);
+    targetDate.setHours(0, 0, 0, 0);
+    
     const diffTime = Math.abs(targetDate - today);
     deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
   
