@@ -115,9 +115,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateUI() {
-        try {
+        try {            
             const now = new Date();
-            
+
             var time;
             var weekday;
             var date;
@@ -126,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 // toLocaleDate/TimeString(locale, ...) is not implemented
                 // and polyfill.io returns the time in UTC timezone
                 // so use Moment.js.
-                const now = moment();
-                time = now.format('LT');
-                weekday = now.format('dddd');
-                date = now.format('LL');
+                const momentNow = moment();
+                time = momentNow.format('LT');
+                weekday = momentNow.format('dddd');
+                date = momentNow.format('LL');
             }
             else {
                 // Known issue: This uses the browser locale, not the host's time/date format
