@@ -1,1 +1,1 @@
-Alan & Åsa return {{describeDaysUntil('2024-07-07')}}.
+Åsa leaves {{describeDaysUntil('2024-07-11')}}.

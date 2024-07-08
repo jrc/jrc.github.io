@@ -78,10 +78,13 @@ function describeDaysUntil(dateString) {
     today.setHours(0, 0, 0, 0);
     targetDate.setHours(0, 0, 0, 0);
     
-    const diffTime = Math.abs(targetDate - today);
+    const diffTime = targetDate - today;
     deltaDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-  
-    if (deltaDays === 0) {
+    
+    if (deltaDays < 0) {
+        return "(already)";
+    }
+    else if (deltaDays === 0) {
         return "today";
     } else if (deltaDays === 1) {
         return "tomorrow"; // Corrected from "in 1 day" for Moment.js
