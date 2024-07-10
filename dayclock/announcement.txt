@@ -1,1 +1,2 @@
-Lienfen will be here at 3pm {{describeDaysUntil('2024-07-09')}}.
+Åsa leaves {{describeDaysUntil('2024-07-11')}}.<br>
+Lienfen comes Monday 3-6&nbsp;pm<br>and Thursday 9&nbsp;am-12&nbsp;pm.

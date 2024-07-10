@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = xhr.responseText;
-                // data = "<b>John</b> is back {{describeDaysUntil('2024-07-07')}}.";
+                // data = "Åsa leaves {{describeDaysUntil('2024-07-11')}}.<br>\nLienfen comes Monday 3-6&nbsp;pm<br>and Thursday 9&nbsp;am-12&nbsp;pm.";
 
                 const regex = /{{([^}]+)}}/g;
 
