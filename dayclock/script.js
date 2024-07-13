@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             document.getElementById('partofday').textContent = partofday.toUpperCase();
-            document.getElementById('weekday').textContent = weekday;
+            document.getElementById('weekday').textContent = weekday.toUpperCase();
             document.getElementById('date').textContent = date;
             document.getElementById('time').textContent = time.toUpperCase();
 
