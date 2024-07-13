@@ -1,3 +1,2 @@
-John &amp; Alan leave {{describeDaysUntil('2024-07-15')}}.<br>
-Nani &amp; Alisa come Mon 9:30 am.<br>
-Lienfen comes Mon 3&ndash;6&nbsp;pm, Thu 9&nbsp;am&ndash;12&nbsp;pm.
+蔡蓮芬 comes Monday 3&ndash;6&nbsp;pm<br>
+and Thursday 9&nbsp;am&ndash;12&nbsp;pm.
