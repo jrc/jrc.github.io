@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = xhr.responseText;
-                // data = "蔡蓮芬 comes Monday 3&ndash;6&nbsp;pm<br>and Thursday 9&nbsp;am&ndash;12&nbsp;pm.";
+                // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蔡蓮芬 comes Monday 3&ndash;6&nbsp;pm\nand Thursday 9&nbsp;am&ndash;12&nbsp;pm.";
 
-                const regex = /{{([^}]+)}}/g;
+                data = data.replace(/\n/g, '<br>');
 
-                data = data.replace(regex, function(match, expression) {
+                data = data.replace(/{{([^}]+)}}/g, function(match, expression) {
                     return eval(expression); // Assuming no sensitive data!
                 });
 
