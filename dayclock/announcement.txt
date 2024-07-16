@@ -1,3 +1,2 @@
-Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.
 蔡蓮芬 comes Monday 3&ndash;6&nbsp;pm
 and Thursday 9&nbsp;am&ndash;12&nbsp;pm.
