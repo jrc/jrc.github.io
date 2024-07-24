@@ -13,9 +13,9 @@ Hello, world :)
 ## Areas of Interest
 
 * Software as a Medium
-  * "bicycles for the mind", "tools for thought", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. HyperCard, Flash), [malleable systems](https://malleable.systems/)
+  * "bicycles for the mind", "tools for thought", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. [HyperCard](https://en.wikipedia.org/wiki/HyperCard#Legacy), Flash), [malleable systems](https://malleable.systems/) (e.g. Smalltalk, Lisp)
   * [Small computing](https://hackernoon.com/big-and-small-computing-73dc49901b9a), [Home-cooked software](https://maggieappleton.com/home-cooked-software)
-  * https://paper.mmm.dev/, https://www.val.town/about, https://www.notion.so/about
+  * e.g. https://obsidian.md/about, https://www.notion.so/about, https://paper.mmm.dev/, https://www.val.town/about
   * [Local-first software](https://localfirstweb.dev/), [Permacomputing](https://permacomputing.net/), [One-page computers](https://100r.co/site/uxn.html)
   * [Future of Coding](https://futureofcoding.org/)
 * Food Tech
