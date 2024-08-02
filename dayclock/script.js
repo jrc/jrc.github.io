@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = xhr.responseText;
-                // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蔡蓮芬 comes Monday 3&ndash;6&nbsp;pm\nand Thursday 9&nbsp;am&ndash;12&nbsp;pm.";
-                // data = "蓮芬 comes Monday 2:45&nbsp;PM to take you to dentist.\nAnd this Thursday 3:00&nbsp;PM."
+                // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM.";
+                // data = "蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM."
 
                 data = data.replace(/\n/g, '<br>');
 
