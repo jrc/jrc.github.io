@@ -6,6 +6,7 @@ This assumes you're using Google Chrome.
 2. Turn on Portuguese subtitles.
 
 Find the subtitles (WebVTT) file:
+
 3. Open View menu > Developer > Developer Tools.
 4. Reload the page.
 5. Choose the "Network" tab. Filter for "`.vtt`"
@@ -13,15 +14,18 @@ Find the subtitles (WebVTT) file:
 7. The file will open in a new tab. Chrome will offer to translate. Ignore, because the text encoding is wrong.
 
 Translate the subtitles:
+
 8. Save the VTT file. Close the tab.
-9. Open the saved file in Chrome. (This is to workaround the wrong text encoding.)
-10. Chrome will offer to translate. Accept, and save the translated VTT file.
+9. Open the saved file in Code. Find and replace `[\p{L},\.?]\n[\p{L}]` with `$1 $2`. Save.
+10. Open the saved file in Chrome. Chrome will offer to translate. Accept, and save the translated VTT file.
 11. Close the Developer Tools pane.
 
 Convert the subtitles:
+
 12. Use a tool like https://subtitletools.com/convert-to-srt-online to convert the VTT file to SRT file.
 
 Install browser extension:
+
 13. Click the "…" menu in the upper-right, choose Extensions > Visit Chrome Web Store.
 14. Search for "Movie Subtitles". Click "Add to Chrome" to install it.
 15. Go back to the Globoplay tab.
@@ -29,8 +33,6 @@ Install browser extension:
 17. Reload the tab.
 18. Click the "Movie Subtitles" extension.
 19. Load the translated SRT file. Enjoy!
-
-
 
 ---
 
