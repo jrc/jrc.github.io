@@ -16,7 +16,7 @@ Find the subtitles (WebVTT) file:
 Translate the subtitles:
 
 8. Save the VTT file. Close the tab.
-9. Open the saved file in Code. Find and replace `[\p{L},\.?]\n[\p{L}]` with `$1 $2`. Save.
+9. Open the saved file in Code. Find and replace `([\p{L},\.?])\n([\p{L}])` with `$1 $2`. Save.
 10. Open the saved file in Chrome. Chrome will offer to translate. Accept, and save the translated VTT file.
 11. Close the Developer Tools pane.
 
