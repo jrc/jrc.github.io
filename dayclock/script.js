@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 var data = xhr.responseText;
                 // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM.";
                 // data = "蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM."
+                // data = "蓮芬 will come {{describeDaysUntil('2024-09-05')}}.\nMonday 9/2 is a holiday (Labor Day)."
 
                 data = data.replace(/\n/g, '<br>');
 
