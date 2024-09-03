@@ -1,2 +1,1 @@
-蓮芬 will come {{describeDaysUntil('2024-09-05')}}.
-Monday 9/2 is a holiday (Labor Day).
+蓮芬 comes Mondays and Thursdays.
