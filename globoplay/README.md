@@ -16,7 +16,7 @@ Find the subtitles (WebVTT) file:
 Translate the subtitles:
 
 8. Save the VTT file. Close the tab.
-9. Open the saved file in Code. Find and replace `([\p{L},\.?])\n([\p{L}])` with `$1 $2`. Save.
+9. Open the saved file in Code. Find and replace the regex `([\p{L},\.?])\n([\p{L}])` with `$1 $2`. Save.
 10. Open the saved file in Chrome. Chrome will offer to translate. Accept, and save the translated VTT file.
 11. Close the Developer Tools pane.
 
@@ -33,11 +33,3 @@ Install browser extension:
 17. Reload the tab.
 18. Click the "Movie Subtitles" extension.
 19. Load the translated SRT file. Enjoy!
-
----
-
-1. Follow the steps above to grab the VTT file.
-1. Run e.g. `python3 main.py avenida-brasil/1875660-por-0717d7b0-5ec8-013b-bb32-1afe9761092a.vtt`
-1. Open the joined file `avenida-brasil/1875660-por-0717d7b0-5ec8-013b-bb32-1afe9761092a_joined.vtt` in Chrome. Translate to English.
-1. Save the translated file as `avenida-brasil/1875660-por-0717d7b0-5ec8-013b-bb32-1afe9761092a_joined_en.vtt`.
-1. Use https://subtitletools.com/convert-to-srt-online to convert to SRT format. Save as e.g. `Avenida_Brasil_1875660_E1_2012-03-26_en.srt`.
