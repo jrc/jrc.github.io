@@ -684,7 +684,7 @@ const generalNodes = [
       "portable",
       "education",
     ],
-    dependsOn: ["logo", "smalltalk"],
+    dependsOn: ["sketchpad", "simula", "ic", "grail", "logo"],
   },
   {
     id: "intel-8008",
