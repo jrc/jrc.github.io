@@ -4,13 +4,13 @@ isBasedOn: https://cooking.nytimes.com/recipes/1018203-simple-crusty-bread
 
 # Simple Crusty Bread
 
-| | |
-| --- | --- |
-| Author | Nick Fox |
-| Contributor | John Chang |
-| Publisher | NYT Cooking |
-| Yield | 4 loaves |
-| Total | 3 hours 45 minutes |
+|             |                    |
+| ----------- | ------------------ |
+| Author      | Nick Fox           |
+| Contributor | John Chang         |
+| Publisher   | NYT Cooking        |
+| Yield       | 4 loaves           |
+| Total       | 3 hours 45 minutes |
 
 ![image](https://static01.nyt.com/images/2017/08/08/insider/simple-crusty-bread/simple-crusty-bread-square640-v2.jpg)
 
@@ -18,11 +18,11 @@ We thought we’d landed upon the simplest yeast bread recipe in 2007, when Mark
 
 ## Ingredients
 
-* 1 1/2 tablespoons [14 g] instant yeast [or 50 g fresh yeast]
-* 1 1/2 tablespoons [13 g] kosher salt
-* 3 cups [634 g] lukewarm water (about 100 degrees F)
-* 6 1/2 cups [824 g] unbleached all-purpose flour, more for dusting dough
-* Cornmeal
+- 1 1/2 tablespoons [14 g] instant yeast [or 50 g fresh yeast]
+- 1 1/2 tablespoons [13 g] kosher salt
+- 3 cups [634 g] lukewarm water (about 100 degrees F)
+- 6 1/2 cups [824 g] unbleached all-purpose flour, more for dusting dough
+- Cornmeal
 
 ## Instructions
 

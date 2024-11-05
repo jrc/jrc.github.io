@@ -4,32 +4,32 @@ isBasedOn: https://www.seriouseats.com/butterfiled-roast-turkey-with-gravy-recip
 
 # Crisp-Skinned Spatchcocked (Butterflied) Roast Turkey With Gravy
 
-| | |
-| --- | --- |
-| Author | J. Kenji López-Alt |
-| Publisher | Serious Eats |
-| Yield | 12 |
-| Prep | 15 minutes |
-| Cook | 1 hour 45 minutes |
-| Total | 2 hours |
+|           |                    |
+| --------- | ------------------ |
+| Author    | J. Kenji López-Alt |
+| Publisher | Serious Eats       |
+| Yield     | 12                 |
+| Prep      | 15 minutes         |
+| Cook      | 1 hour 45 minutes  |
+| Total     | 2 hours            |
 
-![image](https://www.seriouseats.com/thmb/fvggcI1F2PX5BESbydddL6EHWVE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2017__11__20141106-thanksgiving-turkey-spatchcock-butterfly-herb-rubbed-08-thumb-1500xauto-415090-f538a1691a44420d8c32a387e23d2051.jpg)
+![image](<https://www.seriouseats.com/thmb/fvggcI1F2PX5BESbydddL6EHWVE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2017__11__20141106-thanksgiving-turkey-spatchcock-butterfly-herb-rubbed-08-thumb-1500xauto-415090-f538a1691a44420d8c32a387e23d2051.jpg>)
 
 Spatchcocking turkey gives you stunningly crisp skin and perfectly cooked white and dark meat. Bonus: this recipe makes a flavorful gravy from the pan drippings, too.
 
 ## Ingredients
 
-* 3 large onions, roughly chopped (about 1 1/2 quarts)
-* 3 large carrots, peeled and roughly chopped (about 1 quart)
-* 4 stalks celery, roughly chopped (about 1 quart
-* 12 thyme sprigs
-* 1 whole turkey (12 to 14 pounds total), butterflied according to these instructions, backbone, neck, and giblets reserved
-* 2 tablespoons vegetable oil
-* Kosher salt and freshly ground black pepper
-* 1 1/2 quarts low-sodium homemade or store-bought chicken or turkey broth
-* 2 bay leaves
-* 3 tablespoons butter
-* 4 tablespoons flour
+- 3 large onions, roughly chopped (about 1 1/2 quarts)
+- 3 large carrots, peeled and roughly chopped (about 1 quart)
+- 4 stalks celery, roughly chopped (about 1 quart
+- 12 thyme sprigs
+- 1 whole turkey (12 to 14 pounds total), butterflied according to these instructions, backbone, neck, and giblets reserved
+- 2 tablespoons vegetable oil
+- Kosher salt and freshly ground black pepper
+- 1 1/2 quarts low-sodium homemade or store-bought chicken or turkey broth
+- 2 bay leaves
+- 3 tablespoons butter
+- 4 tablespoons flour
 
 ## Instructions
 
