@@ -1,1 +1,1 @@
-蓮芬 comes Tuesdays and Thursdays.
+John arrives {{describeDaysUntil('2024-11-21')}}.
