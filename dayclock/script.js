@@ -1,5 +1,5 @@
 var ANNOUNCEMENT =
-  "Doctor's follow-up appt. {{describeDaysUntil('2024-11-25')}}.";
+  "Thanksgiving dinner at Jocelyn's house {{describeDaysUntil('2024-11-28')}}.";
 
 /*
     For compatibility with Safari 9:
