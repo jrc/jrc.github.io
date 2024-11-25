@@ -1,45 +1,17 @@
-body,
-html {
+html,
+body {
+    height: 100%;
+}
+
+body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .container {
+    height: 100%;
     display: flex;
-    flex-direction: column; /* Vertical */
-    height: 100vh;
-}
-
-.box {
-    text-align: center;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-}
-
-.top {
-    flex: 1;
-    transition: background-color 60s;
-    padding-top: 1rem;
-}
-
-.middle {
-    flex: 2;
-    transition: background-color 60s;
-}
-
-.bottom {
-    flex: 1;
-    transition: background-color 60s;
-    padding-bottom: 1rem;
-}
-
-
-/* Styles for theme and text */
-
-.theme-light {
-    background-color: #f4f4f4;
-    color: #0a0a0a;
 }
 
 .theme-dark {
@@ -47,117 +19,81 @@ html {
     color: rgba(255, 0, 0, 0.4);
 }
 
-.text-bold {
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-top {
+    background-color: rgb(135, 206, 250);
+}
+
+.section-middle {
+    background-color: rgb(255, 255, 255);
+}
+
+.section-bottom {
+    background-image: url('photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.theme-dark .section-top,
+.theme-dark .section-middle,
+.theme-dark .section-bottom {
+    background-color: transparent;
+}
+
+.theme-dark .section:not(:first-child) {
+    display: none;
+}
+
+
+.date {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.time {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+
+.weekday {
+    font-size: 4rem;
     font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.partofday {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.announcement {
+    font-size: 2.5rem;
+    font-weight: normal;
 }
 
 
-/* Styles for part of day */
-
-.topBreakfast {
-    background-color: #FFFFE0;
-}
-
-.middleBreakfast {
-    background-color: #FFCC00;
-}
-
-.topMorning {
-    background-color: #FFFFE0;
-}
-
-.middleMorning {
-    background-color: #FFFFE0;
-}
-
-.topLunch {
-    background-color: #87CEFA;
-}
-
-.middleLunch {
-    background-color: #007FFF;
-}
-
-.topAfternoon {
-    background-color: #87CEFA;
-}
-
-.middleAfternoon {
-    background-color: #87CEFA;
-}
-
-.topDinner {
-    background-color: #FFDAB9;
-}
-
-.middleDinner {
-    background-color: #FF4500;
-}
-
-.topEvening {
-    background-color: #FFDAB9;
-}
-
-.middleEvening {
-    background-color: #FFDAB9;
-}
-
-.topSleep {
-    background-color: #000000;
-}
-
-.middleSleep {
-    background-color: #000000;
-}
-
-
-/* Styles for phone size */
-
-@media screen and (max-width: 480px) and (orientation: portrait) {
-    .text-medium {
-        font-size: 1.8rem;
-    }
-
-    .text-large {
-        font-size: 3.6rem;
-    }
-
-    .text-xlarge {
-        font-size: 4.2rem;
+@media screen and (orientation: portrait) {
+    .section {
+        flex: 1;
     }
 }
 
-@media screen and (max-height: 480px) and (orientation: landscape) {
-    .text-medium {
-        font-size: 1.5rem;
+@media screen and (orientation: landscape) {
+
+    .section {
+        flex: 1;
     }
 
-    .text-large {
-        font-size: 2.5rem;
-    }
-
-    .text-xlarge {
-        font-size: 4rem;
-    }
-
-    .hidden-phone-landscape {
+    .section:last-child {
         display: none;
-    }
-}
-
-/* Styles for tablet size */
-
-@media screen and (min-width: 480px) and (orientation: portrait),
-screen and (min-height: 480px) and (orientation: landscape) {
-    .text-medium {
-        font-size: 3rem;
-    }
-
-    .text-large {
-        font-size: 5rem;
-    }
-
-    .text-xlarge {
-        font-size: 7rem;
     }
 }

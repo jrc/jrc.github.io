@@ -1,3 +1,6 @@
+var ANNOUNCEMENT =
+  "Doctor's follow-up appt. {{describeDaysUntil('2024-11-25')}}.";
+
 /*
     For compatibility with Safari 9:
     i.e. iOS 9 (9/2015) / OS X El Capitan (9/2015)
@@ -10,51 +13,14 @@
     
     * Use Moment.js instead of toLocaleTimeString()
     https://caniuse.com/?search=toLocaleTimeString%3Aoptions
-    
+    // toLocaleDate/TimeString(locale, ...) is not implemented
+    // and polyfill.io returns the time in UTC timezone, so use Moment.js.
+
     * Use XMLHttpRequest() instead of fetch()
     https://caniuse.com/?search=fetch
 */
 
 console.log("Hello, world!");
-
-// URLSearchParams was introduced in Safari 10
-function getQueryParam(name, url) {
-  name = name.replace(/[\[\]]/g, "\\$&"); // Escape special characters
-  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
-  const results = regex.exec(url);
-
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function getQueryParamAsBoolean(name, url) {
-  if (!url) {
-    url = window.location.href; // Use current URL if not provided
-  }
-
-  const value = getQueryParam(name, url); // Use the original getQueryParam function
-  return value ? value.toLowerCase() === "true" : false;
-}
-
-const TEST_MODE = getQueryParamAsBoolean("testMode");
-
-var RELOAD_PAGE_SECS = TEST_MODE ? 60 : 60 * 60 * 24; // 24 hours
-
-// Reload everything nightly (poor man's software update)
-setTimeout(function () {
-  window.location.reload(true);
-}, 1000 * RELOAD_PAGE_SECS);
-
-// -----
-
-const TEST_TRANSITION_SECS = 0.25;
-
-var FETCH_ANNOUNCEMENT_SECS = TEST_MODE ? 30 : 60 * 60 * 6; // 6 hours
-
-var testHoursAndMinutes = 0;
-
-const IS_OLD_BROWSER = window.Intl === undefined; // Workaround for Safari 9
 
 /* Safari 9's Date constructor doesn't reliably parse ISO 8601 date strings
    without time/timezone info, often treating them as UTC midnight,
@@ -92,34 +58,6 @@ function describeDaysUntil(dateString) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  function fetchAnnouncement() {
-    document.getElementById("announcement").textContent = ""; // Clear
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var data = xhr.responseText;
-        // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM.";
-        // data = "蓮芬 comes Mondays and Thursdays."
-        // data = "蓮芬 will come {{describeDaysUntil('2024-11-21')}}.\nMonday 9/2 is a holiday (Labor Day)."
-
-        data = data.replace(/\n/g, "<br>");
-
-        data = data.replace(/{{([^}]+)}}/g, function (match, expression) {
-          return eval(expression); // Assuming no sensitive data!
-        });
-
-        document.getElementById("announcement").innerHTML = data;
-      }
-    };
-    const url = "https://jrcpl.us/dayclock/announcement.txt";
-    console.log("Fetching " + url);
-    xhr.open("GET", url, true);
-    xhr.send();
-
-    setTimeout(fetchAnnouncement, 1000 * FETCH_ANNOUNCEMENT_SECS);
-  }
-
   function updateUI() {
     try {
       const now = new Date();
@@ -128,111 +66,61 @@ document.addEventListener("DOMContentLoaded", function () {
       var weekday;
       var date;
 
-      if (IS_OLD_BROWSER) {
-        // toLocaleDate/TimeString(locale, ...) is not implemented
-        // and polyfill.io returns the time in UTC timezone
-        // so use Moment.js.
-        const momentNow = moment();
-        time = momentNow.format("LT");
-        weekday = momentNow.format("dddd");
-        date = momentNow.format("LL");
-      } else {
-        // Known issue: This uses the browser locale, not the host's time/date format
-        // so e.g. with language='en-US', region=SE, it returns 12 not 24 hour time
-        time = now.toLocaleTimeString([], {
-          hour: "numeric",
-          minute: "2-digit",
-        });
-        weekday = now.toLocaleDateString([], { weekday: "long" });
-        date = now.toLocaleDateString([], {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-      }
+      const momentNow = moment();
+      time = momentNow.format("LT");
+      weekday = momentNow.format("dddd");
+      date = momentNow.format("LL");
 
       var hourAndMinutes = now.getHours() + now.getMinutes() / 60.0;
-      if (TEST_MODE) {
-        hourAndMinutes = testHoursAndMinutes;
-        time = hourAndMinutes + ":00 XX";
-      }
 
       // For debugging:
-      // weekday = 'Wednesday';
-      // date = 'September 30, 2023';
+      // weekday = "Wednesday";
+      // date = "December 12, 2024";
       // hourAndMinutes = 23;
 
       var themeClassName = "theme-light";
-      var partofdayIcon;
-      var partofdayIconName = null;
       var partofday;
 
-      if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
-        partofdayIcon = "🥣";
-        partofdayIconName = "openmoji-72x72-color/1F963.png";
-        partofday = "Breakfast";
-      } else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
-        partofdayIcon = "🍚";
-        partofdayIconName = "openmoji-72x72-color/1F35A.png";
-        partofday = "Lunch";
-      } else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
-        partofdayIcon = "🍜";
-        partofdayIconName = "openmoji-72x72-color/1F35C.png";
-        partofday = "Dinner";
-      } else if (hourAndMinutes >= 6.5 && hourAndMinutes < 12) {
-        partofdayIcon = "";
-        partofday = "Morning";
+      if (hourAndMinutes >= 6.5 && hourAndMinutes < 12) {
+        partofday = "Morning".toUpperCase();
       } else if (hourAndMinutes >= 12 && hourAndMinutes < 18) {
-        partofdayIcon = "";
-        partofday = "Afternoon";
+        partofday = "Afternoon".toUpperCase();
       } else if (hourAndMinutes >= 18 && hourAndMinutes < 22) {
-        partofdayIcon = "";
-        partofday = "Evening";
+        partofday = "Evening".toUpperCase();
       } else {
         themeClassName = "theme-dark";
-        partofdayIcon = "🛌";
-        partofdayIconName = "openmoji-72x72-color/1F6CC.png";
-        partofday = "Sleep";
+        partofday = "Bedtime";
+      }
+
+      if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
+        partofday = "Time for Breakfast";
+      } else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
+        partofday = "Time for Lunch";
+      } else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
+        partofday = "Time for Dinner";
       }
 
       document.getElementById("container").className = "container";
       document.getElementById("container").classList.add(themeClassName);
 
-      document.getElementById("top").className = "box top";
-      document.getElementById("top").classList.add("top" + partofday);
-
-      document.getElementById("middle").className = "box middle";
-      document.getElementById("middle").classList.add("middle" + partofday);
-
-      if (IS_OLD_BROWSER) {
-        const partofdayIconDiv = document.getElementById("partofdayIcon");
-        partofdayIconDiv.innerHTML = "";
-        if (partofdayIconName) {
-          const img = document.createElement("img");
-          img.src = partofdayIconName;
-          partofdayIconDiv.appendChild(img);
-        }
-      } else {
-        document.getElementById("partofdayIcon").textContent = partofdayIcon;
-      }
-
-      document.getElementById("partofday").textContent =
-        partofday.toUpperCase();
       document.getElementById("weekday").textContent = weekday.toUpperCase();
+      document.getElementById("partofday").textContent = partofday;
       document.getElementById("date").textContent = date;
-      document.getElementById("time").textContent = time.toUpperCase();
+      document.getElementById("time").textContent = time;
 
-      if (TEST_MODE) {
-        testHoursAndMinutes = ++testHoursAndMinutes % 24;
+      var announcementHTML = ANNOUNCEMENT.replace(/\n/g, "<br>");
+      announcementHTML = announcementHTML.replace(
+        /{{([^}]+)}}/g,
+        function (_match, expression) {
+          return eval(expression); // Assuming no sensitive data!
+        }
+      );
+      document.getElementById("announcement").innerHTML = announcementHTML;
 
-        setTimeout(updateUI, 1000 * TEST_TRANSITION_SECS);
-      } else {
-        // Calculate the time remaining until the next full minute
-        const secondsRemaining = 60 - now.getSeconds();
-
-        // Schedule the next update at the next full minute
-        setTimeout(updateUI, 1000 * secondsRemaining);
-      }
+      // Calculate the time remaining until the next full minute
+      const secondsRemaining = 60 - now.getSeconds();
+      // Schedule the next update at the next full minute
+      setTimeout(updateUI, 1000 * secondsRemaining);
     } catch (err) {
       console.error(err);
 
@@ -243,17 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (TEST_MODE) {
-    const styleSheet = document.createElement("style");
-    const newStyles =
-      ".top, .middle, .bottom { transition: background-color " +
-      TEST_TRANSITION_SECS +
-      "s !important; }";
-    styleSheet.appendChild(document.createTextNode(newStyles));
-    document.head.appendChild(styleSheet);
-  }
-
   // Initialize
-  fetchAnnouncement();
   updateUI();
 });

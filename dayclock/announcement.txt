@@ -1,1 +1,0 @@
-Doctor's follow-up appt. {{describeDaysUntil('2024-11-25')}}.
