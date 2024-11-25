@@ -28,8 +28,25 @@ body {
 }
 
 .section-top {
-    background-color: rgb(135, 206, 250);
+    background-color: white;
 }
+
+.morning .section-top {
+    background-color: #FFFFE0;
+}
+
+.afternoon .section-top {
+    background-color: #87CEFA;
+}
+
+.evening .section-top {
+    background-color: #FFDAB9;
+}
+
+.bedtime .section-top {
+    background-color: #000000;
+}
+
 
 .section-middle {
     background-color: rgb(255, 255, 255);

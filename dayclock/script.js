@@ -79,32 +79,39 @@ document.addEventListener("DOMContentLoaded", function () {
       // hourAndMinutes = 23;
 
       var themeClassName = "theme-light";
-      var partofday;
+      var partofdayText;
+      var partofdayClassName;
 
       if (hourAndMinutes >= 6.5 && hourAndMinutes < 12) {
-        partofday = "Morning".toUpperCase();
+        partofdayText = "Morning".toUpperCase();
+        partofdayClassName = "morning";
       } else if (hourAndMinutes >= 12 && hourAndMinutes < 18) {
-        partofday = "Afternoon".toUpperCase();
+        partofdayText = "Afternoon".toUpperCase();
+        partofdayClassName = "afternoon";
       } else if (hourAndMinutes >= 18 && hourAndMinutes < 22) {
-        partofday = "Evening".toUpperCase();
+        partofdayText = "Evening".toUpperCase();
+        partofdayClassName = "evening";
       } else {
         themeClassName = "theme-dark";
-        partofday = "Bedtime";
+        partofdayText = "Bedtime";
+        partofdayClassName = "bedtime";
       }
 
       if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
-        partofday = "Time for Breakfast";
+        partofdayText = "Time for Breakfast";
       } else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
-        partofday = "Time for Lunch";
+        partofdayText = "Time for Lunch";
       } else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
-        partofday = "Time for Dinner";
+        partofdayText = "Time for Dinner";
       }
 
-      document.getElementById("container").className = "container";
-      document.getElementById("container").classList.add(themeClassName);
+      var container = document.getElementById("container");
+      container.className = "container"; // Reset
+      container.classList.add(themeClassName);
+      container.classList.add(partofdayClassName);
 
       document.getElementById("weekday").textContent = weekday.toUpperCase();
-      document.getElementById("partofday").textContent = partofday;
+      document.getElementById("partofday").textContent = partofdayText;
       document.getElementById("date").textContent = date;
       document.getElementById("time").textContent = time;
 
