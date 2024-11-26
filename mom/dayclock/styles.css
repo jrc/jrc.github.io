@@ -1,0 +1,117 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-dark {
+    background-color: black;
+    color: rgba(255, 0, 0, 0.4);
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-top {
+    background-color: white;
+}
+
+.morning .section-top {
+    background-color: #FFFFE0;
+}
+
+.afternoon .section-top {
+    background-color: #87CEFA;
+}
+
+.evening .section-top {
+    background-color: #FFDAB9;
+}
+
+.bedtime .section-top {
+    background-color: #000000;
+}
+
+
+.section-middle {
+    background-color: rgb(255, 255, 255);
+}
+
+.section-bottom {
+    background-image: url('photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.theme-dark .section-top,
+.theme-dark .section-middle,
+.theme-dark .section-bottom {
+    background-color: transparent;
+}
+
+.theme-dark .section:not(:first-child) {
+    display: none;
+}
+
+
+.date {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.time {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+
+.weekday {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.partofday {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.announcement {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin: 2rem;
+}
+
+
+@media screen and (orientation: portrait) {
+    .section {
+        flex: 1;
+    }
+}
+
+@media screen and (orientation: landscape) {
+
+    .section {
+        flex: 1;
+    }
+
+    .section:last-child {
+        display: none;
+    }
+}
