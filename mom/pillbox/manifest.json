@@ -1,6 +1,6 @@
 {
-    "name": "My Day Clock",
-    "short_name": "MyDayClock",
+    "name": "Pillbox Clock",
+    "short_name": "PillboxClock",
     "display": "standalone",
     "start_url": "index.html"
 }

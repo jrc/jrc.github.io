@@ -1,6 +1,6 @@
 {
-    "name": "My Day Clock",
-    "short_name": "MyDayClock",
+    "name": "Day Clock",
+    "short_name": "DayClock",
     "display": "standalone",
     "start_url": "index.html"
 }
