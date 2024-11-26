@@ -7,7 +7,7 @@ function updateDisplay() {
 
   // DEBUG
   // isAM = true;
-  isSaturday = true;
+  // isSaturday = true;
 
   // Update color bars visibility
   document.querySelector(".am-bar").style.display = isAM ? "block" : "none";
