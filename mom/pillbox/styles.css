@@ -42,6 +42,14 @@ body {
     flex-shrink: 0;
 }
 
+.am-color {
+    color: #00A6FF;
+}
+
+.pm-color {
+    color: #A100FF;
+}
+
 .am-bar {
     background-color: #00A6FF;
 }

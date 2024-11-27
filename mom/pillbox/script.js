@@ -38,9 +38,23 @@ function updateDisplay() {
   document.querySelector(".am-bar").style.display = isAM ? "block" : "none";
   document.querySelector(".pm-bar").style.display = !isAM ? "block" : "none";
 
-  // Update text content
-  document.querySelector(".day").textContent = day;
-  document.querySelector(".period").textContent = isAM ? "AM" : "PM";
+  // Update text content and colors
+  var dayElement = document.querySelector(".day");
+  var periodElement = document.querySelector(".period");
+
+  dayElement.textContent = day;
+  periodElement.textContent = isAM ? "AM" : "PM";
+
+  dayElement.className = "day"; // Reset
+  periodElement.className = "period"; // Reset
+
+  if (isAM) {
+    dayElement.classList.add("am-color");
+    periodElement.classList.add("am-color");
+  } else {
+    dayElement.classList.add("pm-color");
+    periodElement.classList.add("pm-color");
+  }
 
   // Toggle right pane visibility
   var container = document.querySelector(".container");
