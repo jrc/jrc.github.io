@@ -1,5 +1,4 @@
-var ANNOUNCEMENT =
-  "Laundry and house cleaning {{describeDaysUntil('2024-11-26')}}.";
+var ANNOUNCEMENT = "";
 
 /*
     For compatibility with Safari 9:
