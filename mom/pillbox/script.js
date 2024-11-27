@@ -1,13 +1,38 @@
+function getUrlParam(param) {
+  var search = window.location.search;
+  var params = {};
+
+  if (search) {
+    // Remove leading '?' if present
+    search = search.charAt(0) === "?" ? search.slice(1) : search;
+
+    var pairs = search.split("&");
+    for (var i = 0; i < pairs.length; i++) {
+      var pair = pairs[i].split("=");
+      params[decodeURIComponent(pair[0])] = pair[1]
+        ? decodeURIComponent(pair[1])
+        : "";
+    }
+  }
+
+  return params.hasOwnProperty(param) ? params[param] : undefined;
+}
+
 function updateDisplay() {
   var now = moment();
   var day = now.format("ddd");
   var hour = now.hour();
-  var isAM = hour < 12;
-  var isSaturday = day === "Sat";
 
   // DEBUG
-  // isAM = false;
-  // isSaturday = true;
+  if (getUrlParam("day")) {
+    day = getUrlParam("day");
+  }
+  if (getUrlParam("hour")) {
+    hour = parseInt(getUrlParam("hour"), 10);
+  }
+
+  var isAM = hour < 12;
+  var isSaturday = day === "Sat";
 
   // Update color bars visibility
   document.querySelector(".am-bar").style.display = isAM ? "block" : "none";
