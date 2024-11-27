@@ -6,7 +6,7 @@ function updateDisplay() {
   var isSaturday = day === "Sat";
 
   // DEBUG
-  // isAM = true;
+  // isAM = false;
   // isSaturday = true;
 
   // Update color bars visibility
