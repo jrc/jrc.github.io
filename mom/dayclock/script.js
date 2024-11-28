@@ -1,4 +1,4 @@
-var ANNOUNCEMENT = "";
+var FETCH_ANNOUNCEMENT_SECS = 60 * 60 * 12; // 12 hours
 
 /*
     For compatibility with Safari 9:
@@ -18,8 +18,6 @@ var ANNOUNCEMENT = "";
     * Use XMLHttpRequest() instead of fetch()
     https://caniuse.com/?search=fetch
 */
-
-console.log("Hello, world!");
 
 /* Safari 9's Date constructor doesn't reliably parse ISO 8601 date strings
    without time/timezone info, often treating them as UTC midnight,
@@ -54,6 +52,33 @@ function describeDaysUntil(dateString) {
   } else {
     return "in " + deltaDays + " days";
   }
+}
+
+function fetchAnnouncement() {
+  document.getElementById("announcement").textContent = ""; // Clear
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var data = xhr.responseText;
+      // data = "Alan &amp; John leave {{describeDaysUntil('2024-07-15')}}.\n蓮芬 comes Monday 3:00&nbsp;PM\nand Thursday 9:00&nbsp;AM.";
+      // data = "蓮芬 comes Mondays and Thursdays."
+
+      data = data.replace(/\n/g, "<br>");
+
+      data = data.replace(/{{([^}]+)}}/g, function (match, expression) {
+        return eval(expression); // Assuming no sensitive data!
+      });
+
+      document.getElementById("announcement").innerHTML = data;
+    }
+  };
+  const url = "https://jrcpl.us/mom/dayclock/announcement.txt";
+  console.log("Fetching " + url);
+  xhr.open("GET", url, true);
+  xhr.send();
+
+  setTimeout(fetchAnnouncement, 1000 * FETCH_ANNOUNCEMENT_SECS);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -114,15 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("date").textContent = date;
       document.getElementById("time").textContent = time;
 
-      var announcementHTML = ANNOUNCEMENT.replace(/\n/g, "<br>");
-      announcementHTML = announcementHTML.replace(
-        /{{([^}]+)}}/g,
-        function (_match, expression) {
-          return eval(expression); // Assuming no sensitive data!
-        }
-      );
-      document.getElementById("announcement").innerHTML = announcementHTML;
-
       // Calculate the time remaining until the next full minute
       const secondsRemaining = 60 - now.getSeconds();
       // Schedule the next update at the next full minute
@@ -139,4 +155,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize
   updateUI();
+  fetchAnnouncement();
 });
