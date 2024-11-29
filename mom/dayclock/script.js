@@ -65,6 +65,7 @@ function fetchAnnouncement() {
       // data = "蓮芬 comes Mondays and Thursdays."
 
       data = data.replace(/\n/g, "<br>");
+      data = data.replace(/&/g, "&amp;");
 
       data = data.replace(/{{([^}]+)}}/g, function (match, expression) {
         return eval(expression); // Assuming no sensitive data!
