@@ -1,1 +1,2 @@
+Dinner at Jeff's {{describeDaysUntil('2024-11-29')}}.
 Lunch with Jocelyn & Jenny {{describeDaysUntil('2024-11-30')}}.
