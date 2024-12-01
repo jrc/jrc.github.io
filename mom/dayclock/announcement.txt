@@ -1,2 +1,2 @@
-Dinner at Jeff's {{describeDaysUntil('2024-11-29')}}.
-Lunch with Jocelyn & Jenny {{describeDaysUntil('2024-11-30')}}.
+John returns {{describeDaysUntil('2024-12-02')}}.
+Lienfen on Tue; Nani on Wed/Thu.
