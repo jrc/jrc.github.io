@@ -1,3 +1,3 @@
-Lienfen on Tuesday; Nani on Wednesday & Thursday.
+Lienfen on Tuesday; Nani on Wednesday.
+
 Lunch with Emily {{describeDaysUntil('2024-12-04')}}.
-John leaves {{describeDaysUntil('2024-12-05')}}.
