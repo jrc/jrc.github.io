@@ -1,2 +1,3 @@
-John returns {{describeDaysUntil('2024-12-02')}}.
-Lienfen on Tue; Nani on Wed/Thu.
+Lienfen on Tuesday; Nani on Wednesday & Thursday.
+Lunch with Emily {{describeDaysUntil('2024-12-04')}}.
+John leaves {{describeDaysUntil('2024-12-05')}}.
