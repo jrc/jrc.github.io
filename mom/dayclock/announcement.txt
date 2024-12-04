@@ -1,4 +1,3 @@
-Lunch with Emily {{describeDaysUntil('2024-12-04')}}.
-John leaves {{describeDaysUntil('2024-12-05')}}.
+Geriatric doctor appt & John leaves {{describeDaysUntil('2024-12-05')}}.
 
-Lienfen on Tuesday; Nani on Wednesday.
+Lienfen on Tuesday afternoon. Nani on Wednesday morning & Friday afternoon.
