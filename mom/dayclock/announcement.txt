@@ -1,3 +1,2 @@
-Geriatric doctor appt & John leaves {{describeDaysUntil('2024-12-05')}}.
-
-Lienfen on Tuesday afternoon. Nani on Wednesday morning & Friday afternoon.
+Lienfen on Tuesday afternoons.
+Nani on Wednesday mornings & Friday afternoons.
