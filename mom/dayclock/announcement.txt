@@ -1,2 +1,2 @@
-Lienfen on Tuesday afternoons.
-Nani on Wednesday mornings & Friday afternoons.
+Nani comes Wednesday morning & Friday afternoon.
+Lienfen returns {{describeDaysUntil('2025-01-07')}}.
