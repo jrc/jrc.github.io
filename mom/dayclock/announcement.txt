@@ -1,2 +1,2 @@
 Nani comes Wednesday morning & Friday afternoon.
-Lienfen returns {{describeDaysUntil('2025-01-07')}}.
+Lienfen returns {{describeDaysUntil('2025-01-14')}}.
