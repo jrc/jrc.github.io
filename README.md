@@ -4,7 +4,7 @@ Hello, world :)
 
 ## Me on the Web
 
-* Twitter [@jrcplus](https://twitter.com/jrcplus), Mastodon [@jrcplus@mastodon.social](https://mastodon.social/@jrcplus), Bluesky [@jrcpl.us](https://bsky.app/profile/jrcpl.us)
+* ~~Twitter [@jrcplus](https://twitter.com/jrcplus)~~, Bluesky [@jrcpl.us](https://bsky.app/profile/jrcpl.us), Mastodon [@jrcplus@mastodon.social](https://mastodon.social/@jrcplus)
 * [LinkedIn](https://www.linkedin.com/in/johnrchang)
 * [Stack Overflow](http://stackoverflow.com/users/594211/jrc)
 * [GitHub](https://github.com/jrc)
@@ -13,9 +13,9 @@ Hello, world :)
 ## Areas of Interest
 
 * Software as a Medium
-  * "bicycles for the mind", "tools for thought", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" (e.g. [HyperCard](https://en.wikipedia.org/wiki/HyperCard#Legacy), Flash), [malleable systems](https://malleable.systems/) (e.g. Smalltalk, Lisp)
+  * "bicycles for the mind", "tools for thought", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" ([HyperCard](https://en.wikipedia.org/wiki/HyperCard#Legacy), Flash), [malleable systems](https://malleable.systems/) (e.g. Smalltalk, Lisp)
   * [Small computing](https://hackernoon.com/big-and-small-computing-73dc49901b9a), [Home-cooked software](https://maggieappleton.com/home-cooked-software)
-  * e.g. https://obsidian.md/about, https://www.notion.so/about, https://paper.mmm.dev/, https://www.val.town/about
+  * https://obsidian.md/about, https://www.notion.so/about, https://paper.mmm.dev/, https://www.val.town/about
   * [Local-first software](https://localfirstweb.dev/), [Permacomputing](https://permacomputing.net/), [One-page computers](https://100r.co/site/uxn.html)
   * [Future of Coding](https://futureofcoding.org/)
 * Food Tech
@@ -30,4 +30,4 @@ Hello, world :)
 
 ### Why the "plus"?
 
-When I was at [Carnegie Mellon University](https://www.cmu.edu/), the email system did fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html) by default, so you could write a person's name e.g. `harry.bovik@andrew.cmu.edu` and it would try to deliver it to the right mailbox. If you added a plus sign (`+`), the system would do an exact match instead of a fuzzy match, i.e. the `+` character makes it unambiguous. So in practice, I was `jrc+`, and it stuck.
+When I was at [Carnegie Mellon University](https://www.cmu.edu/), the email system did fuzzy [common name matching](https://web.archive.org/web/20000914184801/http://www.cmu.edu/computing/documentation/unix/cmuedu.html) by default, so you could write a person's name e.g. `harry.bovik@andrew.cmu.edu` and it would try to deliver it to the right mailbox. If you added a plus sign (`+`), the system would do an exact username match instead of a fuzzy match, i.e. the `+` character makes it unambiguous. So in practice, I was `jrc+`, and it stuck.
