@@ -5,27 +5,29 @@ Hello, world :)
 ## Me on the Web
 
 * ~~Twitter [@jrcplus](https://twitter.com/jrcplus)~~, Bluesky [@jrcpl.us](https://bsky.app/profile/jrcpl.us), Mastodon [@jrcplus@mastodon.social](https://mastodon.social/@jrcplus)
-* [LinkedIn](https://www.linkedin.com/in/johnrchang)
 * [Stack Overflow](http://stackoverflow.com/users/594211/jrc)
 * [GitHub](https://github.com/jrc)
+* [LinkedIn](https://www.linkedin.com/in/johnrchang)
 * [Keybase](https://keybase.io/jrc)
 
-## Areas of Interest
+## Areas of Interest / Stuff I've Done
 
 * Software as a Medium
-  * "bicycles for the mind", "tools for thought", [end-user programming](https://en.wikipedia.org/wiki/End-user_development), "authoring tools" ([HyperCard](https://en.wikipedia.org/wiki/HyperCard#Legacy), Flash), [malleable systems](https://malleable.systems/) (e.g. Smalltalk, Lisp)
-  * [Small computing](https://hackernoon.com/big-and-small-computing-73dc49901b9a), [Home-cooked software](https://maggieappleton.com/home-cooked-software)
-  * https://obsidian.md/about, https://www.notion.so/about, https://paper.mmm.dev/, https://www.val.town/about
-  * [Local-first software](https://localfirstweb.dev/), [Permacomputing](https://permacomputing.net/), [One-page computers](https://100r.co/site/uxn.html)
-  * [Future of Coding](https://futureofcoding.org/)
-* Food Tech
-  * ideas: recipes as data, menus as data, interactive visual recipes, API for supermarkets
-  * gardening/horticulture, both low-tech (permaculture) and high-tech (Controlled Environment Agriculture, vertical farming)* Interactive Fiction (IF), Infocom, text adventure games, Alternate Reality Games (ARGs)
-* Impact (deep ecology, climate change, social justice, wealth equality)
-  * Repurposing older hardware, [Right to repair](https://repair.eu/)
-  * Public transit, [international train travel](https://back-on-track.eu/)
-  * Food system resilience
+  * I grew up programming in Applesoft BASIC, Logo, and HyperCard (R.I.P.). I was a huge Apple fanboy and bought into the idea of personal, interactive computers as "bicycles for the mind", as a form of radical liberation. In high school, I read about Doug Engelbart and Xerox PARC, which reinforced the notion of software as a medium for human creativity and expression. I decided I wanted to study computer science, but I was never interested in solving business problems or so-called IT.
+  * I was one of the first undergrad researchers in Brad Myers' [Natural Programming Project](https://www.cs.cmu.edu/~NatProg/). One day, we went to a local elementary school and presented children with diagrams of Pac-Man in different scenarios to see how they would  naturally express those programming concepts, in their own words. The results were published as ["Studying the language and structure in
+non-programmers’ solutions to programming problems" (2001)](https://john.pane.net/pdf/PaneRatanamahatanaMyers2001.pdf). At the same time, I got a bit disillusioned with the field of HCI, which I felt was trying to be all qualitative and formal. I was always curious how Steve Jobs managed to create great products while shunning formal usability studies.
+  * As a student, I volunteered at WQED Pittsburgh, which was next CMU campus. One day I stepped into the elevator and found myself face to face with Mister Rogers. I didn't know what to do except stare at my feet. As the doors opened and I scampered out, he looked directly at me, nodded and smiled warmly, and said, "Make it good".
+  * Somehow I got lucky. While I was in university, Apple bought NeXT, and with that came Steve Jobs. After months and months of pestering everybody I could, I got my dream job at Apple in 1999. I was thrilled to get the chance to work on unifying two very different worlds and cultures, Macintosh and Unix. Back then, I remember engineers and designers hashing out problems like the role of file extensions, and heated arguments about resource forks and binary executable formats. The NeXT way won in most cases, as the NeXT team was running the show and very pragmatically decided that Apple, with 5% market share or whatever, had to be the one to adapt to the rest of the world.
+  * The first thing that I worked on during my first months at Apple was getting Mozilla to run well on Mac OS X. Mac OS X didn't have any native apps yet, and Bertrand wanted some real-world code to exercise the APIs which were still under development. This work resulted in [https://www-archive.mozilla.org/ports/fizzilla/](Fizzilla).
+  * One of my side tasks, being the snot-nosed new college grad, was to help prep the demo machines for Macworld Expo, the ones for the Stevenotes. I was literally sitting up there on stage, the day before the keynote, ftp'ing builds and patching the demo machine with bug fixes from Cupertino. I watched in awe as Steve Jobs rehearsed his lines.
+  * I also worked on [Music Player.app](https://guidebookgallery.org/screenshots/macosxpb#cdplayer), which showed its face in Mac OS X Public Beta before being quickly killed off by iTunes for Mac OS X.
+  * Being a corn-fed boy from Indiana where nothing ever happens, it was surreal to be living in Silicon Valley and being in places and seeing people that I had only heard about in books and newspapers. I ended up living in downtown Palo Alto for a few years, literally two doors from Elon Musk. Sometimes, I would spot Steve Jobs on Apple campus. He was usually walking around with Jony Ive, but sometimes he was alone. Once I was in line in the cafeteria and noticed a commotion. I looked up and the sushi lady was shaking with nervousness. I looked to my right and there was Steve Jobs, who was smiling. "I'm just another customer," he said, trying to reassure her. Some years later, I spotted someone walking with Doug Engelbart at the Stanford Shopping Center. I wanted to say something to him, but I didn't know what, plus he was looking a bit frail. 
+  * There were plenty of secret projects at Apple, big and small. One big one was the Aqua user interface that was revealed at Macworld Expo in January 2000. Not only did we have to keep our office doors locked and windows covered, we weren't even supposed to reveal the existence of the project. There was even a rumor that screenshots would have tracking codes hidden in them, to dissuade leaking. For some years, I worked on the OS Installer and Setup Assistant, and so we would get access to new hardware, usually in mostly final form, but sometimes in prototype plexiglass form. We had to keep them literally locked up in a closet. I remember getting to see the iBook and MacBook Air before the world did. 
+  * In around 2004, I was unofficially asked to help hack Mac OS X to work on a [prototype touchscreen tablet computer](https://appleinsider.com/articles/12/07/18/court_filing_reveals_apples_ipad_prototype_from_early_2000s). This was not an iPad, as the article claims, but rather an iBook hacked into a tablet form factor, with a touchscreen and flash storage instead of a hard drive. I remember deleting Java, printer drivers, fonts, etc. to get a standard Mac OS X installation to fit on the smaller flash drive. I also wrote a little tool that used the CoreGraphics API to make a huge cursor on the screen that looked like the iMac [hockey puck mouse](https://en.wikipedia.org/wiki/Hockey_puck_mouse), so you could drag it around the screen with your finger and click, because none of the existing Mac software was designed with touch-sized targets.
+  * It was a tough decision, but I left California in 2005 to pursue a masters degree in Europe. I tried to quit, but my manager convinced me to take a leave of absence. So I was still in contact with Apple during the masters program, and I started hearing about a big "black hole" secret project that was sucking in people from all over software engineering. As I decided to not purse a Ph.D but return to Cupertino, the expectation was that I would also join the secret project. But when I did return, they told me that my old team really needed help, since so many people had been sucked into the black hole. So I agreed to re-join my old team, on the condition that I could work on something different. The black hole, in turned out, was the famed [Project Purple](https://www.mac-history.net/2021/10/03/project-purple-2-how-apple-developed-the-iphone-as-a-secret-project/). Of course, had I known, I would have stayed at Apple. At the same time, I had already done something similar with the fledgling Mac OS X project and wouldn't necessarily have looked forward to another multi-year slog, especially compared to spending 2 years abroad.
+  - TBD
 
+ 
 ## FAQ
 
 ### Why the "plus"?
