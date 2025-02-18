@@ -9,7 +9,7 @@ Hello, world :)
 * [GitHub](https://github.com/jrc)
 * [LinkedIn](https://www.linkedin.com/in/johnrchang)
 * [Keybase](https://keybase.io/jrc)
-
+ 
 ## Areas of Interest / Stuff I've Done
 
 * Software as a Medium
@@ -33,6 +33,12 @@ non-programmers’ solutions to programming problems" (2001)](https://john.pane.
   - Report: [Biointensive mini-farming in Ytterjärna, Sweden (2014)](https://github.com/jrc/jrc.github.io/blob/master/contrib/2014%20Biointensive%20J%C3%A4rna%20Report.pdf) [PDF]
   - from my personal learnings: [Notes on Gardening (2019)](https://github.com/jrc/jrc.github.io/blob/master/contrib/eng_gardening.md) and 
 [Gardening for Engineers (2020)](https://github.com/CollapseLabs/gardening-for-engineers/blob/master/README.md)
+* Coffee (2000s)
+  - After moving to Silicon Valley, I would meet up with a friend from high school who lived in a neighboring city. One Sunday evening, we decided to meet up at a Starbucks, only to arrive and find that it was closed. (This was before smartphones and Google Maps.) We tried another Starbucks, and it was also closed. After giving up, we both decided to drive home and start researching espresso machines online, so we could each have one at home. I ordered a Rancilio Silvia espresso machine, paired with a Rancilio Rocky ginder (later replaced by a Mazzer Mini grinder), and went down the rabbit hole of coffee nerdery. For example, here's a HOWTO guide that I wrote in 2002: [Rancilio Silvia Espresso HOWTO](https://web.archive.org/web/20120620125542/http://homepage.mac.com:80/jrc/contrib/rancilio_silvia/)
+  - During this phase of my life, I shunned Starbucks coffee. I remember that an owner of an indie coffee shop poo-pooed Starbucks, saying that they sell more milk than coffee, so they should be known as a dairy company instead of a coffee company. But in 2006, I visited China for the first time. After hours of city tourism, going to a place with 1) proper coffee, 2) comfortable chairs, 3) free Wi-Fi, 4) sitting toilets with toilet paper, and 5) a solace from cigarette smoke and air pollution was heaven. So it was in China that I gained a true appreciation for Starbucks. Also, their coffee got also better after Howard Schultz returned as CEO, and they dropped their "Charbucks" reputation.
+  - I didn't bring Silvia (and Mazzer Mini) with me when I moved to Sweden, only due to the fact that they're made for North American 120V / 60Hz voltage. Instead, adapting to local cultural norms, I switched to making filter drip coffee. I typically use Melitta or Hario V60 filter cones. I also started buying normal supermarket coffee (but still whole bean). I find that I appreciate specialty coffee more when it's a treat, rather than an everyday occurance.
+
+* Older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
  
 ## FAQ
 
