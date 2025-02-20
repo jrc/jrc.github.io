@@ -38,6 +38,8 @@ Hello, world :)
   - Project report: ["Biointensive mini-farming in Ytterjärna, Sweden"](/contrib/2014/2014%20Biointensive%20J%C3%A4rna%20Report.pdf) [PDF] (2014)
 - Visual Recipes & Grocery E-Commerce (2016)
 
+  - ["Appetise Rethinking Recipes"](/contrib/2016/ForkLift/Appetise%20Rethinking%20Recipes.pdf) [PDF] - a survey of alternative, more visual recipe formats. See also Pontus Granström's ["Redesigning the Recipe](https://pontus.granstrom.me/blog/redesigning-the-recipe/) for a write-up of the problem.
+  - ["What’s Next for Grocery E-Commerce"](/contrib/2016/ForkLift/ForkLift%20Grocery%20E-Commerce%2020160907.pdf) [PDF] - a white paper about the grocery e-commerce landscape in Sweden (2016)
   - TODO
 
 - Portugal (2017–2019)
@@ -49,7 +51,7 @@ Hello, world :)
   - For SLU course [FÖ0435: Product Development and Innovation Systems in Horticulture](https://www.slu.se/en/education/programmes-courses/course/F%C3%960435/20078.2021/Product-Development-and-Innovation-Systems-in-Horticulture/)
     - Project proposal: ["Multimodal Imaging with Unmodified Smartphones for Plant Disease Detection"](/contrib/2020/Exercise%204%20Innovative%20Plant%20Protection.pdf) [PDF] (2020)
     - Mini-review: ["Effects of light on the flavor of greenhouse-produced tomatoes"](/contrib/2020/Exercise%206%20Mini-Review.pdf) [PDF] (2021)
-  - ["Digital Horticulture"](/contrib/2020/Digital%20Horticulture.pdf) [PDF] (2020) - including overview of data platforms
+  - ["Digital Horticulture"](/contrib/2020/Digital%20Horticulture.pdf) [PDF] (2020) - including survey of data platforms
 - FoodTBD (2023)
   - [MenuDB](https://foodtbd.github.io/menudb/) - a project by me and my cousin to transcribe, translate, and digitize Chinese restaurant menus
 - Pickles (2023)
