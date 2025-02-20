@@ -38,29 +38,29 @@ Hello, world :)
   - Project report: ["Biointensive mini-farming in Ytterjärna, Sweden"](/contrib/2014/2014%20Biointensive%20J%C3%A4rna%20Report.pdf) [PDF] (2014)
 - Visual Recipes & Grocery E-Commerce (2016)
 
-  - ["Appetise Rethinking Recipes"](/contrib/2016/ForkLift/Appetise%20Rethinking%20Recipes.pdf) [PDF] - a survey of alternative, more visual recipe formats. See also Pontus Granström's ["Redesigning the Recipe](https://pontus.granstrom.me/blog/redesigning-the-recipe/) for a write-up of the problem.
+  - ["Appetise Rethinking Recipes"](/contrib/2016/ForkLift/Appetise%20Rethinking%20Recipes.pdf) [PDF] - a study of alternative recipe formats. Pontus Granström did a nice [write-up of the problem](https://pontus.granstrom.me/blog/redesigning-the-recipe/).
   - ["What’s Next for Grocery E-Commerce"](/contrib/2016/ForkLift/ForkLift%20Grocery%20E-Commerce%2020160907.pdf) [PDF] - a white paper about the grocery e-commerce landscape in Sweden (2016)
   - TODO
 
 - Portugal (2017–2019)
   - TODO
-  - Talk for Python Porto Meetup: ["Building a Serverless Cloud Service"](/contrib/2018/Building%20a%20Serverless%20Cloud%20Service.pdf) [PDF]
+  - A talk I did for Python Porto Meetup: ["Building a Serverless Cloud Service"](/contrib/2018/Building%20a%20Serverless%20Cloud%20Service.pdf) [PDF]
 - Horticulture & Vertical Farming (2019–2023)
-  - from my personal learnings: ["Notes on Gardening"](/contrib/2019/eng_gardening) (2019) and
+  - my personal learnings: ["Notes on Gardening"](/contrib/2019/eng_gardening) (2019) and
     ["Vegetable Gardening for Engineers"](/contrib/2020/gardening-for-engineers/) (2020)
-  - For SLU course [FÖ0435: Product Development and Innovation Systems in Horticulture](https://www.slu.se/en/education/programmes-courses/course/F%C3%960435/20078.2021/Product-Development-and-Innovation-Systems-in-Horticulture/)
+  - For SLU course FÖ0435 "Product Development and Innovation Systems in Horticulture":
     - Project proposal: ["Multimodal Imaging with Unmodified Smartphones for Plant Disease Detection"](/contrib/2020/Exercise%204%20Innovative%20Plant%20Protection.pdf) [PDF] (2020)
     - Mini-review: ["Effects of light on the flavor of greenhouse-produced tomatoes"](/contrib/2020/Exercise%206%20Mini-Review.pdf) [PDF] (2021)
-  - ["Digital Horticulture"](/contrib/2020/Digital%20Horticulture.pdf) [PDF] (2020) - including survey of data platforms
+  - ["Digital Horticulture"](/contrib/2020/Digital%20Horticulture.pdf) [PDF] (2020) - a survey of data platforms
 - FoodTBD (2023)
-  - [MenuDB](https://foodtbd.github.io/menudb/) - a project by me and my cousin to transcribe, translate, and digitize Chinese restaurant menus
+  - [MenuDB](https://foodtbd.github.io/menudb/) - a project by my cousin and me to transcribe, translate, and digitize Chinese restaurant menus
 - Pickles (2023)
 
   - TODO
-  - [Pickle John's](https://picklejohns.github.io/) - a project by me and a colleague to make New York-style fermented kosher dill pickle DIY kits
-  - visual D.I.Y. [recipe](/contrib/2023/Kosher%20Dill%20Visual%20Recipe.pdf) [PDF] and [instructions](D.I.Y.%20Kit%20Instructions%20-%20Photos.pdf) [PDF]
+  - [Pickle John's](https://picklejohns.github.io/) - a project by a colleague and me to make New York-style fermented kosher dill pickle DIY kits
+  - visual D.I.Y. [recipe](/contrib/2023/picklejohns/Kosher%20Dill%20Visual%20Recipe.pdf) [PDF] and [instructions](/contrib/2023/picklejohns/D.I.Y.%20Kit%20Instructions%20-%20Photos.pdf) [PDF]
 
-- Older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
+- More, older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
 
 ## FAQ
 
