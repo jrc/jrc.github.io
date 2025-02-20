@@ -39,12 +39,12 @@ Hello, world :)
 - Visual Recipes & Grocery E-Commerce (2016)
 
   - ["Appetise Rethinking Recipes"](/contrib/2016/ForkLift/Appetise%20Rethinking%20Recipes.pdf) [PDF] - a study of alternative recipe formats. See also Pontus Granström's own [write-up of the problem](https://pontus.granstrom.me/blog/redesigning-the-recipe/).
-  - ["What’s Next for Grocery E-Commerce"](/contrib/2016/ForkLift/ForkLift%20Grocery%20E-Commerce%2020160907.pdf) [PDF] - a white paper about the grocery e-commerce landscape in Sweden (2016)
+  - ["What’s Next for Grocery E-Commerce"](/contrib/2016/ForkLift/ForkLift%20Grocery%20E-Commerce%2020160907.pdf) [PDF] (2016) - a white paper about the grocery e-commerce landscape in Sweden
   - TODO
 
 - Portugal (2017–2019)
   - TODO
-  - A talk I did for Python Porto Meetup: ["Building a Serverless Cloud Service"](/contrib/2018/Building%20a%20Serverless%20Cloud%20Service.pdf) [PDF]
+  - A talk I did for Python Porto Meetup: ["Building a Serverless Cloud Service"](/contrib/2018/Building%20a%20Serverless%20Cloud%20Service.pdf) [PDF] (2018)
 - Horticulture & Vertical Farming (2019–2023)
   - my personal learnings: ["Notes on Gardening"](/contrib/2019/eng_gardening) (2019) and
     ["Vegetable Gardening for Engineers"](/contrib/2020/gardening-for-engineers/) (2020)
