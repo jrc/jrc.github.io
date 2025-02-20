@@ -37,11 +37,9 @@ Hello, world :)
   - inspired by [article in NYT](https://www.nytimes.com/2011/07/28/garden/permaculture-emerges-from-the-underground.html)
   - Project report: ["Biointensive mini-farming in Ytterjärna, Sweden"](/contrib/2014/2014%20Biointensive%20J%C3%A4rna%20Report.pdf) [PDF] (2014)
 - Visual Recipes & Grocery E-Commerce (2016)
-
+  - TODO
   - ["Appetise Rethinking Recipes"](/contrib/2016/ForkLift/Appetise%20Rethinking%20Recipes.pdf) [PDF] - a study of alternative recipe formats. See also Pontus Granström's own [write-up of the problem](https://pontus.granstrom.me/blog/redesigning-the-recipe/).
   - ["What’s Next for Grocery E-Commerce"](/contrib/2016/ForkLift/ForkLift%20Grocery%20E-Commerce%2020160907.pdf) [PDF] (2016) - a white paper about the grocery e-commerce landscape in Sweden
-  - TODO
-
 - Portugal (2017–2019)
   - TODO
   - A talk I did for Python Porto Meetup: ["Building a Serverless Cloud Service"](/contrib/2018/Building%20a%20Serverless%20Cloud%20Service.pdf) [PDF] (2018)
@@ -55,12 +53,11 @@ Hello, world :)
 - FoodTBD (2023)
   - [MenuDB](https://foodtbd.github.io/menudb/) - a project by my cousin and me to transcribe, translate, and digitize Chinese restaurant menus
 - Pickles (2023)
-
   - TODO
   - [Pickle John's](https://picklejohns.github.io/) - a project by a colleague and me to make New York-style fermented kosher dill pickle DIY kits
   - visual D.I.Y. [recipe](/contrib/2023/picklejohns/Kosher%20Dill%20Visual%20Recipe.pdf) [PDF] and [instructions](/contrib/2023/picklejohns/D.I.Y.%20Kit%20Instructions%20-%20Photos.pdf) [PDF]
 
-- More, older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
+More, older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
 
 ## FAQ
 
