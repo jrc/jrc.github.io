@@ -1,2 +1,3 @@
-Lienfen comes on Tuesday. Nani comes Wednesday & Friday.
 John leaves {{describeDaysUntil('2025-03-14')}}.
+Lienfen comes Tuesday.
+Nani comes Wednesday & Friday.
