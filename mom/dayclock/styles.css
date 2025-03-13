@@ -72,23 +72,22 @@ body {
 .date {
     font-size: 2.5rem;
     font-weight: normal;
+    margin: 0.5rem 0;
 }
-
-.time {
-    font-size: 2.5rem;
-    font-weight: normal;
-}
-
 
 .weekday {
     font-size: 4rem;
     font-weight: bold;
-    margin: 0.5rem 0;
+}
+
+.time {
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 .partofday {
-    font-size: 4rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: normal;
     margin: 0.5rem 0;
 }
 
@@ -100,17 +99,27 @@ body {
 
 
 @media screen and (orientation: portrait) {
-    .section {
+
+    .section-top,
+    .section-bottom {
+        flex: 2;
+    }
+
+    .section-middle {
         flex: 1;
     }
 }
 
 @media screen and (orientation: landscape) {
+    .section-top {
+        flex: 2;
+    }
 
-    .section {
+    .section-middle {
         flex: 1;
     }
 
+    /* Keeping the bottom section hidden in landscape as per your original CSS */
     .section:last-child {
         display: none;
     }

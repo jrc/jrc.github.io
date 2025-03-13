@@ -123,11 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (hourAndMinutes >= 7 && hourAndMinutes < 9) {
-        partofdayText = "Time for Breakfast";
+        partofdayText = "It’s time for breakfast.";
       } else if (hourAndMinutes >= 12 && hourAndMinutes < 13) {
-        partofdayText = "Time for Lunch";
+        partofdayText = "It’s time for lunch.";
       } else if (hourAndMinutes >= 17 && hourAndMinutes < 18.5) {
-        partofdayText = "Time for Dinner";
+        partofdayText = "It’s time for dinner.";
       }
 
       var container = document.getElementById("container");
