@@ -62,7 +62,7 @@ Hello, world :)
   - [Pickle John's](https://picklejohns.github.io/) - a project by a colleague and me to make New York-style fermented kosher dill pickle DIY kits
   - visual D.I.Y. [recipe](/contrib/2023/picklejohns/Kosher%20Dill%20Visual%20Recipe.pdf) [PDF] and [instructions](/contrib/2023/picklejohns/D.I.Y.%20Kit%20Instructions%20-%20Photos.pdf) [PDF]
 - Software as a Medium
-  - [This project](/contrib/2025/Scrappy.md) brought me back to my roots.
+  - [This project](/contrib/2025/Scrappy) brought me back to my roots.
 
 More, older stuff: https://web.archive.org/web/20100311031043/http://homepage.mac.com/jrc/contrib
 
