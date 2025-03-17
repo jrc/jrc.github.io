@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cost</title>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .elapsedCost {
+            font-size: 10vw;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            data() {
+                return {
+                    intervalID: null,
+                    startDate: null,
+                    elapsedCost: 0,
+                    config: {
+                        currencyCode: "EUR",
+                        employeeCount: 5,
+                        employeeMonthSalary: 5000
+                    },
+                }
+            },
+            methods: {
+                resetTimer() {
+                    this.startDate = Date.now();
+                    this.elapsedCost = 0;
+                },
+                toggleTimer() {
+                    if (this.intervalID) {
+                        clearTimeout(this.intervalID);
+
+                        this.intervalID = null;
+                        this.startDate = null;
+                    }
+                    else {
+                        this.resetTimer();
+
+                        this.intervalID = setInterval(() => {
+                            const elapsed = Date.now() - this.startDate;
+                            // 8 hours/day * 22 days/month * 60 minutes/hour * 60 seconds/minute
+                            const workingSecondsPerMonth = 8 * 22 * 60 * 60;
+                            const costPerSecond = this.config.employeeCount * (this.config.employeeMonthSalary * 2) / workingSecondsPerMonth;
+                            this.elapsedCost = (elapsed / 1000) * costPerSecond;
+                        }, 1000);
+                    }
+                },
+                getElapsedCostString() {
+                    try {
+                        const currencyFormat = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: this.config.currencyCode });
+                        return currencyFormat.format(this.elapsedCost);
+                    }
+                    catch (err) {
+                        if (!err.name) {
+                            console.error(err);
+                        }
+                        return "";
+                    }
+                },
+                loadConfig() {
+                    const mySearchParams = new URLSearchParams(window.location.search);
+                    for (const [k, v] of mySearchParams) {
+                        this.config[k] = v;
+                    }
+                },
+                saveConfig() {
+                    const mySearchParams = new URLSearchParams(window.location.search);
+                    for (const [k, v] of Object.entries(this.config)) {
+                        mySearchParams.set(k, v);
+                    }
+                    window.location.search = mySearchParams;
+                },
+                getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(this.autoFillWithPosition);
+                    }
+                },
+                async autoFillWithPosition(position) {
+                    try {
+                        const nearestCitiesUrl = `https://api.teleport.org/api/locations/${position.coords.latitude},${position.coords.longitude}/`;
+                        console.log(`Fetching ${nearestCitiesUrl}`);
+                        const nearestCitiesResponse = await fetch(nearestCitiesUrl);
+                        const nearestCitiesData = await nearestCitiesResponse.json();
+                        // console.log(nearestCitiesData);
+                        const urbanAreaUrl = nearestCitiesData['_embedded']['location:nearest-urban-areas'][0]['_links']['location:nearest-urban-area']['href']
+
+                        console.log(`Fetching ${urbanAreaUrl}`);
+                        let urbanAreaResponse = await fetch(urbanAreaUrl);
+                        let urbanAreaData = await urbanAreaResponse.json();
+                        // console.log(urbanAreaData);
+                        const uaCountryUrl = urbanAreaData['_links']['ua:countries'][0]['href'];
+                        const uaSalariesUrl = urbanAreaData['_links']['ua:salaries']['href'];
+
+                        console.log(`Fetching ${uaCountryUrl}`);
+                        let uaCountryResponse = await fetch(uaCountryUrl);
+                        let uaCountryData = await uaCountryResponse.json();
+                        // console.log(uaCountryData);
+                        this.config.currencyCode = uaCountryData['currency_code']
+
+                        console.log(`Fetching ${uaSalariesUrl}`);
+                        let uaSalariesResponse = await fetch(uaSalariesUrl);
+                        let uaSalariesData = await uaSalariesResponse.json();
+                        console.log(uaSalariesData);
+                        jobDict = uaSalariesData['salaries'].find(x => x.job.id == 'SOFTWARE-ENGINEER');
+                        const percentile_50 = job['salary_percentiles']['percentile_50'];
+                        // This is, however, in USD, and we'd need to do a currency conversion.
+
+                        // this.saveConfig()
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            },
+            created() {
+                this.loadConfig();
+                this.resetTimer();
+            },
+            unmounted() {
+
+            }
+        }).mount('#app')
+    </script>
+
+    <div id="app">
+        <details>
+            <summary>Settings</summary>
+            <!-- <div>
+                <button type="button" @click="getLocation()">Fill Defaults Based On Current Location</button>
+            </div> -->
+            <p>
+                <label for="currencyCode">Currency code:</label>
+                <input list="currencyCodes" v-model="config.currencyCode" @change="saveConfig">
+                <datalist id="currencyCodes">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="CNY">CNY</option>
+                    <option value="JPY">JPY</option>
+                    <option value="CAD">CAD</option>
+                    <option value="AUD">AUD</option>
+                    <option value="HKD">HKD</option>
+                    <option value="SGD">SGD</option>
+                    <option value="SEK">SEK</option>
+                </datalist>
+                <br>
+                <label for="employeeMonthSalary">Monthly salary per employee:</label>
+                <input type="number" v-model="config.employeeMonthSalary" @change="saveConfig">
+                <br>
+                (This is doubled to reflect the company's true employee cost.)
+            </p>
+        </details>
+
+        <div class="center">
+            <div class="elapsedCost">{{ getElapsedCostString() }}</div>
+        </div>
+        <div class="center">
+            <label for="employeeCount">Number of Employees:</label>
+            <input type="number" v-model="config.employeeCount" @change="saveConfig">
+        </div>
+        <div class="center">
+            <button type="button" @click="toggleTimer()">{{ intervalID ? "Stop" : "Start"}}</button>
+            <button type="button" @click="resetTimer()">Reset</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

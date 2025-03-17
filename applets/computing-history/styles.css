@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#graph-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#graph {
+    width: 100%;
+    height: 100%;
+}
+
+#controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+#tag-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#tag-filters button {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+#tag-filters button:hover {
+    background-color: #e0e0e0;
+}
+
+#tag-filters button.active {
+    background-color: #d0d0d0;
+    font-weight: bold;
+}
+
+.color-bubble {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+#tooltip {
+    position: absolute;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-description {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.tooltip-tags {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.tooltip-url {
+    font-size: 10px;
+    margin-top: 5px;
+    word-break: break-all;
+}
+
+.node text {
+    font-size: 10px;
+    pointer-events: none;
+}
+
+.node circle {
+    cursor: pointer;
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    #controls {
+        width: 90%;
+        height: 20vh;
+        left: 5%;
+        right: 5%;
+        bottom: 10px;
+        top: auto;
+    }
+
+    #tag-filters {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #tag-filters button {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .color-bubble {
+        width: 8px;
+        height: 8px;
+        margin-right: 4px;
+    }
+}
+
+@media (min-width: 769px) {
+    #controls {
+        width: 250px;
+        height: calc(100% - 20px);
+        overflow-y: auto;
+    }
+}
