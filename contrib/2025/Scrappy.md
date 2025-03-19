@@ -112,7 +112,7 @@ When we would describe the project to others, invariably people would start talk
 
 We believe that [going from a prompt in English to pages of React code is way too big of a leap for non-programmers](https://bsky.app/profile/jrcpl.us/post/3lgoal4gy7s2o). What's needed is a medium — a substrate, if you will — in which you configure and compose software building blocks, more like Legos. This would provide the missing middle ground between natural language and programming language, where humans and AI can collaborate on equal footing.
 
-Well, it turns out that our system provides exactly this kind of substrate. All of our software building blocks, Things, can be represented as pure data. A simple text field containing the text "Ahoy, world!" looks like this:
+Well, it turns out that our system provides exactly this kind of substrate. All of our software building blocks, Things, [can be represented as plain text](https://xcancel.com/id_aa_carmack/status/1902088032519405919?s=46 data). A simple text field containing the text "Ahoy, world!" looks like this:
 
 ```
 {
