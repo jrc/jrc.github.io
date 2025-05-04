@@ -79,9 +79,9 @@
 
             let fontSize;
             if (window.orientation === 0 || window.orientation === 180) { // Portrait
-                fontSize = availableWidth / 1.1; // Use width in portrait
+                fontSize = availableWidth / 2.5; // Use width in portrait
             } else { // Landscape
-                fontSize = availableHeight / 1.1; // Use height in landscape
+                fontSize = availableHeight / 1.5; // Use height in landscape
             }
             timeElement.style.fontSize = `${fontSize}px`;
         }
