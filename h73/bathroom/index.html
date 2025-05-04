@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Kiosk Clock</title>
     <style>
         :root {
-            --clock-margin: 50%;
+            --clock-margin: 10px;
         }
 
         body {
@@ -45,7 +47,6 @@
 
 <body class="light-mode">
     <div class="time"></div>
-
     <script>
         const timeElement = document.querySelector('.time');
         const body = document.body;
@@ -53,13 +54,11 @@
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
-
             const timeString = now.toLocaleTimeString('sv-SE', {
                 hour: '2-digit',
                 minute: '2-digit'
             });
             timeElement.textContent = timeString;
-
             if (hours >= 22 || hours < 7) {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
@@ -75,18 +74,21 @@
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
             const clockMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--clock-margin'));
-
             const availableWidth = screenWidth - (clockMargin * 2);
             const availableHeight = screenHeight - (clockMargin * 2);
 
-            const fontSize = Math.min(availableWidth, availableHeight) / 1.5;
+            let fontSize;
+            if (window.orientation === 0 || window.orientation === 180) { // Portrait
+                fontSize = availableWidth / 1.1; // Use width in portrait
+            } else { // Landscape
+                fontSize = availableHeight / 1.1; // Use height in landscape
+            }
             timeElement.style.fontSize = `${fontSize}px`;
         }
 
         setInterval(updateClock, 60000);
         updateClock();
         window.addEventListener('resize', adjustFontSize);
-
     </script>
 </body>
 
