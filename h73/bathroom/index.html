@@ -8,10 +8,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Kiosk Clock</title>
     <style>
-        :root {
-            --clock-margin: 10px;
-        }
-
         body {
             margin: 0;
             display: flex;
@@ -21,6 +17,7 @@
             overflow: hidden;
             font-family: sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #b5c2b8;
         }
 
         .time {
@@ -30,11 +27,12 @@
             display: flex;
             align-items: center;
             height: 100%;
-            margin: var(--clock-margin);
+            margin: 10px;
+            /* Hard-coded the margin value directly */
         }
 
         .light-mode {
-            background-color: #f0f0f0;
+            background-color: #b5c2b8;
             color: #000;
         }
 
@@ -71,17 +69,13 @@
 
         function adjustFontSize() {
             const timeElement = document.querySelector('.time');
-            const screenWidth = window.innerWidth;
-            const screenHeight = window.innerHeight;
-            const clockMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--clock-margin'));
-            const availableWidth = screenWidth - (clockMargin * 2);
-            const availableHeight = screenHeight - (clockMargin * 2);
-
             let fontSize;
-            if (window.orientation === 0 || window.orientation === 180) { // Portrait
-                fontSize = availableWidth / 2.5; // Use width in portrait
-            } else { // Landscape
-                fontSize = availableHeight / 1.5; // Use height in landscape
+            if (window.orientation === 0 || window.orientation === 180) {
+                // Portrait mode font size for iPhone 6s
+                fontSize = 140; // Hard-coded size
+            } else {
+                // Landscape mode font size for iPhone 6s
+                fontSize = 244; // Hard-coded size
             }
             timeElement.style.fontSize = `${fontSize}px`;
         }
