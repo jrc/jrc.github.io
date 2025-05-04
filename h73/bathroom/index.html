@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kiosk Clock</title>
+    <style>
+        :root {
+            --clock-margin: 50%;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .time {
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: var(--clock-margin);
+        }
+
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .dark-mode {
+            background-color: #000;
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+    <div class="time"></div>
+
+    <script>
+        const timeElement = document.querySelector('.time');
+        const body = document.body;
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+
+            const timeString = now.toLocaleTimeString('sv-SE', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            timeElement.textContent = timeString;
+
+            if (hours >= 22 || hours < 7) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            }
+            adjustFontSize();
+        }
+
+        function adjustFontSize() {
+            const timeElement = document.querySelector('.time');
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const clockMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--clock-margin'));
+
+            const availableWidth = screenWidth - (clockMargin * 2);
+            const availableHeight = screenHeight - (clockMargin * 2);
+
+            const fontSize = Math.min(availableWidth, availableHeight) / 1.5;
+            timeElement.style.fontSize = `${fontSize}px`;
+        }
+
+        setInterval(updateClock, 60000);
+        updateClock();
+        window.addEventListener('resize', adjustFontSize);
+
+    </script>
+</body>
+
+</html>
