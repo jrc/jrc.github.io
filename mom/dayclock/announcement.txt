@@ -1,4 +1,1 @@
-Lienfen comes Tues.
-Nani comes Mon, Wed, Fri.
-
-John & Alan will visit in June.
+John & Alan will arrive {{describeDaysUntil('2025-06-24')}}.
