@@ -28,7 +28,10 @@
             align-items: center;
             height: 100%;
             margin: 10px;
-            /* Hard-coded the margin value directly */
+            /* Prevent text selection */
+            user-select: none;
+            -webkit-user-select: none;
+            /* For older Safari versions */
         }
 
         .light-mode {
