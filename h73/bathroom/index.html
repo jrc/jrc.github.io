@@ -1,92 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Kiosk Clock</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            font-family: sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            background-color: #b5c2b8;
-        }
-
-        .time {
-            white-space: nowrap;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            margin: 10px;
-            /* Prevent text selection */
-            user-select: none;
-            -webkit-user-select: none;
-            /* For older Safari versions */
-        }
-
-        .light-mode {
-            background-color: #b5c2b8;
-            color: #000;
-        }
-
-        .dark-mode {
-            background-color: #000;
-            color: #ff0000;
-        }
-    </style>
-</head>
-
-<body class="light-mode">
-    <div class="time"></div>
-    <script>
-        const timeElement = document.querySelector('.time');
-        const body = document.body;
-
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours();
-            const timeString = now.toLocaleTimeString('sv-SE', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            timeElement.textContent = timeString;
-            if (hours >= 22 || hours < 7) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <title>Bathroom Clock</title>
+        <style>
+            body {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+                font-family: sans-serif;
+                transition:
+                    background-color 0.3s ease,
+                    color 0.3s ease;
             }
-            adjustFontSize();
-        }
 
-        function adjustFontSize() {
-            const timeElement = document.querySelector('.time');
-            let fontSize;
-            if (window.orientation === 0 || window.orientation === 180) {
-                // Portrait mode font size for iPhone 6s
-                fontSize = 140; // Hard-coded size
-            } else {
-                // Landscape mode font size for iPhone 6s
-                fontSize = 244; // Hard-coded size
+            .time {
+                white-space: nowrap;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                height: 100%;
             }
-            timeElement.style.fontSize = `${fontSize}px`;
-        }
 
-        setInterval(updateClock, 60000);
-        updateClock();
-        window.addEventListener('resize', adjustFontSize);
-    </script>
-</body>
+            .light-mode {
+                background-color: #a3b0a6;
+                color: #000;
+            }
 
+            .dark-mode {
+                background-color: #000;
+                color: #ff0000;
+            }
+        </style>
+    </head>
+
+    <body class="light-mode">
+        <div class="time"></div>
+        <script>
+            const timeElement = document.querySelector(".time");
+            const body = document.body;
+
+            function updateClock() {
+                const now = new Date();
+                const hours = now.getHours();
+                const timeString = now.toLocaleTimeString("sv-SE", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                });
+                timeElement.textContent = timeString;
+                if (hours >= 22 || hours < 7) {
+                    body.classList.remove("light-mode");
+                    body.classList.add("dark-mode");
+                } else {
+                    body.classList.remove("dark-mode");
+                    body.classList.add("light-mode");
+                }
+                adjustFontSize();
+            }
+
+            function adjustFontSize() {
+                const timeElement = document.querySelector(".time");
+                let fontSize;
+                if (window.orientation === 0 || window.orientation === 180) {
+                    // Portrait mode font size for iPhone 5s
+                    fontSize = 96; // Hard-coded size
+                } else {
+                    // Landscape mode font size for iPhone 5s
+                    fontSize = 192; // Hard-coded size
+                }
+                timeElement.style.fontSize = `${fontSize}px`;
+            }
+
+            setInterval(updateClock, 60000);
+            updateClock();
+            window.addEventListener("resize", adjustFontSize);
+        </script>
+    </body>
 </html>
