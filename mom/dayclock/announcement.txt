@@ -1,1 +1,1 @@
-John & Alan will arrive {{describeDaysUntil('2025-06-24')}}.
+Åsa will arrive {{describeDaysUntil('2025-06-30')}}.
