@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 4vmin;
+    padding: 2vh 4vmin;
     height: 100vh;
     font-family: system-ui, sans-serif;
     display: flex;
@@ -19,8 +19,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 70vmin;
-    height: calc(70vmin * 4 / 3 + 200px);
+    height: 96vh;
+    width: calc((96vh - 360px) * 1.2);
 }
 
 .color-bar {
