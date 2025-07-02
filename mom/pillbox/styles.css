@@ -20,7 +20,9 @@ body {
     flex-direction: column;
     background-color: white;
     height: 96vh;
-    width: calc((96vh - 360px) * 1.2);
+    width: 50vw;
+    min-width: 400px;
+    max-width: 600px;
 }
 
 .color-bar {
