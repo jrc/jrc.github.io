@@ -23,20 +23,22 @@ function updateDisplay() {
   var day = now.format("ddd");
   var hour = now.hour();
 
-  // DEBUG
-  if (getUrlParam("day")) {
-    day = getUrlParam("day");
+  // Debug mode - override with URL parameters
+  var debugDay = getUrlParam("day");
+  var debugHour = getUrlParam("hour");
+
+  if (debugDay) {
+    day = debugDay;
   }
-  if (getUrlParam("hour")) {
-    hour = parseInt(getUrlParam("hour"), 10);
+  if (debugHour) {
+    hour = parseInt(debugHour, 10);
   }
 
   var isAM = hour < 12;
-  var isSaturday = day === "Sat";
 
   // Update color bars visibility
   document.querySelector(".am-bar").style.display = isAM ? "block" : "none";
-  document.querySelector(".pm-bar").style.display = !isAM ? "block" : "none";
+  document.querySelector(".pm-bar").style.display = isAM ? "none" : "block";
 
   // Update text content and colors
   var dayElement = document.querySelector(".day");
@@ -45,9 +47,11 @@ function updateDisplay() {
   dayElement.textContent = day;
   periodElement.textContent = isAM ? "AM" : "PM";
 
-  dayElement.className = "day"; // Reset
-  periodElement.className = "period"; // Reset
+  // Reset classes
+  dayElement.className = "day";
+  periodElement.className = "period";
 
+  // Add color classes
   if (isAM) {
     dayElement.classList.add("am-color");
     periodElement.classList.add("am-color");
@@ -55,16 +59,8 @@ function updateDisplay() {
     dayElement.classList.add("pm-color");
     periodElement.classList.add("pm-color");
   }
-
-  // Toggle right pane visibility
-  var container = document.querySelector(".container");
-  if (isSaturday && !isAM) {
-    container.classList.remove("right-hidden");
-  } else {
-    container.classList.add("right-hidden");
-  }
 }
 
-// Update initially and every minute
+// Initialize and update every minute
 updateDisplay();
 setInterval(updateDisplay, 60000);

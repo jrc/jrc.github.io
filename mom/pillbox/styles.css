@@ -1,11 +1,12 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 4vmin;
     height: 100vh;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: system-ui, sans-serif;
     display: flex;
     /* Safari 9 flex fix */
     width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
@@ -30,32 +31,31 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
-    /* Replace percentage height with explicit calculation for Safari 9 */
-    height: 400px;
-    width: 300px;
+    width: 70vmin;
+    height: calc(70vmin * 4 / 3 + 200px);
 }
 
 .color-bar {
     /* Replace percentage height with explicit calculation for Safari 9 */
-    height: 80px;
+    height: 180px;
     /* Safari 9 flex fix */
     flex-shrink: 0;
 }
 
 .am-color {
-    color: #00A6FF;
+    color: #00a6ff;
 }
 
 .pm-color {
-    color: #A100FF;
+    color: #a100ff;
 }
 
 .am-bar {
-    background-color: #00A6FF;
+    background-color: #00a6ff;
 }
 
 .pm-bar {
-    background-color: #A100FF;
+    background-color: #a100ff;
 }
 
 .day-content {
@@ -72,37 +72,16 @@ body {
 }
 
 .day {
-    font-size: 5rem;
+    font-size: 20vmin;
     font-weight: bold;
     margin: 0;
+    line-height: 1;
 }
 
 .period {
-    font-size: 2.5rem;
+    font-size: 10vmin;
     font-weight: bold;
     margin: 0;
-}
-
-.right-pane {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Safari 9 flex fix */
-    min-width: 0;
-}
-
-.pillbox {
-    width: 100%;
-}
-
-.reminder-text {
-    font-size: 2.5rem;
-    background-color: gold;
-}
-
-/* Hide right pane when container has right-hidden class */
-.container.right-hidden .right-pane {
-    display: none;
+    margin-top: 2vmin;
+    line-height: 1;
 }
