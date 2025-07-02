@@ -1,50 +1,27 @@
-function getUrlParam(param) {
-  var search = window.location.search;
-  var params = {};
-
-  if (search) {
-    // Remove leading '?' if present
-    search = search.charAt(0) === "?" ? search.slice(1) : search;
-
-    var pairs = search.split("&");
-    for (var i = 0; i < pairs.length; i++) {
-      var pair = pairs[i].split("=");
-      params[decodeURIComponent(pair[0])] = pair[1]
-        ? decodeURIComponent(pair[1])
-        : "";
-    }
-  }
-
-  return params.hasOwnProperty(param) ? params[param] : undefined;
-}
-
 function updateDisplay() {
-  var now = moment();
-  var day = now.format("ddd");
-  var hour = now.hour();
+  const now = new Date();
+  const day = now.toLocaleDateString("en-US", { weekday: "short" });
+  const hour = now.getHours();
 
   // Debug mode - override with URL parameters
-  var debugDay = getUrlParam("day");
-  var debugHour = getUrlParam("hour");
+  const params = new URLSearchParams(window.location.search);
+  const debugDay = params.get("day");
+  const debugHour = params.get("hour");
 
-  if (debugDay) {
-    day = debugDay;
-  }
-  if (debugHour) {
-    hour = parseInt(debugHour, 10);
-  }
+  const actualDay = debugDay || day;
+  const actualHour = debugHour ? parseInt(debugHour, 10) : hour;
 
-  var isAM = hour < 12;
+  const isAM = actualHour < 12;
 
   // Update color bars visibility
   document.querySelector(".am-bar").style.display = isAM ? "block" : "none";
   document.querySelector(".pm-bar").style.display = isAM ? "none" : "block";
 
   // Update text content and colors
-  var dayElement = document.querySelector(".day");
-  var periodElement = document.querySelector(".period");
+  const dayElement = document.querySelector(".day");
+  const periodElement = document.querySelector(".period");
 
-  dayElement.textContent = day;
+  dayElement.textContent = actualDay;
   periodElement.textContent = isAM ? "AM" : "PM";
 
   // Reset classes

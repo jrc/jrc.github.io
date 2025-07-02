@@ -4,27 +4,15 @@ body {
     height: 100vh;
     font-family: system-ui, sans-serif;
     display: flex;
-    /* Safari 9 flex fix */
-    width: 100%;
     box-sizing: border-box;
 }
 
 .container {
     display: flex;
-    width: 100%;
-    height: 100%;
-    /* Safari 9 flex fix */
-    min-width: 100%;
-    min-height: 100%;
-}
-
-.left-pane {
-    flex: 1;
-    display: flex;
     justify-content: center;
     align-items: center;
-    /* Safari 9 flex fix */
-    min-width: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .day-component {
@@ -36,9 +24,7 @@ body {
 }
 
 .color-bar {
-    /* Replace percentage height with explicit calculation for Safari 9 */
     height: 180px;
-    /* Safari 9 flex fix */
     flex-shrink: 0;
 }
 
@@ -65,10 +51,7 @@ body {
     justify-content: center;
     align-items: center;
     border: 4px solid lightgrey;
-    /* Safari 9 padding fix */
     padding: 20px;
-    /* Safari 9 flex fix */
-    min-height: 0;
 }
 
 .day {
