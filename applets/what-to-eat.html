@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What-To-Eat Wizard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        :root { 
+            --primary: #007aff; 
+            --bg-body: #f5f5f7;
+        }
+
+        body { 
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 16px;
+            background: var(--bg-body); 
+            display: grid;
+            place-items: center;
+        }
+
+        main { 
+            background: white; 
+            width: 100%;
+            max-width: 500px; 
+            padding: 2rem !important; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+        }
+
+        h2 { text-align: center; margin-bottom: 1.5rem; }
+        
+        h3 { 
+            font-size: 0.85rem; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0.75rem; 
+            padding-bottom: 4px;
+        }
+
+        fieldset { border: 0; padding: 0; margin-bottom: 1rem; } 
+
+        legend, label {
+            margin-bottom: 0.25rem; 
+        }
+
+        input[type="range"] {
+            accent-color: var(--primary);
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .slider-labels { 
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem; 
+            opacity: 0.7;
+        }
+
+        .grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .grid label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0;
+            & input { margin: 0 8px 0 0; }
+        }
+
+        textarea#out { 
+            font-family: ui-monospace, monospace; 
+            font-size: 0.85rem; 
+            min-height: 180px; 
+            background: #f9f9f9; 
+            resize: none;
+        }
+
+        button { width: 100%; margin-top: 0.5rem; }
+
+        #result h3 { border: 0; margin-bottom: 0.25rem; }
+        #result small { display: block; margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <main id="app">
+        <h2>What-To-Eat Wizard</h2>
+
+        <h3>My Food Mood</h3>
+        
+        <fieldset>
+            <legend>Cost</legend>
+            <input type="range" name="budget" min="1" max="5" value="3">
+            <div class="slider-labels"><span>Cheap</span><span>Splurge</span></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Temp</legend>
+            <input type="range" name="temp" min="1" max="5" value="3">
+            <div class="slider-labels"><span>Cooling</span><span>Warming</span></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Heaviness</legend>
+            <input type="range" name="density" min="1" max="5" value="3">
+            <div class="slider-labels"><span>Light &amp; Refreshing</span><span>Heavy &amp; Filling</span></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Flavor Intensity</legend>
+            <input type="range" name="flavor" min="1" max="5" value="3">
+            <div class="slider-labels"><span>Plain &amp; Simple</span><span>Bold &amp; Complex</span></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Proteins</legend>
+            <div class="grid">
+                <label><input type="checkbox" name="p" value="Veg" checked>Veg</label>
+                <label><input type="checkbox" name="p" value="Meat" checked>Meat</label>
+                <label><input type="checkbox" name="p" value="Seafood" checked>Seafood</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <label for="notes">Custom Notes</label>
+            <textarea id="notes" name="notes" placeholder="e.g. no burgers, craving soup..."></textarea>
+        </fieldset>
+
+        <h3>My Food Profile</h3>
+
+        <fieldset>
+            <label for="diet">Dietary Restrictions</label>
+            <input type="text" id="diet" name="diet" placeholder="e.g. vegan, no peanuts">
+        </fieldset>
+
+        <fieldset>
+            <legend>Spicy Food Tolerance</legend>
+            <input type="range" name="spice" min="1" max="5" value="3">
+            <div class="slider-labels"><span>None</span><span>Fire</span></div>
+        </fieldset>
+
+        <hr>
+
+        <div id="result">
+            <h3>Output</h3>
+            <small>Copy and send to your event organizer:</small>
+            <textarea id="out" readonly></textarea>
+            <button id="copyBtn">Copy to Clipboard</button>
+        </div>
+    </main>
+
+    <script>
+        const app = document.getElementById('app');
+        const output = document.getElementById('out');
+        const copyBtn = document.getElementById('copyBtn');
+
+        const updateVibe = () => {
+            const getVal = name => app.querySelector(`[name="${name}"]`).value;
+            const proteins = [...app.querySelectorAll('[name="p"]:checked')].map(e => e.value).join('|') || "none";
+            
+            output.value = `FOOD MOOD:
+* Cost: ${getVal('budget')}/5 (Cheap to Splurge)
+* Temp: ${getVal('temp')}/5 (Cooling to Warming)
+* Heaviness: ${getVal('density')}/5 (Light to Filling)
+* Flavor Intensity: ${getVal('flavor')}/5 (Simple to Bold)
+* Proteins: ${proteins}
+* Custom Notes: ${getVal('notes').trim() || '--'}
+FOOD PROFILE:
+* Dietary Restrictions: ${getVal('diet').trim() || '--'}
+* Spice Tolerance: ${getVal('spice')}/5 (None to Fire)`;
+        };
+
+        app.addEventListener('input', e => { if(e.target !== output) updateVibe(); });
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(output.value);
+                const old = copyBtn.innerText;
+                copyBtn.innerText = "✓ Copied!";
+                setTimeout(() => copyBtn.innerText = old, 2000);
+            } catch (e) {
+                output.select();
+                document.execCommand('copy');
+            }
+        });
+
+        updateVibe();
+    </script>
+</body>
+</html>
