@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pillbox Day Tracker</title>
+    <style>
+        body {
+            /* Lighter, clean system grey */
+            background-color: #f2f2f7;
+            /* High-contrast dark grey/black */
+            color: #1c1c1e;
+            /* Modern system UI font */
+            font-family: system-ui, -apple-system, sans-serif;
+
+            /* Center everything perfectly */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+            /* Massive, highly readable text */
+            font-size: 30vw;
+            font-weight: 600;
+
+            /* Prevents accidental text highlighting if tapped */
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="day-display"></div>
+
+    <script>
+        // Use a simple, hardcoded array to guarantee compatibility across older browsers
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const display = document.getElementById('day-display');
+
+        function updateDay() {
+            const now = new Date();
+            display.textContent = days[now.getDay()];
+        }
+
+        function scheduleNextUpdate() {
+            const now = new Date();
+
+            // Calculate the exact date/time of the top of the next hour
+            const nextHour = new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                now.getDate(),
+                now.getHours() + 1,
+                0, 0, 0
+            );
+
+            // Get the difference in milliseconds
+            const delayUntilNextHour = nextHour.getTime() - now.getTime();
+
+            // Wait exactly until the next xx:00:00 to update and schedule again
+            setTimeout(() => {
+                updateDay();
+                scheduleNextUpdate();
+            }, delayUntilNextHour);
+        }
+
+        // 1. Set the day immediately on load
+        updateDay();
+
+        // 2. Start the timer to the next hour
+        scheduleNextUpdate();
+
+        // 3. Mobile Fallback: Fixes stale time when unlocking the phone
+        // iOS pauses setTimeout timers when Safari is minimized or the screen is locked.
+        // This ensures the day forces an update the moment the user looks at the screen.
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                updateDay();
+            }
+        });
+    </script>
+</body>
+
+</html>
