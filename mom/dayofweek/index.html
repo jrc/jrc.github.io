@@ -7,48 +7,83 @@
     <title>Pillbox Day Tracker</title>
     <style>
         body {
-            /* Lighter, clean system grey */
-            background-color: #f2f2f7;
-            /* High-contrast dark grey/black */
-            color: #1c1c1e;
-            /* Modern system UI font */
-            font-family: system-ui, -apple-system, sans-serif;
+            /* Smooth background transition when night mode kicks in/out */
+            transition: background-color 0.3s ease;
 
-            /* Center everything perfectly */
+            /* Center everything perfectly in a vertical column */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
 
-            /* Massive, highly readable text */
-            font-size: 30vw;
-            font-weight: 600;
+            /* Modern system UI font spacing */
+            font-family: system-ui, -apple-system, sans-serif;
 
-            /* Prevents accidental text highlighting if tapped */
+            /* Prevents accidental text highlighting */
             user-select: none;
             -webkit-user-select: none;
+        }
+
+        /* Standard Day Mode Themes */
+        body.day-mode {
+            background-color: #f2f2f7;
+            color: #1c1c1e;
+        }
+
+        /* "Today is" helper text (Mixed Case) - Slightly Larger */
+        .label {
+            font-size: 6vw;
+            font-weight: 400;
+            color: #3a3a3c;
+            margin-bottom: 1vh;
+        }
+
+        /* Massive main day text (Force Uppercase) - Slightly Larger */
+        .day {
+            font-size: 32vw;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        /* Night Mode Theme (Empty black screen) */
+        body.night-mode {
+            background-color: #000000;
+        }
+
+        body.night-mode .label,
+        body.night-mode .day {
+            display: none;
+            /* Entirely hides the text elements */
         }
     </style>
 </head>
 
-<body>
-    <div id="day-display"></div>
+<body class="day-mode">
+    <div class="label">Today is</div>
+    <div id="day-display" class="day"></div>
 
     <script>
-        // Use a simple, hardcoded array to guarantee compatibility across older browsers
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const display = document.getElementById('day-display');
 
-        function updateDay() {
+        function updateDisplay() {
             const now = new Date();
-            display.textContent = days[now.getDay()];
+            const currentHour = now.getHours();
+
+            // Night Mode Condition: Hour is >= 22 (10 PM) OR <= 6 (6:59 AM)
+            if (currentHour >= 22 || currentHour <= 6) {
+                document.body.className = "night-mode";
+            } else {
+                document.body.className = "day-mode";
+                display.textContent = days[now.getDay()];
+            }
         }
 
         function scheduleNextUpdate() {
             const now = new Date();
-
-            // Calculate the exact date/time of the top of the next hour
             const nextHour = new Date(
                 now.getFullYear(),
                 now.getMonth(),
@@ -56,29 +91,22 @@
                 now.getHours() + 1,
                 0, 0, 0
             );
-
-            // Get the difference in milliseconds
             const delayUntilNextHour = nextHour.getTime() - now.getTime();
 
-            // Wait exactly until the next xx:00:00 to update and schedule again
             setTimeout(() => {
-                updateDay();
+                updateDisplay();
                 scheduleNextUpdate();
             }, delayUntilNextHour);
         }
 
-        // 1. Set the day immediately on load
-        updateDay();
-
-        // 2. Start the timer to the next hour
+        // Initialize on page load
+        updateDisplay();
         scheduleNextUpdate();
 
-        // 3. Mobile Fallback: Fixes stale time when unlocking the phone
-        // iOS pauses setTimeout timers when Safari is minimized or the screen is locked.
-        // This ensures the day forces an update the moment the user looks at the screen.
+        // Instantly updates when phone wakes up / Safari becomes active
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') {
-                updateDay();
+                updateDisplay();
             }
         });
     </script>
