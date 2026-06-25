@@ -3,16 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Day of Week</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Today">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <style>
-        body {
-            /* Smooth background transition when night mode kicks in/out */
-            transition: background-color 0.3s ease;
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
+    <meta id="theme-color" name="theme-color" content="#f2f2f7">
+
+    <title>Day of Week</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Day of Week">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+        /* Apply background to HTML to prevent edge bleed on iOS */
+        html {
+            transition: background-color 0.3s ease;
+            height: 100%;
+        }
+
+        body {
             /* Center everything perfectly in a vertical column */
             display: flex;
             flex-direction: column;
@@ -30,12 +39,15 @@
         }
 
         /* Standard Day Mode Themes */
-        body.day-mode {
+        html.day-mode {
             background-color: #f2f2f7;
+        }
+
+        body.day-mode {
             color: #1c1c1e;
         }
 
-        /* "Today is" helper text (Mixed Case) - Slightly Larger */
+        /* "Today is" helper text */
         .label {
             font-size: 6vw;
             font-weight: 400;
@@ -43,7 +55,7 @@
             margin-bottom: 1vh;
         }
 
-        /* Massive main day text (Force Uppercase) - Slightly Larger */
+        /* Massive main day text */
         .day {
             font-size: 32vw;
             font-weight: 600;
@@ -52,12 +64,12 @@
         }
 
         /* Night Mode Theme (Empty black screen) */
-        body.night-mode {
+        html.night-mode {
             background-color: #000000;
         }
 
-        body.night-mode .label,
-        body.night-mode .day {
+        .night-mode .label,
+        .night-mode .day {
             display: none;
             /* Entirely hides the text elements */
         }
@@ -71,17 +83,24 @@
     <script>
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const display = document.getElementById('day-display');
+        const themeColorMeta = document.getElementById('theme-color');
+        const rootElement = document.documentElement; // The <html> tag
+        const bodyElement = document.body;
 
         function updateDisplay() {
             const now = new Date();
             const currentHour = now.getHours();
 
-            // Night Mode Condition: Hour is >= 22 (10 PM) OR < 7 (6:59 AM)
-            if (currentHour >= 22 || currentHour < 7) {
-                document.body.className = "night-mode";
+            // Night Mode: >= 22 (10 PM) OR <= 6 (6:59 AM)
+            if (currentHour >= 22 || currentHour <= 6) {
+                rootElement.className = "night-mode";
+                bodyElement.className = "night-mode";
+                themeColorMeta.setAttribute("content", "#000000"); // Turns status bar black
             } else {
-                document.body.className = "day-mode";
+                rootElement.className = "day-mode";
+                bodyElement.className = "day-mode";
                 display.textContent = days[now.getDay()];
+                themeColorMeta.setAttribute("content", "#f2f2f7"); // Turns status bar grey
             }
         }
 
@@ -106,7 +125,7 @@
         updateDisplay();
         scheduleNextUpdate();
 
-        // Instantly updates when phone wakes up / Safari becomes active
+        // Instantly updates when phone wakes up
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') {
                 updateDisplay();
