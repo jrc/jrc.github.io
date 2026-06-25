@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pillbox Day Tracker</title>
+    <title>Day of Week</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Today">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
         body {
             /* Smooth background transition when night mode kicks in/out */
@@ -73,8 +76,8 @@
             const now = new Date();
             const currentHour = now.getHours();
 
-            // Night Mode Condition: Hour is >= 22 (10 PM) OR <= 6 (6:59 AM)
-            if (currentHour >= 22 || currentHour <= 6) {
+            // Night Mode Condition: Hour is >= 22 (10 PM) OR < 7 (6:59 AM)
+            if (currentHour >= 22 || currentHour < 7) {
                 document.body.className = "night-mode";
             } else {
                 document.body.className = "day-mode";
