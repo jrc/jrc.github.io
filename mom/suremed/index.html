@@ -6,12 +6,13 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
+    <!-- Dynamic status bar color for iOS 15 -->
     <meta id="theme-color" name="theme-color" content="#f2f2f7">
 
-    <title>SureMed</title>
+    <title>Day of Week</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <style>
         html {
@@ -46,15 +47,25 @@
 
         body.night-mode .container {
             display: none;
-            /* Completely hides the text/icons */
         }
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4vmin;
+            gap: 3vmin;
             text-align: center;
+        }
+
+        /* "Take your medicine" reminder element */
+        .reminder {
+            font-size: 5.5vmin;
+            /* font-weight: 700; */
+            /* letter-spacing: 0.03em; */
+            /* text-transform: uppercase; */
+            line-height: 1;
+            margin-bottom: 2vmin;
+            /* Color class will be dynamically applied via JS to match the period */
         }
 
         /* Short Day (e.g., WED) */
@@ -62,7 +73,7 @@
             font-size: 22vmin;
             font-weight: 700;
             line-height: 1;
-            letter-spacing: 0.05em;
+            /* letter-spacing: 0.05em; */
             transition: color 0.3s ease;
         }
 
@@ -90,7 +101,7 @@
         .period {
             font-size: 12vmin;
             font-weight: 700;
-            letter-spacing: 0.05em;
+            /* letter-spacing: 0.05em; */
         }
 
         /* Blister Pack Colors */
@@ -114,18 +125,26 @@
 
 <body class="day-mode">
     <div class="container">
+        <!-- 0. Medical Reminder Banner -->
+        <div id="reminder-display" class="reminder"></div>
+
+        <!-- 1. Day of Week -->
         <div id="day-display" class="day"></div>
 
+        <!-- 2. Text Icon -->
         <div id="icon-display" class="icon"></div>
 
+        <!-- 3. Date -->
         <div id="date-display" class="date"></div>
 
+        <!-- 4. Period Label -->
         <div id="period-display" class="period"></div>
     </div>
 
     <script>
         const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
+        const reminderDisplay = document.getElementById('reminder-display');
         const dayDisplay = document.getElementById('day-display');
         const dateDisplay = document.getElementById('date-display');
         const periodDisplay = document.getElementById('period-display');
@@ -135,42 +154,50 @@
 
         function updateDisplay() {
             const now = new Date();
-            const currentHour = 21; //now.getHours();
+            const currentHour = now.getHours();
 
-            // Night Mode Condition: 23:00 (11 PM) or later, OR before 07:00 (7 AM)
-            if (currentHour >= 23 || currentHour < 7) {
+            // Night Mode Bound: Midnight (00:00) until before 7:00 AM
+            if (currentHour >= 0 && currentHour < 7) {
                 rootElement.className = "night-mode";
                 document.body.className = "night-mode";
-                themeColorMeta.setAttribute("content", "#000000"); // Turn status bar black
+                themeColorMeta.setAttribute("content", "#000000");
             } else {
                 rootElement.className = "day-mode";
                 document.body.className = "day-mode";
-                themeColorMeta.setAttribute("content", "#f2f2f7"); // Turn status bar grey
+                themeColorMeta.setAttribute("content", "#f2f2f7");
 
-                // 1. Update Day 
                 dayDisplay.textContent = days[now.getDay()];
 
-                // 2. Update Date with zero padding
                 const month = String(now.getMonth() + 1).padStart(2, '0');
                 const date = String(now.getDate()).padStart(2, '0');
                 dateDisplay.textContent = `${month}/${date}`;
 
-                // Reset classes and visibility
+                // Default clear states
                 dayDisplay.className = "day";
                 dateDisplay.className = "date";
                 iconDisplay.style.visibility = "hidden";
                 iconDisplay.innerHTML = "&nbsp;";
 
-                // 3. Determine Period logic (Only runs during day-mode hours)
-                if (currentHour >= 7 && currentHour < 11) {
+                // Reset reminder tracking classes
+                reminderDisplay.className = "reminder";
+                reminderDisplay.style.visibility = "hidden";
+                reminderDisplay.innerHTML = "&nbsp;";
+
+                // Period Logic
+                if (currentHour >= 7 && currentHour < 11) {  // 4 hr
                     // Morning: 7:00 AM to 10:59 AM
                     periodDisplay.textContent = "MORNING";
                     periodDisplay.className = "period morning-color";
 
                     iconDisplay.innerHTML = "&#x2600;&#xFE0E;";
                     iconDisplay.style.visibility = "visible";
+
+                    // Show Reminder in matching morning orange
+                    reminderDisplay.textContent = "Take your medicine!";
+                    reminderDisplay.classList.add("morning-color");
+                    reminderDisplay.style.visibility = "visible";
                 }
-                else if (currentHour >= 11 && currentHour < 16) {
+                else if (currentHour >= 11 && currentHour < 16) {  // 5 hr
                     // Noon: 11:00 AM to 3:59 PM
                     periodDisplay.textContent = "NOON";
                     periodDisplay.className = "period noon-color";
@@ -178,7 +205,7 @@
                     dayDisplay.classList.add("dimmed");
                     dateDisplay.classList.add("dimmed");
                 }
-                else if (currentHour >= 16 && currentHour < 21) {
+                else if (currentHour >= 16 && currentHour < 21) {  // 5 hr
                     // Evening: 4:00 PM to 8:59 PM
                     periodDisplay.textContent = "EVENING";
                     periodDisplay.className = "period evening-color";
@@ -186,13 +213,18 @@
                     dayDisplay.classList.add("dimmed");
                     dateDisplay.classList.add("dimmed");
                 }
-                else if (currentHour >= 21 && currentHour <= 23) {
-                    // Bedtime: 9:00 PM to 10:59 PM
+                else if (currentHour >= 21 && currentHour <= 23) { // 3 hr
+                    // Bedtime: 9:00 PM up to 11:59 PM
                     periodDisplay.textContent = "BEDTIME";
                     periodDisplay.className = "period bedtime-color";
 
                     iconDisplay.innerHTML = "&#x263E;&#xFE0E;";
                     iconDisplay.style.visibility = "visible";
+
+                    // Show Reminder in matching bedtime blue
+                    reminderDisplay.textContent = "Take your medicine!";
+                    reminderDisplay.classList.add("bedtime-color");
+                    reminderDisplay.style.visibility = "visible";
                 }
             }
         }
@@ -214,11 +246,9 @@
             }, delayUntilNextHour);
         }
 
-        // Initialize on page load
         updateDisplay();
         scheduleNextUpdate();
 
-        // Instantly updates when phone wakes up / Safari becomes active
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') {
                 updateDisplay();
