@@ -15,18 +15,31 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <style>
+        /* Fixes iOS height calculation bugs and strictly prevents scrolling */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
         html {
             transition: background-color 0.3s ease;
-            height: 100%;
         }
 
         body {
+            /* Pins the body strictly to the available viewport */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
             font-family: system-ui, -apple-system, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             user-select: none;
             -webkit-user-select: none;
         }
@@ -60,12 +73,11 @@
         /* "Take your medicine" reminder element */
         .reminder {
             font-size: 5.5vmin;
-            /* font-weight: 700; */
-            /* letter-spacing: 0.03em; */
-            /* text-transform: uppercase; */
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
             line-height: 1;
-            margin-bottom: 2vmin;
-            /* Color class will be dynamically applied via JS to match the period */
+            margin-bottom: 1vmin;
         }
 
         /* Short Day (e.g., WED) */
@@ -73,7 +85,7 @@
             font-size: 22vmin;
             font-weight: 700;
             line-height: 1;
-            /* letter-spacing: 0.05em; */
+            letter-spacing: 0.05em;
             transition: color 0.3s ease;
         }
 
@@ -101,7 +113,7 @@
         .period {
             font-size: 12vmin;
             font-weight: 700;
-            /* letter-spacing: 0.05em; */
+            letter-spacing: 0.05em;
         }
 
         /* Blister Pack Colors */
@@ -184,7 +196,7 @@
                 reminderDisplay.innerHTML = "&nbsp;";
 
                 // Period Logic
-                if (currentHour >= 7 && currentHour < 11) {  // 4 hr
+                if (currentHour >= 7 && currentHour < 11) {
                     // Morning: 7:00 AM to 10:59 AM
                     periodDisplay.textContent = "MORNING";
                     periodDisplay.className = "period morning-color";
@@ -193,11 +205,11 @@
                     iconDisplay.style.visibility = "visible";
 
                     // Show Reminder in matching morning orange
-                    reminderDisplay.textContent = "Take your medicine!";
+                    reminderDisplay.textContent = "Take your medicine";
                     reminderDisplay.classList.add("morning-color");
                     reminderDisplay.style.visibility = "visible";
                 }
-                else if (currentHour >= 11 && currentHour < 16) {  // 5 hr
+                else if (currentHour >= 11 && currentHour < 16) {
                     // Noon: 11:00 AM to 3:59 PM
                     periodDisplay.textContent = "NOON";
                     periodDisplay.className = "period noon-color";
@@ -205,7 +217,7 @@
                     dayDisplay.classList.add("dimmed");
                     dateDisplay.classList.add("dimmed");
                 }
-                else if (currentHour >= 16 && currentHour < 21) {  // 5 hr
+                else if (currentHour >= 16 && currentHour < 21) {
                     // Evening: 4:00 PM to 8:59 PM
                     periodDisplay.textContent = "EVENING";
                     periodDisplay.className = "period evening-color";
@@ -213,7 +225,7 @@
                     dayDisplay.classList.add("dimmed");
                     dateDisplay.classList.add("dimmed");
                 }
-                else if (currentHour >= 21 && currentHour <= 23) { // 3 hr
+                else if (currentHour >= 21 && currentHour <= 23) {
                     // Bedtime: 9:00 PM up to 11:59 PM
                     periodDisplay.textContent = "BEDTIME";
                     periodDisplay.className = "period bedtime-color";
@@ -222,7 +234,7 @@
                     iconDisplay.style.visibility = "visible";
 
                     // Show Reminder in matching bedtime blue
-                    reminderDisplay.textContent = "Take your medicine!";
+                    reminderDisplay.textContent = "Take your medicine";
                     reminderDisplay.classList.add("bedtime-color");
                     reminderDisplay.style.visibility = "visible";
                 }
