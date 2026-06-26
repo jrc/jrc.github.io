@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <meta id="theme-color" name="theme-color" content="#f2f2f7">
+
+    <title>SureMed</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+        html {
+            transition: background-color 0.3s ease;
+            height: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Standard Day Mode */
+        html.day-mode {
+            background-color: #f2f2f7;
+        }
+
+        body.day-mode {
+            color: #1c1c1e;
+        }
+
+        /* Night Mode (Empty black screen) */
+        html.night-mode {
+            background-color: #000000;
+        }
+
+        body.night-mode .container {
+            display: none;
+            /* Completely hides the text/icons */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4vmin;
+            text-align: center;
+        }
+
+        /* Short Day (e.g., WED) */
+        .day {
+            font-size: 22vmin;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        /* Icon Container */
+        .icon {
+            font-size: 20vmin;
+            line-height: 1;
+            color: #3a3a3c;
+        }
+
+        /* Date (e.g., 07/15) */
+        .date {
+            font-size: 18vmin;
+            font-weight: 600;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        /* Extra dimmed state for Noon/Evening */
+        .dimmed {
+            color: #aeaeb2;
+        }
+
+        /* Time of Day Label */
+        .period {
+            font-size: 12vmin;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        /* Blister Pack Colors */
+        .morning-color {
+            color: #d96a29;
+        }
+
+        .noon-color {
+            color: #2f8e65;
+        }
+
+        .evening-color {
+            color: #66448c;
+        }
+
+        .bedtime-color {
+            color: #2a4b8d;
+        }
+    </style>
+</head>
+
+<body class="day-mode">
+    <div class="container">
+        <div id="day-display" class="day"></div>
+
+        <div id="icon-display" class="icon"></div>
+
+        <div id="date-display" class="date"></div>
+
+        <div id="period-display" class="period"></div>
+    </div>
+
+    <script>
+        const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+        const dayDisplay = document.getElementById('day-display');
+        const dateDisplay = document.getElementById('date-display');
+        const periodDisplay = document.getElementById('period-display');
+        const iconDisplay = document.getElementById('icon-display');
+        const themeColorMeta = document.getElementById('theme-color');
+        const rootElement = document.documentElement;
+
+        function updateDisplay() {
+            const now = new Date();
+            const currentHour = 21; //now.getHours();
+
+            // Night Mode Condition: 23:00 (11 PM) or later, OR before 07:00 (7 AM)
+            if (currentHour >= 23 || currentHour < 7) {
+                rootElement.className = "night-mode";
+                document.body.className = "night-mode";
+                themeColorMeta.setAttribute("content", "#000000"); // Turn status bar black
+            } else {
+                rootElement.className = "day-mode";
+                document.body.className = "day-mode";
+                themeColorMeta.setAttribute("content", "#f2f2f7"); // Turn status bar grey
+
+                // 1. Update Day 
+                dayDisplay.textContent = days[now.getDay()];
+
+                // 2. Update Date with zero padding
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const date = String(now.getDate()).padStart(2, '0');
+                dateDisplay.textContent = `${month}/${date}`;
+
+                // Reset classes and visibility
+                dayDisplay.className = "day";
+                dateDisplay.className = "date";
+                iconDisplay.style.visibility = "hidden";
+                iconDisplay.innerHTML = "&nbsp;";
+
+                // 3. Determine Period logic (Only runs during day-mode hours)
+                if (currentHour >= 7 && currentHour < 11) {
+                    // Morning: 7:00 AM to 10:59 AM
+                    periodDisplay.textContent = "MORNING";
+                    periodDisplay.className = "period morning-color";
+
+                    iconDisplay.innerHTML = "&#x2600;&#xFE0E;";
+                    iconDisplay.style.visibility = "visible";
+                }
+                else if (currentHour >= 11 && currentHour < 16) {
+                    // Noon: 11:00 AM to 3:59 PM
+                    periodDisplay.textContent = "NOON";
+                    periodDisplay.className = "period noon-color";
+
+                    dayDisplay.classList.add("dimmed");
+                    dateDisplay.classList.add("dimmed");
+                }
+                else if (currentHour >= 16 && currentHour < 21) {
+                    // Evening: 4:00 PM to 8:59 PM
+                    periodDisplay.textContent = "EVENING";
+                    periodDisplay.className = "period evening-color";
+
+                    dayDisplay.classList.add("dimmed");
+                    dateDisplay.classList.add("dimmed");
+                }
+                else if (currentHour >= 21 && currentHour <= 23) {
+                    // Bedtime: 9:00 PM to 10:59 PM
+                    periodDisplay.textContent = "BEDTIME";
+                    periodDisplay.className = "period bedtime-color";
+
+                    iconDisplay.innerHTML = "&#x263E;&#xFE0E;";
+                    iconDisplay.style.visibility = "visible";
+                }
+            }
+        }
+
+        function scheduleNextUpdate() {
+            const now = new Date();
+            const nextHour = new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                now.getDate(),
+                now.getHours() + 1,
+                0, 0, 0
+            );
+            const delayUntilNextHour = nextHour.getTime() - now.getTime();
+
+            setTimeout(() => {
+                updateDisplay();
+                scheduleNextUpdate();
+            }, delayUntilNextHour);
+        }
+
+        // Initialize on page load
+        updateDisplay();
+        scheduleNextUpdate();
+
+        // Instantly updates when phone wakes up / Safari becomes active
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                updateDisplay();
+            }
+        });
+    </script>
+</body>
+
+</html>
